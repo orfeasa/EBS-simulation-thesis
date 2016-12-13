@@ -1,0 +1,60 @@
+\documentclass[12pt]{report}
+\usepackage[a4paper]{geometry}
+\usepackage[colorlinks=false, pdfborder={0 0 0}]{hyperref}
+\usepackage[utf8]{inputenc}
+%\usepackage{amsmath}
+%\usepackage{booktabs}
+%\usepackage{cleveref}
+\usepackage{graphicx}
+%\usepackage{microtype}
+%\usepackage{siunitx}
+%\usepackage{xgreek}
+\graphicspath{ {images/} }
+
+\RequirePackage[l2tabu, orthodox]{nag}
+
+
+\title{
+	{Thesis Title}\\
+	{\large Aristotle University of Thessaloniki}\\
+	{\includegraphics{auth-logo.jpg}}
+}
+\author{Orfeas Antoniou}
+\date{Day Month Year}
+\begin{document}
+
+\maketitle
+\chapter*{Abstract}
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+\chapter*{Dedication}
+To mum and dad
+
+\chapter*{Declaration}
+I declare that..
+
+\chapter*{Acknowledgments}
+I want to thank...
+
+\tableofcontents
+
+\chapter{Introduction}
+\input{chapters/introduction}
+
+\chapter{Chapter Two Title}
+\input{chapters/chapter02}
+
+\chapter{Chapter Three Title}
+\input{chapters/chapter03}
+
+\chapter{Chapter Four Title}
+\input{chapters/chapter04}
+
+\chapter{Conclusion}
+\input{chapters/conclusion}
+
+\appendix
+\chapter{Appendix Title}
+\input{chapters/appendix}
+
+\end{document}
