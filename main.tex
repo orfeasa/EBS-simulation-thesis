@@ -1,31 +1,52 @@
-\documentclass[12pt]{report}
-\usepackage[a4paper]{geometry}
+\documentclass[12pt,twoside]{report}
+
+\usepackage[a4paper, width = 150mm, top = 25mm, bottom = 25mm, bindingoffset = 6mm]{geometry}
+
+\usepackage[backend=bibtex]{biblatex}
+\addbibresource{references.bib}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
 \usepackage[colorlinks=false, pdfborder={0 0 0}]{hyperref}
 \usepackage[utf8]{inputenc}
 %\usepackage{amsmath}
 %\usepackage{booktabs}
 %\usepackage{cleveref}
+
+\usepackage{fancyhdr} % fancy headers
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[RO,LE]{Thesis Title}
+\fancyfoot{}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[LO,CE]{Chapter \thechapter}
+\fancyfoot[CO,RE]{Author Name}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
 \usepackage{graphicx}
+\graphicspath{ {images/} }
+
 %\usepackage{microtype}
 %\usepackage{siunitx}
+% TODO make it work for greek
 %\usepackage{xgreek}
-\graphicspath{ {images/} }
+
+
+	
+
 
 \RequirePackage[l2tabu, orthodox]{nag}
 
 
-\title{
-	{Thesis Title}\\
-	{\large Aristotle University of Thessaloniki}\\
-	{\includegraphics{auth-logo.jpg}}
-}
+\title{Thesis Title}
 \author{Orfeas Antoniou}
 \date{Day Month Year}
 \begin{document}
 
-\maketitle
-\chapter*{Abstract}
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+\input{titlepage.tex}
+\input{abstract.tex}
 
 \chapter*{Dedication}
 To mum and dad
@@ -56,5 +77,6 @@ I want to thank...
 \appendix
 \chapter{Appendix Title}
 \input{chapters/appendix}
+\printbibliography
 
 \end{document}
