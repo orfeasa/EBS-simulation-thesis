@@ -1,9 +1,44 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non mi posuere, luctus massa in, pretium lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent quis malesuada diam, sed feugiat ante. In tincidunt finibus luctus. In faucibus urna risus, nec congue purus placerat ut. Vestibulum in blandit ipsum. Vestibulum congue purus sit amet ex finibus pharetra et euismod nibh. Nunc ligula ligula, malesuada vel nisi ac, suscipit pellentesque justo.
+\chapter{\selectlanguage{greek}Θεωρητικό υπόβαθρο}
+Στο κεφάλαιο αυτό παρουσιάζονται  αναλυτικά οι τρεις (3)
+βασικές τεχνολογίες που έχουν σχέση με την εργασία αυτή, δηλαδή τα
+συστήματα ομότιμων κόμβων, το πλαίσιο \en{RDF} και οι γλώσσες
+ερωτήσεων για \en{RDF}.
 
-Mauris aliquam odio non dolor hendrerit, vel tincidunt quam lacinia. Quisque placerat purus quis vehicula elementum. Nunc porttitor quam eu quam volutpat hendrerit. Curabitur id porta augue, sed malesuada justo. Aenean elementum pellentesque nibh eget porta. Aenean arcu lorem, elementum eget tempor bibendum, consequat sit amet sapien. Phasellus et eros orci. Nullam porta magna a ullamcorper feugiat. Integer gravida nulla luctus vestibulum pellentesque. Aliquam erat volutpat. Curabitur at lectus ac lectus iaculis consequat.
+\section{Συστήματα ομότιμων κόμβων}
+\subsection{Τι είναι τα συστήματα ομότιμων κόμβων}
+Στα μεγάλα κατανεμημένα συστήματα όπως είναι ο Παγκόσμιος Ιστός,
+γίνονται εμφανή τα προβλήματα του παραδοσιακού μοντέλου
+πελάτη/εξυπηρετητή: Οι πηγές πληροφορίας βρίσκονται μαζεμένες σε
+λίγους κόμβους (εξυπηρετητές) στους οποίους συνδέονται πάρα πολλοί
+πελάτες.
 
-Sed luctus orci odio, sit amet laoreet ipsum ornare eget. Proin auctor velit in sapien placerat, at aliquet odio mollis. Integer ultricies, risus non convallis efficitur, felis nulla tempus eros, vel maximus felis justo posuere ipsum. In erat nulla, finibus non ante rutrum, volutpat bibendum erat. Vestibulum orci nisl, mattis congue pulvinar at, ornare at urna. Nulla nec pretium libero. Integer lobortis, erat eu dapibus efficitur, erat odio pretium turpis, et pulvinar ex nunc ut elit. Donec finibus ex eu nibh ullamcorper, vel imperdiet lectus molestie. Nullam et congue nibh. Morbi lectus nibh, tempus eget luctus quis, sollicitudin quis lectus. In odio quam, lacinia sed velit a, ultricies aliquam orci. Suspendisse fermentum eros ac placerat varius. Morbi elit nunc, ultricies id quam a, tincidunt sagittis tellus. Vivamus et egestas sem. Suspendisse dignissim, lectus vel convallis tempor, nunc felis varius erat, ut sollicitudin dui magna a odio.
+Οι αρχές που διέπουν τα συστήματα ομότιμων κόμβων είναι οι εξής:
+\begin{itemize}
+\item Η αρχή του μοιράσματος των πόρων.
+\item Η αρχή της αυτοοργάνωσης.
+\end{itemize}
 
-Praesent gravida ac lacus et ultricies. Praesent id quam id sem consectetur dictum. Sed tempor posuere mauris. Nam finibus tincidunt viverra. Nunc in rhoncus augue, a lacinia dolor. Ut sagittis, sem ac pretium semper, dui lectus rhoncus magna, mollis dapibus metus ante id dolor. Etiam aliquet dapibus consequat. Phasellus efficitur quis turpis quis ullamcorper. Etiam bibendum nibh eu orci rutrum ultrices. Vestibulum consequat enim id odio pretium congue. Vivamus ut sem egestas, condimentum leo ut, gravida nisi. Nam condimentum dolor nec quam ultrices placerat. Maecenas finibus cursus est eget efficitur. Duis malesuada facilisis mi, eu porta lorem. Vivamus eget ullamcorper dui.
+Σύμφωνα με το συντακτικό αυτό, το παράδειγμα που αναπαριστάται στο
+Σχήμα~\ref{figure2.2} γράφεται ως εξής: \src{
+\begin{tabbing}
+1.<?x\=ml\= v\=ersion="1.0"?> \\
+2.<rdf:RDFxmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns\#" \\
+3.\>\>\>xmlns:dc="http://purl.org/dc/elements/1.1/" \\
+4.\>\>\>xmlns:exterms="http://www.example.org/terms/"> \\
+5.\><rdf:Description
+rdf:about="http://www.example.org/index.html"> \\
+6.\>\><exterms:creation-date>August 16, 1999</exterms:creation-date> \\
+7.\>\><dc:language>en</dc:language> \\
+8.\>\><dc:creator rdf:resource="http://www.example.org/staffid/85740"/> \\
+9.\></rdf:Description> \\
+10.</rdf:RDF> \\
+\end{tabbing}
+}
 
-Maecenas vitae ex quis risus vestibulum suscipit sit amet vel arcu. Phasellus consequat, arcu ut aliquet tempus, nunc nisi malesuada purus, vitae sagittis sapien arcu at nisl. Nam elit nisi, placerat ac urna ut, efficitur sollicitudin erat. Praesent vel mollis dolor. Mauris dictum congue orci. Phasellus ut sem pellentesque, ornare tortor vitae, dignissim lectus. Morbi congue sapien felis, eu malesuada risus interdum eu. Pellentesque vel leo in sapien lacinia tincidunt sed ut felis. Maecenas volutpat nunc quis pretium tempor. Sed semper est orci, vulputate venenatis urna porttitor at. Curabitur orci enim, vestibulum eu fermentum et, pharetra a odio. Vivamus in faucibus velit, eu blandit erat. Mauris aliquet magna ex, vel cursus dolor cursus eget. Nam porta velit non dui varius eleifend.
+\begin{figure}[!ht] \center\leavevmode
+\epsfxsize=12cm \epsfysize=14cm
+\epsfbox{figures/peerArchitecture.eps} \caption{Αριτεκτονική Απλού
+Κόμβου}\label{figure4.1}
+\end{figure}
+
+Το Σχήμα~\ref{figure4.1} απεικονίζει .................

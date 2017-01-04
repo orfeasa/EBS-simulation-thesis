@@ -1,82 +1,143 @@
-\documentclass[12pt,twoside]{report}
-
-\usepackage[a4paper, width = 150mm, top = 25mm, bottom = 25mm, bindingoffset = 6mm]{geometry}
-
-\usepackage[backend=bibtex]{biblatex}
-\addbibresource{references.bib}
-
-\usepackage{caption}
+\documentclass[11pt,a4paper,english,greek,twoside]{dblab-thesis}
+\usepackage{epsfig}
+%\usepackage[english,greek]{babel}
+%\usepackage[T1]{fontenc}
+%\usepackage[iso-8859-7]{inputenc}
+%\usepackage{graphicx}
+%\DeclareGraphicsRule{.tif}{bmp}{}{}
+\usepackage[explicit]{titlesec}
+\usepackage{indentfirst}
+\usepackage{verbatim}
+\usepackage{amsmath}
 \usepackage{subcaption}
-
-\usepackage[colorlinks=false, pdfborder={0 0 0}]{hyperref}
-\usepackage[utf8]{inputenc}
-%\usepackage{amsmath}
-%\usepackage{booktabs}
-%\usepackage{cleveref}
-
-\usepackage{fancyhdr} % fancy headers
-\pagestyle{fancy}
-\fancyhead{}
-\fancyhead[RO,LE]{Thesis Title}
-\fancyfoot{}
-\fancyfoot[LE,RO]{\thepage}
-\fancyfoot[LO,CE]{Chapter \thechapter}
-\fancyfoot[CO,RE]{Author Name}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.4pt}
-
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{latexsym}
+\usepackage{index}
+\usepackage{datetime}
+\usepackage{textcomp}
 \usepackage{graphicx}
-\graphicspath{ {images/} }
+\usepackage{url}
+\usepackage{array}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{babel}
+\usepackage{afterpage}
+\usepackage{caption}
+%\usepackage{makeidx}
+%\bibliographystyle{alpha}
+\bibliographystyle{abbrv}
 
-%\usepackage{microtype}
-%\usepackage{siunitx}
-% TODO make it work for greek
-%\usepackage{xgreek}
+\newindex{default}{idx}{ind}{Ευρετήριο όρων}
+\newindex{en}{edx}{end}{Ευρετήριο αγγλικών όρων}
+%\makeindex
 
 
-	
+% Page definitions
+%\setlength{\textheight}{23cm} \setlength{\textwidth}{15.5cm}
+%\setlength{\oddsidemargin}{0.2cm}
+%\setlength{\evensidemargin}{0.2cm} \setlength{\topmargin}{-1.2cm}
+%\setlength{\headsep}{1.5cm}
+
+% 1.5 spacing
+\renewcommand{\baselinestretch}{1.2}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+% latin text (and greek text)
+%\newcommand{\prg}[1]{\textlatin{\texttt{#1}}}
+\newcommand{\tl}[1]{\textlatin{#1}}
+\newcommand{\tg}[1]{\textgreek{#1}}
+
+% typeset short english phrases
+\newcommand{\en}[1]{\foreignlanguage{english}{#1}}
+
+% typeset source code
+\newcommand{\src}[1]{{\tt\en{#1}}}
 
 
-\RequirePackage[l2tabu, orthodox]{nag}
+
+% typeset a backslash
+\newcommand{\bkslash}{\en{\symbol{92}}}
+
+%typeset infx(a) supx(a) etc
+%\newcommand{\infx}[1]{inf_x({#1})}
+%\newcommand{\infy}[1]{inf_y({#1})}
+%\newcommand{\supx}[1]{sup_x({#1})}
+%\newcommand{\supy}[1]{sup_y({#1})}
+%\newcommand{\dlt}{\delta}
+%\newcommand{\most}{${\cal M}ost$}
+%\newcommand{\br}{${\cal B}r$}
+\newcommand*\Hide{%
+\titleformat{\chapter}[display]
+  {}{}{0pt}{\Huge}
+\titleformat{\part}
+  {}{}{0pt}{}
+}
+\newtheorem{definition}{Ορισμός}
+\newtheorem{proposition}{Πρόταση}
+\newtheorem{theorem}{Θεώρημα}
+\newtheorem{corollary}{Συμπέρασμα}
+\newtheorem{lemma}{Λήμμα}
+\newtheorem{example}{Παράδειγμα}
+\newtheorem{remark}{Σημείωση}
+\newtheorem{notation}{Συμβολισμός}
+\newtheorem{law}{Νόμος}
+\renewcommand{\thedefinition}{\arabic{chapter}.\arabic{definition}}
+\renewcommand{\theproposition}{\arabic{chapter}.\arabic{proposition}}
+\renewcommand{\thetheorem}{\arabic{chapter}.\arabic{theorem}}
+\renewcommand{\thecorollary}{\arabic{chapter}.\arabic{corollary}}
+\renewcommand{\thelemma}{\arabic{chapter}.\arabic{lemma}}
+\renewcommand{\theexample}{\arabic{chapter}.\arabic{example}}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\To}{\Longrightarrow}
+\newcommand{\xml}{\en{XML}}
 
 
-\title{Thesis Title}
-\author{Orfeas Antoniou}
-\date{Day Month Year}
+\selectlanguage{greek}
+\hyphenation{τμή-μα Επο-μέ-νως}
+
+\title{Αναζήτηση \textit{\tl{k}}-εγγύτερων γειτόνων μεταξύ περιοχών αβεβαιότητας με κανονική κατανομή}
+\author{Χρήστος Κούτρας}
+\supervisor{Ιωάννης Βασιλείου}
+\TRnumber{ΕΣΒΓΔ-ΔΙΠΛ-2015-03}
+\epitropiF{Νεκτάριος Κοζύρης}
+\epitropiS{Ιωάννης Θεοδωρίδης}
+
+
 \begin{document}
 
-\input{titlepage.tex}
-\input{abstract.tex}
+\selectlanguage{greek}
+\maketitle
 
-\chapter*{Dedication}
-To mum and dad
-
-\chapter*{Declaration}
-I declare that..
-
-\chapter*{Acknowledgments}
-I want to thank...
-
+\frontmatter
+\pagenumbering{roman}
+\mainmatter
+\include{abstract}
 \tableofcontents
+\listoffigures
+\listoftables
+\include{chapters/chapter01}
+\include{chapters/chapter02}
+\include{chapters/chapter03}
+\include{chapters/chapter04}
+\include{chapters/chapter05}
 
-\chapter{Introduction}
-\input{chapters/introduction}
+% References imported from `references.bib'. 
+%IMPORTANT: Manually modify `main.bbl' by adding \selectlanguage{english} (TOP) and \selectlanguage{english} (BOTTOM) in order to correctly display Latin and Greek characters in the final text.
+\bibliography{references}
 
-\chapter{Chapter Two Title}
-\input{chapters/chapter02}
-
-\chapter{Chapter Three Title}
-\input{chapters/chapter03}
-
-\chapter{Chapter Four Title}
-\input{chapters/chapter04}
-
-\chapter{Conclusion}
-\input{chapters/conclusion}
 
 \appendix
-\chapter{Appendix Title}
-\input{chapters/appendix}
-\printbibliography
+%\include{proofs}
+
+\include{glossary}
+
+\backmatter
+\printindex
 
 \end{document}
