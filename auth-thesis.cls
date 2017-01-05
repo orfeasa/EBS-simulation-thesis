@@ -309,7 +309,7 @@
 }
 
 \middletitleback{
-    \en{Copyright} \copyright\en{--All rights reserved}\ \ \@author, \the\year.\\
+    \en{Copyright} \copyright\en{ -- All rights reserved}\ \ \@author, \the\year.\\
     Με επιφύλαξη παντός δικαιώματος.\\[12pt]
     Απαγορεύεται η αντιγραφή, αποθήκευση και διανομή της παρούσας εργασίας, εξ
     ολοκλήρου ή τμήματος αυτής, για εμπορικό σκοπό.  Επιτρέπεται η ανατύπωση,
