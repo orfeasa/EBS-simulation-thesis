@@ -58,6 +58,7 @@
 % Macros for dates
 \def\aux@date@year{\dateread{\theyear}}
 \newcommand\date@year[1][\date]{\expandafter\aux@date@year #1 {}\relax{}}
+
 % Maketitle
 \renewcommand{\maketitle}{
     \begin{titlepage}
@@ -129,7 +130,7 @@
                 \begin{minipage}{15cm}
                 \begin{tabbing}
                     \large \textbf{\supervisorname :} \=\@supervisor\\
-                    \>Καθηγητής Α.Π.Θ.
+                    \>Αναπληρωτής Καθηγητής Α.Π.Θ.
                 \end{tabbing}
                 \end{minipage}
                 \vspace{1mm}
@@ -152,84 +153,85 @@
             %
             \cleardoublepage
 
-            \if@twoside\new@tpage
-                \noindent
-                \begin{minipage}[t]{\textwidth}
-                    \@uppertitleback
-                \end{minipage}
-                \par
-                \vfill
-               \begin{center}
-                    \LARGE \bfseries \@title
-                \end{center}
-                \ifx\@subtitle\@empty\else
-                \begin{center}
-                    \LARGE \@subtitle
-                \end{center}
-                \fi
-                %
-                \vspace{5mm}
-                %
-                \begin{center}
-                    \huge{\textsc{\@translator}}\\
-                    \vspace{3mm}
-                    \normalsize{του}\\
-                    \vspace{3mm}
-                    \large{\textbf{ΟΡΦΕΑ ΑΝΤΩΝΙΟΥ}}
-                \end{center}
-                %
-                \vspace{5mm}
-                %
-                \hspace{1mm}
-
-
-           \vfill
-
-                \begin{minipage}{15cm}
-                \begin{tabbing}
-                    \large \textbf{\supervisorname :} \=\@supervisor\\
-                    \>Καθηγητής Α.Π.Θ.
-                \end{tabbing}
-                \end{minipage}
-                \vspace{1mm}
-           \vfill
-
-                \begin{minipage}{\textwidth}
-                    \@approval
-                \end{minipage}
-
-            \vfill
-            \begin{center}
-                %\Large \textsc{{\bfseries \@translator}}\\[12pt]
-                %\textsc{\@lab}\\
-                Θεσσαλονίκη, Μάρτιος 2017
-            \end{center}
-            %
-            \fi
-           \new@tpage
-           \begin{minipage}[b]{\textwidth}
-             \@mysig
-           \end{minipage}
-
-            \cleardoublepage
-            \if@twoside\new@tpage
-                \noindent
-                \begin{minipage}[t]{\textwidth}
-                    \@uppertitleback
-                \end{minipage}
-                \par
-                \vfill
-                \noindent
-                \begin{minipage}{\textwidth}
-                    \@middletitleback
-                \end{minipage}
-                \par
-                \vfill
-                \noindent
-                \begin{minipage}[b]{\textwidth}
-                    \@lowertitleback
-                \end{minipage}
-            \fi
+% commenting out supervisor page and disclaimer
+%            \if@twoside\new@tpage
+%                \noindent
+%                \begin{minipage}[t]{\textwidth}
+%                    \@uppertitleback
+%                \end{minipage}
+%                \par
+%                \vfill
+%               \begin{center}
+%                    \LARGE \bfseries \@title
+%                \end{center}
+%                \ifx\@subtitle\@empty\else
+%                \begin{center}
+%                    \LARGE \@subtitle
+%                \end{center}
+%                \fi
+%                %
+%                \vspace{5mm}
+%                %
+%                \begin{center}
+%                    \huge{\textsc{\@translator}}\\
+%                    \vspace{3mm}
+%                    \normalsize{του}\\
+%                    \vspace{3mm}
+%                    \large{\textbf{ΟΡΦΕΑ ΑΝΤΩΝΙΟΥ}}
+%                \end{center}
+%                %
+%                \vspace{5mm}
+%                %
+%                \hspace{1mm}
+%
+%
+%           \vfill
+%
+%                \begin{minipage}{15cm}
+%                \begin{tabbing}
+%                    \large \textbf{\supervisorname :} \=\@supervisor\\
+%                    \>Αναπληρωτής Καθηγητής Α.Π.Θ.
+%                \end{tabbing}
+%                \end{minipage}
+%                \vspace{1mm}
+%           \vfill
+%
+%                \begin{minipage}{\textwidth}
+%                    \@approval
+%                \end{minipage}
+%
+%            \vfill
+%            \begin{center}
+%                %\Large \textsc{{\bfseries \@translator}}\\[12pt]
+%                %\textsc{\@lab}\\
+%                Θεσσαλονίκη, Μάρτιος 2017
+%            \end{center}
+%            %
+%            \fi
+%           \new@tpage
+%           \begin{minipage}[b]{\textwidth}
+%             \@mysig
+%           \end{minipage}
+%
+%            \cleardoublepage
+%            \if@twoside\new@tpage
+%                \noindent
+%                \begin{minipage}[t]{\textwidth}
+%                    \@uppertitleback
+%                \end{minipage}
+%                \par
+%                \vfill
+%                \noindent
+%                \begin{minipage}{\textwidth}
+%                    \@middletitleback
+%                \end{minipage}
+%                \par
+%                \vfill
+%                \noindent
+%                \begin{minipage}[b]{\textwidth}
+%                    \@lowertitleback
+%                \end{minipage}
+%            \fi
            % \ifx\@dedication\@empty\else \new@tpage
            %     {\centering \Large \@dedication \par}
            %     \if@twoside \newt@page \fi
@@ -267,8 +269,8 @@
 \institution{Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης}
 \department{Τμήμα Ηλεκτρολόγων Μηχανικών και Μηχανικών Υπολογιστών}
 \division{Τομέας Τηλεπικοινωνιών}
-\lab{Μονάδα Ηλεκτρομαγνητικών Εφαρμογών και Υπολογισμών}
-\other{} %orfeas: was \other{Ζωγράφου 157 73, Αθήνα}
+\lab{} %was: \lab{Μονάδα Ηλεκτρομαγνητικών Εφαρμογών και Υπολογισμών}
+\other{} %was \other{Ζωγράφου 157 73, Αθήνα}
 %\supervisor{Νικόλαος Κανταρτζής}
 
 \mysig{
