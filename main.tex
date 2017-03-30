@@ -7,9 +7,11 @@
 \usepackage{algorithmic}
 \usepackage{algorithm}
 \usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{array}
+\usepackage{color}
 \usepackage{caption}
 \usepackage{datetime}
 \usepackage{epstopdf}
@@ -17,6 +19,7 @@
 \usepackage{indentfirst}
 \usepackage{index}
 \usepackage{babel}
+\usepackage{listings}
 \usepackage{latexsym}
 \usepackage{siunitx}
 \usepackage{subcaption}
@@ -33,13 +36,6 @@
 \newindex{default}{idx}{ind}{Ευρετήριο όρων}
 \newindex{en}{edx}{end}{Ευρετήριο αγγλικών όρων}
 %\makeindex
-
-
-% Page definitions
-%\setlength{\textheight}{23cm} \setlength{\textwidth}{15.5cm}
-%\setlength{\oddsidemargin}{0.2cm}
-%\setlength{\evensidemargin}{0.2cm} \setlength{\topmargin}{-1.2cm}
-%\setlength{\headsep}{1.5cm}
 
 % 1.5 spacing
 \renewcommand{\baselinestretch}{1.2}
@@ -60,10 +56,11 @@
 % typeset source code
 \newcommand{\src}[1]{{\tt\en{#1}}}
 
-
-
 % typeset a backslash
 \newcommand{\bkslash}{\en{\symbol{92}}}
+
+% typeset differential d
+\newcommand{\dd}{\mathop{}\,\mathrm{d}}
 
 %typeset infx(a) supx(a) etc
 %\newcommand{\infx}[1]{inf_x({#1})}
@@ -129,8 +126,7 @@
 \include{chapters/chapter05}
 
 % References imported from `references.bib'. 
-%IMPORTANT: Manually modify `main.bbl' by adding \selectlanguage{english} (TOP) and \selectlanguage{english} (BOTTOM) in order to correctly display Latin and Greek characters in the final text.
-%TODO create .tex file for bibliography, in order to have greek heading in the bibliography page
+%IMPORTANT: Manually modify `main.bbl' by adding \selectlanguage{english} (2nd line) \selectlanguage{english} (last line) in order to correctly display Latin and Greek characters in the final text. So PDFLateX + BibTex + PDFLateX (x2) + manual edit + PDFLateX (x2) 
 \bibliography{references}
 
 
@@ -140,7 +136,8 @@
 \include{chapters/appendix_CSTmodel}
 \include{chapters/appendix_MATLABcode}
 
-
+\listoffigures
+\listoftables
 \backmatter
 \printindex
 

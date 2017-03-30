@@ -1,5 +1,5 @@
 % Class Information
-\def\filename{auth-thesis} % based on dblab-thesis from ntua
+\def\filename{auth-thesis} % based on dblab-thesis from ntua http://web.dbnet.ntua.gr/en/diplomas.html
 \def\fileversion{0.1}
 \def\filedate{2017/01/05}
 \NeedsTeXFormat{LaTeX2e}[1996/12/01]
