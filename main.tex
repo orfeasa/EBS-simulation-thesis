@@ -4,9 +4,9 @@
 %\DeclareGraphicsRule{.tif}{bmp}{}{}
 \usepackage[explicit]{titlesec}
 \usepackage{afterpage}
-\usepackage{algorithmic}
-\usepackage{algorithm}
-\usepackage{amsmath}
+%\usepackage{algorithmic}
+%\usepackage{algorithm}
+%\usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -61,6 +61,9 @@
 
 % typeset differential d
 \newcommand{\dd}{\mathop{}\,\mathrm{d}}
+
+% create a unit for electrons
+\DeclareSIUnit\electrons{\ensuremath{\mathrm{e^-}}}
 
 %typeset infx(a) supx(a) etc
 %\newcommand{\infx}[1]{inf_x({#1})}

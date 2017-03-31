@@ -119,11 +119,12 @@ To \en{CERN}, διατηρώντας το ακρωνύμιο της αρχική
 
 \section{\selectlanguage{greek}Το \en{Electron Beam Scanner}}
 
-Όπως αναφέρεται και προηγουμένως, ο \en{CLIC} αποσκοπεί σε επιτάχυνση των \SI[per-mode = symbol]{100}{\mega \volt \per \metre}, 20 φορές υψηλότερη από αυτή του \en{LHC}, και χρησιμοποιεί την καινοτομία των δύο δεσμών για να πετύχει αυτό το σκοπό. 
+Όπως αναφέρεται και προηγουμένως, ο \en{CLIC} αποσκοπεί σε επιτάχυνση των \SI[per-mode = symbol]{100}{\mega \volt \per \metre}, 20 φορές υψηλότερη από αυτή του \en{LHC}, και χρησιμοποιεί την καινοτομία των δύο δεσμών για να πετύχει αυτό το στόχο. 
 Ως εκ τούτου, είναι απαραίτητο η Δέσμη Οδηγός (\en{Drive Beam}) να έχει πολύ μεγάλη ένταση, τέτοια που αν χρησιμοποιούνταν επεμβατικές μέθοδοι μέτρησης της χωρικής έντασης (προφίλ) της δέσμης, όπως για παράδειγμα η μέθοδος του \en{wire scanner} που χρησιμοποιείται ευρέως, να καταστρέφονταν.
 Έτσι οδηγούμαστε στην αναζήτηση νέων μη επεμβατικών μεθόδων για την κάλυψη αυτού του κενού.
 
-Μια μη επεμβατική μέθοδος που εξετάζεται είναι η μέθοδος του \en{Electron Beam Scanner}, όπου μια ή περισσότερες δέσμες ανίχνευσης (\en{probe beams}) στέλνονται κάθετα προς τη Δέσμη Οδηγό (\en{Drive Beam}). Αναλύοντας την εκτροπή των δεσμών ανίχνευσης είναι εφικτός ο υπολογισμός του προφίλ της Δέσμης Οδηγού.
+Μια μη επεμβατική μέθοδος που εξετάζεται είναι η μέθοδος του \en{Electron Beam Scanner}, όπου μια ή περισσότερες δέσμες ανίχνευσης (\en{probe beams}) στέλνονται κάθετα προς τη Δέσμη Οδηγό (\en{Drive Beam}). 
+Αναλύοντας την εκτροπή των δεσμών ανίχνευσης είναι εφικτός ο υπολογισμός του προφίλ της Δέσμης Οδηγού.
 
 \begin{figure}[h]
 \includegraphics{figures/Beam_deflection.png}
@@ -132,9 +133,28 @@ To \en{CERN}, διατηρώντας το ακρωνύμιο της αρχική
 \label{fig:beam-deflection}
 \end{figure}
 
-Ανιχνευτές \en{Electron Beam Scanner} έχουν χρησιμοποιηθεί ξανά σε άλλους επιταχυντές που έχουν συνεχείς και πολύ μακριές δέσμες. Η Δέσμη Οδηγός του \en{CLIC} θα έχει δέσμες μήκους μόλις 12 \en{picoseconds}. Αυτό δημιουργεί πρόσθετες προκλήσεις για τη λειτουργία του 
+Ανιχνευτές \en{Electron Beam Scanner} έχουν χρησιμοποιηθεί ξανά σε άλλους επιταχυντές που έχουν συνεχείς και πολύ μακριές δέσμες. 
+Η Δέσμη Οδηγός του \en{CLIC} θα έχει δέσμες μήκους μόλις \num{12} \en{picoseconds}. 
+Αυτό δημιουργεί πρόσθετες προκλήσεις για τη λειτουργία του \en{Electron Beam Scanner}.
+
+\[\frac{\dd{} |\theta|}{\dd y_0} \propto \delta (y)\]
 
 
 \[\theta_y (x) = \frac{2 \rho r_e}{\beta} \int_{-\infty}^{\infty}\frac{n(z) \dd z}{\rho^2 + \left(x+\beta z \right) ^2}\]
 
 \[\theta_z(x) = 2 r_e \int_{-\infty}^{\infty}\frac{(x+\beta z)n(z) \dd z}{\rho^2 + \left(x+\beta z \right) ^2}\]
+
+\begin{table}[h]
+\centering
+	\begin{tabular}{l{0.25\textwidth} c{0.25\textwidth}}
+		\hline
+		\en{Bunch population}	& \SI{5e10}{\electrons} \\ \hline
+		\en{Transverse Emittance}	& \SI{100}{\nano \meter \radian} \\\hline
+		\en{Bunch length / spacing}	& \SI{13}{\pico \second} / \SI{2}{\nano \second} \\\hline
+		\en{Pulse length}	& \SI{140}{\micro \second} \\\hline
+		\en{Pulse Population}		& \SI{3e15}{\electrons} \\\hline
+		\en{Repetition Frequency}	& \SI{50}{\Hz} \\\hline
+	\end{tabular}
+\caption{Σχετικές παράμετροι για την Δέσμη Οδηγό του επιταχυντή \en{CLIC} \cite{Aicheler2012}}
+\label{tab:parameters}
+\end{table}
