@@ -28,11 +28,6 @@
 \usepackage{verbatim}
 %\usepackage{makeidx}
 
-%TODO check which bibliography style I want
-%\bibliographystyle{hellas} 
-%\bibliographystyle{alpha}
-\bibliographystyle{abbrv}
-
 \newindex{default}{idx}{ind}{Ευρετήριο όρων}
 \newindex{en}{edx}{end}{Ευρετήριο αγγλικών όρων}
 %\makeindex
@@ -128,10 +123,15 @@
 \include{chapters/chapter04}
 \include{chapters/chapter05}
 
-% References imported from `references.bib'. 
-%IMPORTANT: Manually modify `main.bbl' by adding \selectlanguage{english} (2nd line) \selectlanguage{english} (last line) in order to correctly display Latin and Greek characters in the final text. So PDFLateX + BibTex + PDFLateX (x2) + manual edit + PDFLateX (x2) 
-\bibliography{references}
 
+%TODO check which bibliography style I want. In this one citation order is alphabetical. Is this ok?
+\bibliographystyle{hellas} 
+%\bibliographystyle{alpha}
+%\bibliographystyle{abbrv} 
+
+% References imported from `references.bib'. 
+%IMPORTANT: Manually modify `main.bbl' by adding \selectlanguage{english} (2nd line) \selectlanguage{english} (last line) in order to correctly display Latin and Greek characters in the final text. So PDFLateX + BibTex + PDFLateX (x2) + manual edit + PDFLateX (x2)	
+\bibliography{references}
 
 \appendix
 
