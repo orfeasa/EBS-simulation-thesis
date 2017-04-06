@@ -35,6 +35,9 @@
 % 1.5 spacing
 \renewcommand{\baselinestretch}{1.2}
 
+% space between paragraphs
+%\setlength{\parskip}{9pt} 
+
 \newcommand\blankpage{%
     \null
     \thispagestyle{empty}%
@@ -96,12 +99,12 @@
 \selectlanguage{greek}
 \hyphenation{τμή-μα Επο-μέ-νως}
 
-\title{Ηλεκτρομαγνητική Προσομοίωση ενός \en{Electron Beam Scanner} για Μικρές Δέσμες} %TODO do we need english cover?
+\title{Ηλεκτρομαγνητική Προσομοίωση ενός \en{Electron Beam Scanner} για Μικρές Δέσμες} 
 \author{Ορφέας Αντωνίου}
 \supervisor{Νικόλαος Κανταρτζής}
-\TRnumber{ΕΣΒΓΔ-ΔΙΠΛ-2015-03} %TODO update
-\epitropiF{Καθηγητής 2} %TODO update
-\epitropiS{Καθηγητής 3} %TODO update
+%\TRnumber{} 
+%\epitropiF{} 
+%\epitropiS{} 
 
 
 \begin{document}
@@ -113,7 +116,7 @@
 \pagenumbering{roman}
 \mainmatter
 \include{chapters/abstract} % abstract and acknowledgements
-%TODO write abstract
+
 \tableofcontents
 %\listoffigures
 %\listoftables
@@ -123,8 +126,9 @@
 \include{chapters/chapter04}
 \include{chapters/chapter05}
 
+% Add all entries from the bibliography database, whether they are referenced in the document or not
+\nocite{*}
 
-%TODO check which bibliography style I want. In this one citation order is alphabetical. Is this ok?
 \bibliographystyle{hellas} 
 %\bibliographystyle{alpha}
 %\bibliographystyle{abbrv} 
