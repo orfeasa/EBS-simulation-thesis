@@ -9,4 +9,5 @@ In the process of writing my thesis, I found the following links useful
 * [How to Write your thesis (thesis content)](http://www.ldeo.columbia.edu/~martins/sen_sem/thesis_org.html)
 * [PhD Starter kit (workflow)](https://raoofphysics.github.io/phd-starter-kit/)
 * [Thesis LaTeX template from the DBlab of NTuA](http://web.dbnet.ntua.gr/en/diplomas.html)
-* [Library Genesis to download papers](http://gen.lib.rus.ec/)
+* [Library Genesis (papers download)](http://gen.lib.rus.ec/)
+* [Stack overflow Git+LaTeX workflow](http://stackoverflow.com/questions/6188780/git-latex-workflow)
