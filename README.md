@@ -7,7 +7,7 @@ The core of the work was done during my 1-year work at CERN as a Technical Stude
 In the process of writing my thesis, I found the following links useful
 
 * [How to Write your thesis (thesis content)](http://www.ldeo.columbia.edu/~martins/sen_sem/thesis_org.html)
-* [PhD Starter kit (workflow)](https://raoofphysics.github.io/phd-starter-kit/)
-* [Thesis LaTeX template from the DBlab of NTuA](http://web.dbnet.ntua.gr/en/diplomas.html)
+* [PhD Starter kit (general workflow)](https://raoofphysics.github.io/phd-starter-kit/)
+* [Stack overflow (Git+LaTeX workflow)](http://stackoverflow.com/questions/6188780/git-latex-workflow)
+* [DBlab, NTuA (LaTeX thesis template)](http://web.dbnet.ntua.gr/en/diplomas.html)
 * [Library Genesis (papers download)](http://gen.lib.rus.ec/)
-* [Stack overflow Git+LaTeX workflow](http://stackoverflow.com/questions/6188780/git-latex-workflow)
