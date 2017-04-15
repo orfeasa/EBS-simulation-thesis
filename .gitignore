@@ -1,7 +1,10 @@
-## My folders
+## My ignored folders
 images/unused/
 figures/unused/
 code/unused
+
+## My ignored files
+main.edx
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
