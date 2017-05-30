@@ -76,7 +76,7 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 \begin{equation}
 \theta_z(x) = 2 r_e \int_{-\infty}^{\infty}\frac{(x+\beta z)n(z) \dd z}{\rho^2 + \left(x+\beta z \right) ^2}
 \end{equation}
-\subsection{Αποτελέσματα ανάλυσης}
+\subsection{Αποτελέσματα ανάλυσης με το \en{MATLAB}}
 Ιδιαίτερο ενδιαφέρον για την έναρξη της ανάλυσής μας παρουσιάζει το πώς διάφορες μεταβλητές επηρεάζουν τα στοιχεία της χαρακτηριστικής έλλειψης. 
 Συγκεκριμένα, θα διερευνήσουμε πώς επηρεάζουν τη χαρακτηριστική έλλειψη οι:
 \begin{enumerate}
@@ -119,7 +119,7 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 \begin{figure}[tbh]
 \includegraphics[width=0.75\textwidth]{figures/beam_deflection_script_05_elipse_ratio_by_bunch_intensity}
 \centering
-\caption{Επιρροή της αρχικής θέσης ριπής ($Y$-\en{offset} της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης}
+\caption[Επιρροή της αρχικής θέσης ριπής της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης]{Επιρροή της αρχικής θέσης ριπής ($Y$-\en{offset}) της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης}
 \label{fig:beam_deflection_script_05_elipse_ratio_by_bunch_intensity}
 \end{figure}
 
@@ -137,7 +137,11 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 \label{fig:beam_deflection_script_07}
 \end{figure}
 
-\section{Ανάλυση με το \en{CST Particle Studio}}
+\subsection{Αποτελέσματα ανάλυσης με το \en{CST}}
+
+Στη συνέχεια έγινε η ίδια ανάλυση στο περιβάλλον προσομοίωσης του \en{CST}. 
+
+
 
 \begin{figure}[tbh]
 \includegraphics[width=0.5\textwidth]{figures/CST-main-beam-source}
@@ -149,6 +153,16 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 \begin{figure}[tbh]
 \includegraphics[width=\textwidth]{figures/CST-pic-monitor}
 \centering
-\caption{Η διάταξη προσομοιωμένη στο \en{CST}}
+\caption[Η διάταξη προσομοιωμένη στο \en{CST}]{Η διάταξη προσομοιωμένη στο \en{CST}. 
+Στην κύρια δέσμη φαίνεται ανιχνευτής σωματιδίων λίγο πριν το σημείο που γίνεται η ανίχνευση}
 \label{fig:CST-PICmonitor}
 \end{figure}
+
+\section{Εκτίμηση του προφίλ στατικής δέσμης στο \en{CST}}
+
+\section{Εκτίμηση του προφίλ \en{Gaussian} δέσμης στο \en{CST}}
+
+\section{Επιρροή αλλεπάλληλων δεσμών στο προφίλ δέσμης}
+
+\section{Επαλήθευση αποτελεσμάτων στο \en{MATLAB}}
+
