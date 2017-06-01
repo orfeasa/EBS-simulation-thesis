@@ -86,7 +86,8 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 	\item Τάση της δέσμης ανίχνευσης
 \end{enumerate}
 
-Για τη διερεύνηση αυτή δημιουργήθηκε ένα \en{script} στο \en{MATLAB}. Τα αποτελέσματα φαίνονται παρακάτω.
+Για τη διερεύνηση αυτή δημιουργήθηκε ένα \en{script} στο \en{MATLAB}, όπου χρησιμοποιήθηκε το μοντέλο που παρουσιάστηκε προηγουμένως και έγιναν οι μελέτες για το πώς επηρεάζει η κάθε παράμετρος ξεχωριστά. 
+Τα αποτελέσματα φαίνονται παρακάτω.
 
 \begin{figure}[tbh]
 \includegraphics[width=0.75\textwidth]{figures/beam_deflection_script_01_initial_elipse}
@@ -139,16 +140,10 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 
 \subsection{Αποτελέσματα ανάλυσης με το \en{CST}}
 
-Στη συνέχεια έγινε η ίδια ανάλυση στο περιβάλλον προσομοίωσης του \en{CST}. 
-
-
-
-\begin{figure}[tbh]
-\includegraphics[width=0.5\textwidth]{figures/CST-main-beam-source}
-\centering
-\caption{Η πηγή της κύριας δέσμης στο \en{CST}}
-\label{fig:CST-mainBeamSource}
-\end{figure}
+Στη συνέχεια έγινε η ίδια ανάλυση στο περιβάλλον προσομοίωσης του \en{CST} για την επαλήθευση των αποτελεσμάτων. 
+Για να γίνει αυτό αρχικά δημιουργήθηκε το περιβάλλον προσομοίωσης, και σε αυτό μπήκαν οι  δυο κύλινδροι, μέσα στους οποίους βρίσκονται οι 2 δέσμες, η κύρια δέσμη και η δέσμη ανίχνευσης (Σχήμα \ref{fig:CST-PICmonitor}). 
+Στη συνέχεια προστέθηκαν οι πηγές σωματιδίων ως κυκλικές πηγές, με την κύρια πηγή να έχει \en{Gaussian} προφίλ, ενώ η πηγή της δέσμης ανίχνευσης σταθερό. 
+Η πηγή σωματιδίων της κύριας δέσμης φαίνεται στο Σχήμα \ref{fig:CST-mainBeamSource}.
 
 \begin{figure}[tbh]
 \includegraphics[width=\textwidth]{figures/CST-pic-monitor}
@@ -158,9 +153,88 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 \label{fig:CST-PICmonitor}
 \end{figure}
 
+\begin{figure}[tbh]
+\includegraphics[width=0.5\textwidth]{figures/CST-main-beam-source}
+\centering
+\caption{Η πηγή της κύριας δέσμης στο \en{CST}}
+\label{fig:CST-mainBeamSource}
+\end{figure}
+
+Τα αποτελέσματα της προσομοίωσης σε φαίνονται παρακάτω. 
+
+%TODO create and add images of the simulation (file 0.21?)
+
 \section{Εκτίμηση του προφίλ στατικής δέσμης στο \en{CST}}
 
+Αφού είδαμε ότι είναι εφικτό να μετρηθούν τα χαρακτηριστικά με τον τρόπο που προσομοιώνει το \en{CST}, ως επόμενο βήμα θα υπολογίσουμε το ακριβές προφίλ της δέσμης, δηλαδή θα δημιουργήσουμε έναν \en{Electron Beam Scanner}.
+
+\begin{figure}[tph]
+\includegraphics[width=0.5\textwidth]{figures/EBS_profile_calculation}
+\centering
+\caption{Υπολογισμός του προφίλ δέσμης με \en{Electron Beam Scanner}}
+\label{fig:EBS_profile_calculation}
+\end{figure}
+
+Όπως είδαμε και στο προηγούμενο κεφάλαιο, το προφίλ της δέσμης προκύπτει από την παραγώγιση  της απόκλισης $\theta_y$.
+
+Στην περίπτωσή μας, ο υπολογισμός τους προφίλ γίνεται μέσα στο \en{CST}, στο στάδιο του \en{post-processing}.
+
+
+
 \section{Εκτίμηση του προφίλ \en{Gaussian} δέσμης στο \en{CST}}
+
+Για τον υπολογισμό του προφίλ μιας \en{Gaussian} δέσμης, συναντήσαμε το πρόβλημα ότι μετά τον υπολογισμό του προφίλ, το σχήμα δε φαινόταν να έχει αυτό που ήταν αναμενόμενο.
+
+\begin{figure}[tph]
+\includegraphics[width=\textwidth]{figures/CST_profile_steps}
+\centering
+\caption{Το αποτέλεσμα του υπολογισμού του προφίλ στο \en{CST} δε μοιάζει \en{Gaussian}}
+\label{fig:CST_profile_steps}
+\end{figure}
+
+Για την επίλυση του προβλήματος αυτού, αρχικά ελέγξαμε αν το πρόβλημα βρίσκεται στον τρόπο δημιουργίας της δέσμης ή στον τρόπο ανίχνευσης. 
+Έτσι:
+\begin{enumerate}
+\item Δημιουργήσαμε ένα νέο project και, αφού στήθηκε όλο το μοντέλο εκ νέου, μπήκε ένας \en{particle monitor} που ανιχνεύει τα σωματίδια της κύριας δέσμης
+\item Έγινε εξαγωγή των δεδομένων αυτών της κύριας δέσμης
+\item Τα δεδομένα αυτά εισήχθησαν στο \en{MATLAB} και δημιουργήθηκε το κατάλληλο \en{script} για την ανάλυσή τους
+\end{enumerate}
+
+Από την παραπάνω διαδικασία έγινε σαφές ότι το πρόβλημα εντοπίζεται στον τρόπο που το \en{CST} δημιουργεί την κατανομή των σωματιδίων.
+
+\subsection{Τρόπος δημιουργίας \en{Gaussian} κατανομών σωματιδίων στο \en{CST}}
+
+Μετά από αναζήτηση και επικοινωνία με το ίδιο το \en{support} του \en{CST}, έγινε σαφής ο τρόπος που γίνεται η προσομοίωση των σωματιδίων για \en{Gaussian} κυκλικές πηγές σωματιδίων.
+
+Συγκεκριμένα, αρχικά, αφού το συνολικό ποσό φορτίου που εκπέμπεται δεν μεταβάλλεται ανάλογα με τη συνάρτηση κατανομής τίθεται ο περιορισμός ότι:
+\[ 2\pi \int_{R_{in}}^{R_{out}} f(r) \dd r = \pi \left(R_{out}^2 - R_{in}^2 \right) \]
+όπου:
+\begin{itemize}
+\item $R_{out}$: η εξωτερική ακτίνα της κυκλικής πηγής σωματιδίων
+\item $R_{in}$: η εσωτερική ακτίνα της κυκλικής πηγής σωματιδίων (στην περίπτωσή μας $R_{in} = 0$)
+\item $f(r)$: η συνάρτηση ακτινικής κατανομής 
+\end{itemize} 
+
+Η παραπάνω σχέση χρησιμοποιείται για να κλιμακοποιήσει τη συνάρτηση κατανομής. 
+Αυτό σημαίνει ότι ο συντελεστής κατανομής $c_{scale}$ υπολογίζεται αυτόματα.
+
+Στη συνέχεια, η \en{Gaussian} κατανομή δίνεται από τη σχέση:
+\[f(r) = c_{off} + c_{scale} \left( \exp \left(-\frac{r^2}{2\sigma^2}\right) - 1 \right)\]
+όπου:
+\begin{itemize}
+\item $c_{off}$: η τιμή της συνάρτησης για $r = 0$
+\item $\sigma$: η τυπική απόκλιση
+\end{itemize} 
+
+\begin{figure}[tph]
+\includegraphics{figures/CST_gauss_function_for_coff}
+\centering
+\caption{Παράδειγμα \en{Gaussian} συνάρτησης για διάφορες τιμές του συντελεστή $c_{off}$}
+\label{fig:CST_gauss_coff}
+\end{figure}
+
+\subsection{Υπολογισμός του κατάλληλου συντελεστή κλιμακοποίησης για \en{Gaussian} δέσμη}
+%TODO continue from here
 
 \section{Επιρροή αλλεπάλληλων δεσμών στο προφίλ δέσμης}
 
