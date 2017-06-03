@@ -100,6 +100,30 @@
 \newcommand{\xml}{\en{XML}}
 
 
+%typesetting matlab code
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\lstset{language=Matlab,%
+    	%basicstyle=\color{red},
+    breaklines=true,%
+    captionpos=b,                    % sets the caption-position to bottom
+    commentstyle=\color{mygreen},%
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+    escapeinside={\%*}{*)},			% if you want to add LaTeX within your code
+	frame=single,	                   % adds a frame around the code
+    identifierstyle=\color{black},	%
+%  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    morekeywords={matlab2tikz},
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+    numbersep=9pt, % this defines how far the numbers are from the text
+    numberstyle={\tiny \color{black}},%  the style that is used for the line-numbers
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    stringstyle=\color{mylilas},
+}
+
 \selectlanguage{greek}
 \hyphenation{τμή-μα Επο-μέ-νως}
 
