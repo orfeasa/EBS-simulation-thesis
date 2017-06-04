@@ -205,9 +205,12 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 \subsection{Τρόπος δημιουργίας \en{Gaussian} κατανομών σωματιδίων στο \en{CST}}
 
 Μετά από αναζήτηση και επικοινωνία με το ίδιο το \en{support} του \en{CST}, έγινε σαφής ο τρόπος που γίνεται η προσομοίωση των σωματιδίων για \en{Gaussian} κυκλικές πηγές σωματιδίων.
-
+%TODO citation needed
 Συγκεκριμένα, αρχικά, αφού το συνολικό ποσό φορτίου που εκπέμπεται δεν μεταβάλλεται ανάλογα με τη συνάρτηση κατανομής τίθεται ο περιορισμός ότι:
-\[ 2\pi \int_{R_{in}}^{R_{out}} f(r) \dd r = \pi \left(R_{out}^2 - R_{in}^2 \right) \]
+\begin{equation}\label{eq:CST_gaussian_restriction}
+2\pi \int_{R_{in}}^{R_{out}} f(r) \dd r = \pi \left(R_{out}^2 - R_{in}^2 \right) 
+\end{equation}
+
 όπου:
 \begin{itemize}
 \item $R_{out}$: η εξωτερική ακτίνα της κυκλικής πηγής σωματιδίων
@@ -219,7 +222,10 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 Αυτό σημαίνει ότι ο συντελεστής κατανομής $c_{scale}$ υπολογίζεται αυτόματα.
 
 Στη συνέχεια, η \en{Gaussian} κατανομή δίνεται από τη σχέση:
-\[f(r) = c_{off} + c_{scale} \left( \exp \left(-\frac{r^2}{2\sigma^2}\right) - 1 \right)\]
+\begin{equation}
+f(r) = c_{off} + c_{scale} \left( \exp \left(-\frac{r^2}{2\sigma^2}\right) - 1 \right)
+\end{equation}
+
 όπου:
 \begin{itemize}
 \item $c_{off}$: η τιμή της συνάρτησης για $r = 0$
@@ -233,15 +239,48 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 \label{fig:CST_gauss_coff}
 \end{figure}
 
+Για να έχουμε μια πραγματικά \en{Gaussian} δέσμη, θέλουμε να ισχύει
+\[c_{off} = 0\]
+
+Αφού οι υπόλοιπες μεταβλητές είναι καθορισμένες από τις απαιτήσεις του επιταχυντή, απομένει να βρεθεί η τιμή του $c_{scale}$ που θα μας δίνει τη ζητούμενη συνθήκη.
+
 \subsection{Υπολογισμός του κατάλληλου συντελεστή κλιμακοποίησης για \en{Gaussian} δέσμη}
-Για τον υπολογισμό του κατάλληλου συντελεστή κλιμακοποίησης $c_{off}$, δημιουργήθηκε το κατάλληλο \en{script} στο \en{MATLAB}. 
 
+Ο τρόπος που υπολογίζει το \en{CST} την \en{Gaussian} κατανομή, όπως είδαμε παραπάνω είναι
+\begin{eqnarray}\label{eq:CST_gaussian_model}
+f(r) &= & 	c_{off} + c_{scale} \left( \exp \left(-\frac{r^2}{2\sigma^2}\right) - 1 \right) \nonumber \\
+&= &\left(c_{off} - c_{scale}\right) + c_{scale} e^{-\frac{r^2}{2\sigma^2}}
+\end{eqnarray}
 
+Η πραγματική κατανομή της δέσμης στον επιταχυντή που μελετούμε όμως, έχει γενική μορφή κατανομής:
+\begin{equation}\label{eq:General_gaussian_model}
+ f(r) = a e^{-\frac{\left(r-b\right)^2}{2c^2}}
+\end{equation}
 
-%TODO continue from here
-%\selectlanguage{english}
-\lstinputlisting[language=matlab, caption={Caption text}]{code/Calculate_Ideal_coff.m}
+Επομένως, εξισώνοντας τις παραπάνω σχέσεις \ref{eq:CST_gaussian_model} και \ref{eq:General_gaussian_model} και δεδομένου ότι πρέπει να ισχύουν $\forall r$ προκύπτουν τα συμπεράσματα ότι:
+\begin{eqnarray}
+a &\equiv & c_{scale}\nonumber \\
+b &\equiv &0\nonumber \\
+c &\equiv & \sigma \nonumber \\
+c_{off} &=&  c_{scale} 
+\end{eqnarray}
 
+Επομένως, πρέπει να βρεθεί ο κατάλληλος συνδυασμός τιμών $\left(c_{off}, c_{scale}\right)$ που να πληροί τον περιορισμό της εξίσωσης \ref{eq:CST_gaussian_restriction}, δεδομένων των τιμών των μεταβλητών $\sigma, R_{out}$ και $R_{in}$ του επιταχυντή μας.
+
+Για την επίλυση του παραπάνω προβλήματος δημιουργήθηκε κατάλληλο \en{script} στο \en{MATLAB}. 
+
+Αρχικά δημιουργήθηκε η συνάρτηση \src{c\_scale = calculate\_cscale( sigma, c\_off, Rout, Rin)} η οποία δέχεται ως ορίσματα τις μεταβλητές $\sigma, c_{off}, R_{out}$ και $R_{in}$ και δίνει στην έξοδό του την τιμή του $c_{scale}$ που πληροί την εξίσωση \ref{eq:CST_gaussian_restriction}.
+
+Στη συνέχεια, τρέχοντας το \en{script} \src{find\_optimum\_coff.m} δίνουμε τις τιμές των παραμέτρων του προβλήματός μας στα $\sigma, c_{off}, R_{out}, R_{in}$ και βρίσκουμε την τιμή του $c_{off}$ που επαληθεύει τη σχέση $c_{off} = c_{scale} \left(\sigma, c_{off}, R_{out}, R_{in} \right)$.
+
+%\lstinputlisting[caption={\tg{Η συνάρτηση υπολογισμού του $c_{scale}$}}]{code/Calculating-optimum-coff/calculate_cscale.m}
+%\lstinputlisting[caption={\tg{Το }script\tg{ υπολογισμού του κατάλληλου για τα δεδομένα μας $c_{off}$}}]{code/Calculating-optimum-coff/find_optimum_coff.m}
+%TODO fix this shit
+
+Εν τέλει, για τις τιμές του δικού μας προβλήματος, δίνουμε ως είσοδο $\left(\sigma, R_{out}, R_{in} \right) = \left(0.01/4,0.01, 0 \right)$ και προκύπτει ότι:
+\begin{equation}
+c_{off} \approx 8.002684
+\end{equation}
 
 \section{Επιρροή αλλεπάλληλων δεσμών στο προφίλ δέσμης}
 

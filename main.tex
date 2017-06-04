@@ -16,10 +16,12 @@
 \usepackage{amsthm}
 \usepackage{array}
 \usepackage{color}
+\usepackage{courier}
 \usepackage{caption}
 \usepackage{datetime}
 \usepackage{epstopdf}
 \usepackage{graphicx}
+%\usepackage{IEEEtrantools}
 \usepackage{indentfirst}
 \usepackage{index}
 \usepackage{babel}
@@ -55,8 +57,11 @@
 % typeset short english phrases
 \newcommand{\en}[1]{\foreignlanguage{english}{#1}}
 
-% typeset source code
-\newcommand{\src}[1]{{\tt\en{#1}}}
+% typeset inline code
+\newcommand{\src}[1]{{\texttt{\en{#1}}}} 
+
+% proper listings caption
+\renewcommand{\lstlistingname}{\tg{Κώδικας}}
 
 % typeset a backslash
 \newcommand{\bkslash}{\en{\symbol{92}}}
@@ -95,22 +100,19 @@
 \renewcommand{\thecorollary}{\arabic{chapter}.\arabic{corollary}}
 \renewcommand{\thelemma}{\arabic{chapter}.\arabic{lemma}}
 \renewcommand{\theexample}{\arabic{chapter}.\arabic{example}}
-\newcommand{\set}[1]{\left\{#1\right\}}
-\newcommand{\To}{\Longrightarrow}
-\newcommand{\xml}{\en{XML}}
-
 
 %typesetting matlab code
 \definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
 \definecolor{mylilas}{RGB}{170,55,241}
 \lstset{language=Matlab,%
-    	%basicstyle=\color{red},
+	basicstyle=\normalsize\selectlanguage{english}\ttfamily,
     breaklines=true,%
     captionpos=b,                    % sets the caption-position to bottom
     commentstyle=\color{mygreen},%
     emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
     %emph=[2]{word1,word2}, emphstyle=[2]{style},    
-    escapeinside={\%*}{*)},			% if you want to add LaTeX within your code
+%    escapeinside={\%*}{*)},			% if you want to add LaTeX within your code
+    extendedchars=true,
 	frame=single,	                   % adds a frame around the code
     identifierstyle=\color{black},	%
 %  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
