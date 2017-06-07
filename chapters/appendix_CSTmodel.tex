@@ -1,44 +1,57 @@
 \selectlanguage{greek}
 
 \chapter{Το μοντέλο στο \en{CST Particle Studio}}
-
+\begin{landscape}
 \section{\en{Template Based Post Processing}}
 
-\begin{tabular}{c|l|l|l|l|l}
-\#	& \en{Result name}															& \en{Type}	& Περιγραφή & \en{Expression }																	& \en{Template name} \\
+\begin{longtabu} to \linewidth {c|>{\ttfamily}X|c|X|X}
+%\caption{Οι μεταβλητές και ο τρόπος υπολογισμού τους στο \en{Template Based Post Processing} του \en{CST}}
+%\label{table:CST-postprocessing}
+\rowfont\bfseries $\#$ & \en{Result name} & \en{Type} & \en{Expression} & \en{Template name} \\ \hline 
+\endhead
+
 \hline
-1	& \en{x-average Position}													& \en{1D}	& 			& \en{x-average position }															& \en{"Evaluate PIC 2D monitor with average" template} \\
-2	& \en{y-average Position}													& \en{1D}	& 			& \en{y-average position }															& \en{"Evaluate PIC 2D monitor with average" template} \\
-3	& \en{z-average Position}													& \en{1D}	& 			& \en{z-average position }															& \en{"Evaluate PIC 2D monitor with average" template} \\
-4	& \en{theta\_y}																& \en{1D}	&			& \en{Atn( (y-average Position - scan\_beam\_vertical\_offset) / pic\_monitor\_xcut) }	& \en{Mix template results} \\
-5	& \en{theta\_z}																& \en{1D}	&			& \en{Atn( (z-average position - 0) / pic\_monitor\_xcut) }							& \en{Mix template results} \\
-6	& \en{theta\_y\_1D\_xSub}														& \en{1D}	&			& \en{Extract data in subrange, theta\_y for  $x \in [5e-9, 1]$}						& \en{0D or 1D Result from 1D Result} \\
-7	& \en{1st bunch theta\_y\_1D\_xSub}											& \en{1D}	&			& \en{Extract data in subrange, theta\_y for  $x \in [0.8e-8, 1.3e-8]$}				& \en{0D or 1D Result from 1D Result} \\
-8	& \en{10th bunch theta\_y\_1D\_xSub}											& \en{1D}	&			& \en{Extract data in subrange, theta\_y for  $x \in [5.3e-8, 5.8e-8]$}				& \en{0D or 1D Result from 1D Result} \\
-9	& \en{theta\_z\_1D\_xSub}														& \en{1D}	&			& \en{Extract data in subrange, theta\_z for  $x \in [5e-9, 1]$}						& \en{0D or 1D Result from 1D Result} \\
-10	& \en{theta\_y\_0D\_GlobalyMax}												& \en{0D}	&			& \en{Global y-Maximum, theta\_y }													& \en{0D or 1D Result from 1D Result} \\
-11	& \en{1st bunch theta\_y\_1D\_xSub\_0D\_GlobalyMax}								& \en{0D}	&			& \en{Global y-Maximum, 1st bunch theta\_y\_1D\_xSub}									& \en{0D or 1D Result from 1D Result} \\
-12	& \en{10th bunch theta\_y\_1D\_xSub\_0D\_GlobalyMax}								& \en{0D}	&			& \en{Global y-Maximum, 10th bunch theta\_y\_1D\_xSub}									& \en{0D or 1D Result from 1D Result} \\
-13	& \en{theta\_y\_1D\_xSub\_0D\_GlobalyMin}										& \en{0D}	&			& \en{Global y-Minimum, 1st bunch theta\_y\_1D\_xSub}									& \en{0D or 1D Result from 1D Result} \\
-14	& \en{theta\_z\_0D\_GlobalyMax}												& \en{0D}	&			& \en{Global y-Maximum, theta\_z }													& \en{0D or 1D Result from 1D Result} \\
-15	& \en{theta\_z\_0D\_GlobalyMin}												& \en{0D}	&			& \en{Global y-Minimum, theta\_z }													& \en{0D or 1D Result from 1D Result} \\
-16	& \en{Ellipse height}														& \en{0D}	&			& \en{theta\_y\_0D\_GlobalyMax	- 0}													& \en{Mix template results} \\
-17	& \en{Ellipse width}														& \en{0D}	&			& \en{theta\_z\_0D\_GlobalyMax	- theta\_z\_0D\_GlobalyMin}								& \en{Mix template results} \\
-18	& \en{Ellipse ratio}														& \en{0D}	&			& \en{Ellipse height / Ellipse width}												& \en{Mix template results} \\
-19	& \en{Ellipse}																& \en{1DC}	&			& \en{Parametric X-Y plot, X: theta\_z, Y: theta\_y }									& \en{0D or 1D Result from 1D Result} \\
-20	& \en{Ellipse\_1}															& \en{1DC}	&			& \en{Parametric X-Y plot, X: theta\_z\_1D\_xSub, Y: theta\_y\_1D\_xSub }					& \en{0D or 1D Result from 1D Result} \\
-21	& \en{Convert theta\_y\_0D\_GlobalyMax To 1D}									& \en{1D}	&			& \en{Table Values in Dependence on Parameter scan\_beam\_vertical\_offset }			& \en{Convert Template Type} \\
-22	& \en{Convert 1st bunch theta\_y\_1D\_xSub\_0D\_GlobalyMax To 1D}				& \en{1D}	&			& \en{Table Values in Dependence on Parameter scan\_beam\_vertical\_offset }			& \en{Convert Template Type} \\
-23	& \en{Convert 10th bunch theta\_y\_1D\_xSub\_0D\_GlobalyMax To 1D}				& \en{1D}	&			& \en{Table Values in Dependence on Parameter scan\_beam\_vertical\_offset }			& \en{Convert Template Type} \\
-24	& \en{Convert theta\_y\_0D\_GlobalyMax To 1D\_1D\_Deriv}							& \en{1D}	&			& \en{Derivative, theta\_y\_0D\_GlobalyMax}											& \en{0D or 1D Result from 1D Result} \\
-25	& \en{Convert 1st bunch theta\_y\_1D\_xSub\_0D\_GlobalyMax To 1D\_1D\_Deriv}		& \en{1D}	&			& \en{Derivative, 1st bunch theta\_y\_1D\_xSub\_0D\_GlobalyMax}							& \en{0D or 1D Result from 1D Result} \\
-26	& \en{Convert 10th bunch theta\_y\_1D\_xSub\_0D\_GlobalyMax To 1D\_1D\_Deriv}		& \en{1D}	&			& \en{Derivative, 10th bunch theta\_y\_1D\_xSub\_0D\_GlobalyMax}							& \en{0D or 1D Result from 1D Result} \\
-\end{tabular}
+\multicolumn{5}{r}{Συνεχίζεται στην επόμενη σελίδα} \\
+\endfoot
 
+\hline
+\endlastfoot
 
-\section{\en{Units}}
+\hline
+1	& \en{x-average Position}													& \en{1D}	& \en{x-average position }															& \en{Evaluate PIC 2D monitor with average} \\
+2	& \en{y-average Position}													& \en{1D}	& \en{y-average position }															& \en{Evaluate PIC 2D monitor with average} \\
+3	& \en{z-average Position}													& \en{1D}	& \en{z-average position }															& \en{Evaluate PIC 2D monitor with average} \\
+4	& \en{theta\_y}																& \en{1D}	& \en{\src{Atn( (y-average Position - scan\_beam\_vertical\_offset) / pic\_monitor\_xcut) }}	& \en{Mix template results} \\
+5	& \en{theta\_z}																& \en{1D}	& \en{\src{Atn( (z-average position - 0) / pic\_monitor\_xcut) }}						& \en{Mix template results} \\
+6	& \en{theta\_y\_1D\_xSub}														& \en{1D}	& \en{Extract data in subrange, \src{theta\_y} for  $x \in [5e-9, 1]$}						& \en{0D or 1D Result from 1D Result} \\
+7	& \en{1st bunch theta\_y\_1D\_xSub}											& \en{1D}	& \en{Extract data in subrange, \src{theta\_y} for  $x \in [0.8e-8, 1.3e-8]$}				& \en{0D or 1D Result from 1D Result} \\
+8	& \en{10th bunch theta\_y\_1D\_xSub}											& \en{1D}	& \en{Extract data in subrange, \src{theta\_y} for  $x \in [5.3e-8, 5.8e-8]$}				& \en{0D or 1D Result from 1D Result} \\
+9	& \en{theta\_z\_1D\_xSub}														& \en{1D}	& \en{Extract data in subrange, \src{theta\_z} for  $x \in [5e-9, 1]$}						& \en{0D or 1D Result from 1D Result} \\
+10	& \en{theta\_y\_0D\_GlobalyMax}												& \en{0D}	& \en{Global y-Maximum, \src{theta\_y} }													& \en{0D or 1D Result from 1D Result} \\
+11	& \en{1st bunch theta\_y\_1D\_xSub\_0D\_GlobalyMax}								& \en{0D}	& \en{Global y-Maximum, 1st bunch \src{theta\_y\_1D\_xSub}}								& \en{0D or 1D Result from 1D Result} \\
+12	& \en{10th bunch theta\_y\_1D\_xSub\_0D\_GlobalyMax}								& \en{0D}	& \en{Global y-Maximum, 10th bunch \src{theta\_y\_1D\_xSub}}									& \en{0D or 1D Result from 1D Result} \\
+13	& \en{theta\_y\_1D\_xSub\_0D\_GlobalyMin}										& \en{0D}	& \en{Global y-Minimum, 1st bunch \src{theta\_y\_1D\_xSub}}									& \en{0D or 1D Result from 1D Result} \\
+14	& \en{theta\_z\_0D\_GlobalyMax}												& \en{0D}	& \en{Global y-Maximum, \src{theta\_z} }													& \en{0D or 1D Result from 1D Result} \\
+15	& \en{theta\_z\_0D\_GlobalyMin}												& \en{0D}	& \en{Global y-Minimum, \src{theta\_z} }													& \en{0D or 1D Result from 1D Result} \\
+16	& \en{Ellipse height}														& \en{0D}	& \en{\src{theta\_y\_0D\_GlobalyMax	- 0}}													& \en{Mix template results} \\
+17	& \en{Ellipse width}														& \en{0D}	& \en{\src{theta\_z\_0D\_GlobalyMax	- theta\_z\_0D\_GlobalyMin}}								& \en{Mix template results} \\
+18	& \en{Ellipse ratio}														& \en{0D}	& \en{\src{Ellipse height / Ellipse width}}												& \en{Mix template results} \\
+19	& \en{Ellipse}																& \en{1DC}	& \en{Parametric X-Y plot, X: \src{theta\_z}, Y: \src{theta\_y} }									& \en{0D or 1D Result from 1D Result} \\
+20	& \en{Ellipse\_1}															& \en{1DC}	& \en{Parametric X-Y plot, X: \src{theta\_z\_1D\_xSub}, Y: \src{theta\_y\_1D\_xSub} }					& \en{0D or 1D Result from 1D Result} \\
+21	& \en{Convert theta\_y\_0D\_GlobalyMax To 1D}									& \en{1D}	& \en{Table Values in Dependence on Parameter \src{scan\_beam\_vertical\_offset} }			& \en{Convert Template Type} \\
+22	& \en{Convert 1st bunch theta\_y\_1D\_xSub\_0D\_GlobalyMax To 1D}				& \en{1D}	& \en{Table Values in Dependence on Parameter \src{scan\_beam\_vertical\_offset }}			& \en{Convert Template Type} \\
+23	& \en{Convert 10th bunch theta\_y\_1D\_xSub\_0D\_GlobalyMax To 1D}				& \en{1D}	& \en{Table Values in Dependence on Parameter \src{scan\_beam\_vertical\_offset} }			& \en{Convert Template Type} \\
+24	& \en{Convert theta\_y\_0D\_GlobalyMax To 1D\_1D\_Deriv}							& \en{1D}	& \en{Derivative, \src{theta\_y\_0D\_GlobalyMax}}											& \en{0D or 1D Result from 1D Result} \\
+25	& \en{Convert 1st bunch theta\_y\_1D\_xSub\_0D\_GlobalyMax To 1D\_1D\_Deriv}		& \en{1D}	& \en{Derivative, 1st bunch \src{theta\_y\_1D\_xSub\_0D\_GlobalyMax}}							& \en{0D or 1D Result from 1D Result} \\
+26	& \en{Convert 10th bunch theta\_y\_1D\_xSub\_0D\_GlobalyMax To 1D\_1D\_Deriv}		& \en{1D}	& \en{Derivative, 10th bunch \src{theta\_y\_1D\_xSub\_0D\_GlobalyMax}}							& \en{0D or 1D Result from 1D Result} \\
+\end{longtabu}
+\end{landscape}
+
+\section{Μονάδες Μέτρησης \en{(Units)}}
 \begin{tabular}{l|c}
-\en{Quantity}		& \en{Unit} \\
+%\caption{Οι μονάδες μέτρησης του περιβάλλοντος του \en{CST}}
+%\label{table:CST-units}
+Μέγεθος		& Μονάδα μέτρησης \\
 \hline
 \en{Dimentions}		& \en{m} \\
 \en{Temperature}	& \en{Kelvin} \\
@@ -52,10 +65,21 @@
 \en{Capacitance}	& \en{pF} \\
 \end{tabular}
 
-\section{\en{Parameter List}}
+\section{Λίστα παραμέτρων}
 
-\begin{tabular} {l|l|l}
-\en{Parameter name}					&	\en{Value}						&	\en{Description} \\
+\begin{longtabu} to \linewidth {>{\ttfamily}l|>{\ttfamily}l|X}
+%\caption{Λίστα παραμέτρων του περιβάλλοντος προσόμοίωσης στο \en{CST}}
+%\label{table:CST-parameters}
+\rowfont\bfseries Όνομα παραμέτρου	&	Τιμή	&	Περιγραφή  \\ \hline 
+\endhead
+
+\hline
+\multicolumn{3}{r}{Συνεχίζεται στην επόμενη σελίδα} \\
+\endfoot
+
+\hline
+\endlastfoot
+
 \hline
 \en{simulation\_time}				&	\en{2e-8}						&	\en{Simulation Time} \\
 \en{scan\_pipe\_length}				&	\en{0.25}						&	\en{Scan pipe length} \\
@@ -68,12 +92,12 @@
 \en{scan\_beam\_offset}				&	\en{0}							&	\en{Scan beam offset} \\
 \en{scan\_beam\_length}				&	\en{4e-3}						&	\en{Scan beam length (sigma)} \\
 \en{scan\_beam\_energy}				&	\en{2e4}						&	\en{Scan beam energy} \\
-\en{scan\_beam\_emission\_lines}	&	\en{5}							&	\en{"Scan beam emission lines (density)} \\
+\en{scan\_beam\_emission\_lines}	&	\en{5}							&	\en{Scan beam emission lines (density)} \\
 \en{scan\_beam\_diameter}			&	\en{1e-4}						&	\en{Scan beam diameter} \\
 \en{scan\_beam\_cutoff}				&	\en{1e-3}						&	\en{Scan beam cutoff length} \\
 \en{scan\_beam\_current}			&	\en{1e-6}						&	\en{Scan beam current} \\
 \en{scan\_beam\_bunches}			&	\en{1}							&	\en{Scan beam number of bunches} \\
-\en{scan\_beam\_bunch\_distances}	&	\en{1e-3}						&	\en{"Scan beam distance between bunches} \\
+\en{scan\_beam\_bunch\_distances}	&	\en{1e-3}						&	\en{Scan beam distance between bunches} \\
 \en{pic\_monitor\_xcut}				&	\en{3/4*scan\_pipe\_length/2}	&	\en{X coordinate of PIC 2D monitor} \\
 \en{monitor\_step\_width}			&	\en{5e-10}						&	\en{PIC position monitor step width} \\
 \en{main\_pipe\_length}				&	\en{5}							&	\en{Main pipe length} \\
@@ -81,7 +105,7 @@
 \en{main\_beam\_rise\_time}			&	\en{1e-9}						&	\en{Main beam rise time} \\
 \en{main\_beam\_offset}				&	\en{main\_beam\_length * 2.01}	&	\en{Main beam offset} \\
 \en{main\_beam\_number\_of\_bunches}&	\en{10}							&	\en{Main beam number of bunches} \\
-\en{main\_beam\_lines}				&	\en{7}							&	\en{"Main beam emission lines (density)} \\
+\en{main\_beam\_lines}				&	\en{7}							&	\en{Main beam emission lines (density)} \\
 \en{main\_beam\_length}				&	\en{0.15}						&	\en{Main beam bunch length (sigma)} \\
 \en{main\_beam\_energy}				&	\en{1e8}						&	\en{Main beam energy} \\
 \en{main\_beam\_diameter}			&	\en{1e-2}						&	\en{Main Beam diameter} \\
@@ -90,4 +114,4 @@
 \en{main\_beam\_charge\_per\_bunch}	&	\en{main\_beam\_charge/70128}	&	\en{Main beam charge per bunch} \\
 \en{main\_beam\_charge}				&	\en{590e-6}						&	\en{Main beam charge per pulse} \\
 \en{main\_beam\_bunch\_distances}	&	\en{main\_beam\_length * 10}	&	\en{Main beam distance between bunches} \\
-\end{tabular}
+\end{longtabu}

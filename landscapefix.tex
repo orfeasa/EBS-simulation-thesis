@@ -1,0 +1,44 @@
+% copied from https://stackoverflow.com/questions/4982219/how-to-make-landscape-mode-rotate-properly-in-a-twoside-book/5320962#5320962
+\makeatletter
+\global\let\orig@begin@landscape=\landscape%
+\global\let\orig@end@landscape=\endlandscape%
+\gdef\@true{1}
+\gdef\@false{0}
+\gdef\landscape{%
+    \global\let\within@landscape=\@true%
+    \orig@begin@landscape%
+}%
+\gdef\endlandscape{%
+    \orig@end@landscape%
+    \global\let\within@landscape=\@false%
+}%
+\@ifpackageloaded{pdflscape}{%
+    \gdef\pdf@landscape@rotate{\PLS@Rotate}%
+}{
+    \gdef\pdf@landscape@rotate#1{}%
+}
+\let\latex@outputpage\@outputpage
+\def\@outputpage{
+    \ifx\within@landscape\@true%
+        \if@twoside%
+            \ifodd\c@page%
+                \gdef\LS@rot{\setbox\@outputbox\vbox{%
+                    \pdf@landscape@rotate{-90}%
+                    \hbox{\rotatebox{90}{\hbox{\rotatebox{180}{\box\@outputbox}}}}}%
+                }%
+            \else%
+                \gdef\LS@rot{\setbox\@outputbox\vbox{%
+                    \pdf@landscape@rotate{+90}%
+                    \hbox{\rotatebox{90}{\hbox{\rotatebox{0}{\box\@outputbox}}}}}%
+                }%
+            \fi%
+        \else%
+            \gdef\LS@rot{\setbox\@outputbox\vbox{%
+                \pdf@landscape@rotate{+90}%
+                \hbox{\rotatebox{90}{\hbox{\rotatebox{0}{\box\@outputbox}}}}}%
+            }%
+        \fi%
+    \fi%
+    \latex@outputpage%
+}
+\makeatother

@@ -148,7 +148,7 @@
             \begin{center}
                 %\Large \textsc{{\bfseries \@translator}}\\[12pt]
                 \textsc{\@lab}\\
-                Θεσσαλονίκη, Μάρτιος 2017
+                Θεσσαλονίκη, Ιούνιος 2017
             \end{center}
             %
             \cleardoublepage
@@ -204,7 +204,7 @@
 %            \begin{center}
 %                %\Large \textsc{{\bfseries \@translator}}\\[12pt]
 %                %\textsc{\@lab}\\
-%                Θεσσαλονίκη, Μάρτιος 2017
+%                Θεσσαλονίκη, Ιούνιος 2017
 %            \end{center}
 %            %
 %            \fi

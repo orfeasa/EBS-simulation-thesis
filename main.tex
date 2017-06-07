@@ -27,8 +27,11 @@
 \usepackage{babel}
 \usepackage{listings}
 \usepackage{latexsym}
+\usepackage{longtable}
+\usepackage{pdflscape}
 \usepackage{siunitx}
 \usepackage{subcaption}
+\usepackage{tabu}
 \usepackage{textcomp}
 \usepackage{url}
 \usepackage{verbatim}
@@ -49,6 +52,10 @@
     \thispagestyle{empty}%
     \addtocounter{page}{-1}%
     \newpage}
+
+% fixing landscape orientation for two-sided document
+\input{landscapefix}	    
+
 % latin text (and greek text)
 %\newcommand{\prg}[1]{\textlatin{\texttt{#1}}}
 \newcommand{\tl}[1]{\textlatin{#1}}
