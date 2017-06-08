@@ -31,7 +31,7 @@
 
 \subsection{Το \en{MATLAB}}
 Το \en{MATLAB (matrix laboratory)} είναι ένα περιβάλλον αριθμητικής υπολογιστικής και μια προγραμματιστική γλώσσα τέταρτης γενιάς. 
-\en{A proprietary programming language developed by MathWorks, MATLAB allows matrix manipulations, plotting of functions and data, implementation of algorithms, creation of user interfaces, and interfacing with programs written in other languages, including C, C++, C\# , Java, Fortran and Python.}
+\en{A proprietary programming language developed by MathWorks, MATLAB allows matrix manipulations, plotting of functions and data, implementation of algorithms, creation of user interfaces, and interfacing with programs written in other languages, including C, C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\tiny\bf +}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\tiny\bf +}, C$\sharp$, Java, Fortran and Python.}
 
 \en{Although MATLAB is intended primarily for numerical computing, an optional toolbox uses the MuPAD symbolic engine, allowing access to symbolic computing abilities. 
 An additional package, Simulink, adds graphical multi-domain simulation and model-based design for dynamic and embedded systems.}
@@ -48,17 +48,17 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 Η λεπτή δέσμη ανίχνευσης κινείται κατά τον άξονα $X$, είναι κάθετη στην κίνηση της σχετικιστικής κίνησης της κύριας δέσμης (άξονας $Z$), με παράμετρο απόκλισης $\rho$ (Σχήμα \ref{fig:ellipse-EBS}).
 
 \begin{figure}[tph]
-\includegraphics{figures/Logatchov1999-EBS}
-\centering
-\caption{Διαδικασία ανίχνευσης της χαρακτηριστικής έλλειψης της δέσμης}
-\label{fig:ellipse-EBS}
+	\includegraphics{figures/Logatchov1999-EBS}
+	\centering
+	\caption{Διαδικασία ανίχνευσης της χαρακτηριστικής έλλειψης της δέσμης}
+	\label{fig:ellipse-EBS}
 \end{figure}
 
 Τα αποτελέσματα της σάρωσης γίνονται \en{monitor} σε οθόνη παράλληλη στο επίπεδο $Y-Z$ και σε απόσταση $L$ από τον άξονα $Z$.
 
 Έστω ότι το κέντρο της κύριας δέσμης βρίσκεται στην αρχή των αξόνων τη χρονική στιγμή $t = 0$, ενώ η δέσμη ανίχνευσης έχει ομοιόμορφη πυκνότητα κατά $X$ και διάμετρο $d \ll \rho$.
 Εδώ υποθέτουμε ότι το $\rho$ είναι μεγαλύτερο του τυπικού εγκάρσιου μεγέθους της κύριας δέσμης.
-Τη χρονική στιγμή $t=0$ κάθε  σωματίδιο της δέσμης ανίχνευσης αντιστοιχίζεται σε μια συγκεκριμένη θέση $x$.
+Τη χρονική στιγμή $t = 0$ κάθε  σωματίδιο της δέσμης ανίχνευσης αντιστοιχίζεται σε μια συγκεκριμένη θέση $x$.
 Η συνολική γωνία απόκλισης κατά $Y$ για κάθε σωματίδιο υπό την επιρροή του ηλεκτρικού πεδίου της κύριας δέσμης μπορεί να εκφραστεί ως\cite{Logatchov1999}:
 \begin{equation}
 \theta_y (x) = \frac{2 \rho r_e}{\beta} \int_{-\infty}^{\infty}\frac{n(z) \dd z}{\rho^2 + \left(x+\beta z \right) ^2}
@@ -89,53 +89,61 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 Για τη διερεύνηση αυτή δημιουργήθηκε ένα \en{script} στο \en{MATLAB}, όπου χρησιμοποιήθηκε το μοντέλο που παρουσιάστηκε προηγουμένως και έγιναν οι μελέτες για το πώς επηρεάζει η κάθε παράμετρος ξεχωριστά. 
 Τα αποτελέσματα φαίνονται παρακάτω.
 
-\begin{figure}[tbh]
-\includegraphics[width=0.75\textwidth]{figures/beam_deflection_script_01_initial_elipse}
-\centering
-\caption{Έλλειψη στην αρχική κατάσταση}
-\label{fig:beam_deflection_script_01_initial_elipse}
+\begin{figure}[tph]	
+	\begin{subfigure}{0.45\textwidth}
+		\includegraphics[width=0.9\linewidth]{figures/beam-deflection-script-01-initial-elipse}
+		\centering
+		\caption{Η χαρακτηριστική έλλειψη στην αρχική κατάσταση}
+		\label{fig:beam-deflection-script-01-initial-elipse}
+	\end{subfigure}
+	~
+	\begin{subfigure}{0.45\textwidth}
+		\includegraphics[width=0.9\linewidth]{figures/beam-deflection-script-02-elipse-width}
+		\centering
+		\caption{Το πλάτος και ύψος της έλλειψης στην αρχική κατάσταση}
+		\label{fig:beam-deflection-script-02-elipse-width}
+	\end{subfigure}
+\caption{Απεικόνιση και στοιχεία της χαρακτηριστικής έλλειψης στην αρχική κατάσταση}
+\label{fig:initial-ellipse}
 \end{figure}
 
-\begin{figure}[tbh]
-\includegraphics[width=0.75\textwidth]{figures/beam_deflection_script_02_elipse_width}
-\centering
-\caption{Το πλάτος και ύψος της έλλειψης στην αρχική κατάσταση}
-\label{fig:beam_deflection_script_02_elipse_width}
-\end{figure}
-
-\begin{figure}[tbh]
-\includegraphics[width=0.75\textwidth]{figures/beam_deflection_script_03_elipse_height}
-\centering
-\caption{Επιρροή της έντασης της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης}
-\label{fig:beam_deflection_script_03_elipse_height}
-\end{figure}
-
-\begin{figure}[tbh]
-\includegraphics[width=0.75\textwidth]{figures/beam_deflection_script_04_elipse_height_by_bunch_intensity}
-\centering
-\caption{Επιρροή του μήκους της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης}
-\label{fig:beam_deflection_script_04_elipse_height_by_bunch_intensity}
-\end{figure}
-
-\begin{figure}[tbh]
-\includegraphics[width=0.75\textwidth]{figures/beam_deflection_script_05_elipse_ratio_by_bunch_intensity}
-\centering
-\caption[Επιρροή της αρχικής θέσης ριπής της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης]{Επιρροή της αρχικής θέσης ριπής ($Y$-\en{offset}) της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης}
-\label{fig:beam_deflection_script_05_elipse_ratio_by_bunch_intensity}
-\end{figure}
-
-\begin{figure}[tbh]
-\includegraphics[width=0.75\textwidth]{figures/beam_deflection_script_06}
-\centering
-\caption{Επιρροή της γραμμικής μεταβολής τάσης της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης}
-\label{fig:beam_deflection_script_06}
-\end{figure}
-
-\begin{figure}[tbh]
-\includegraphics[width=0.75\textwidth]{figures/beam_deflection_script_07}
-\centering
-\caption{Επιρροή της εκθετικής μεταβολής τάσης της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης}
-\label{fig:beam_deflection_script_07}
+\begin{figure}[tph]	
+	\begin{subfigure}{0.45\textwidth}
+		\includegraphics[width=0.9\linewidth]{figures/beam-deflection-script-03-elipse-height}
+		\centering
+		\caption{Επιρροή της έντασης της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης}
+		\label{fig:beam-deflection-script-03-elipse-height}
+	\end{subfigure}
+	~
+	\begin{subfigure}{0.45\textwidth}
+		\includegraphics[width=0.9\linewidth]{figures/beam-deflection-script-04-elipse-height-by-bunch-intensity}
+		\centering
+		\caption{Επιρροή του μήκους της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης}
+		\label{fig:beam-deflection-script-04-elipse-height-by-bunch-intensity}
+	\end{subfigure}
+	\par\bigskip
+	\begin{subfigure}{0.45\textwidth}
+		\includegraphics[width=0.9\linewidth]{figures/beam-deflection-script-05-elipse-ratio-by-bunch-intensity}
+		\centering
+		\caption[Επιρροή της αρχικής θέσης ριπής της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης]{Επιρροή της αρχικής θέσης ριπής ($Y$-\en{offset}) της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης}
+		\label{fig:beam-deflection-script-05-elipse-ratio-by-bunch-intensity}
+	\end{subfigure}
+	~
+	\begin{subfigure}{0.45\textwidth}
+		\includegraphics[width=0.9\linewidth]{figures/beam-deflection-script-06}
+		\centering
+		\caption{Επιρροή της γραμμικής μεταβολής τάσης της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης}
+		\label{fig:beam-deflection-script-06}
+	\end{subfigure}
+	\par\bigskip
+	\begin{subfigure}{0.45\textwidth}
+		\includegraphics[width=0.9\linewidth]{figures/beam-deflection-script-07}
+		\centering
+		\caption{Επιρροή της εκθετικής μεταβολής τάσης της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης}
+		\label{fig:beam-deflection-script-07}
+	\end{subfigure}
+\caption{Επιρροή διαφόρων μεγεθών στη χαρακτηριστική έλλειψη}
+\label{fig:beam-deflectoin}
 \end{figure}
 
 \subsection{Αποτελέσματα ανάλυσης με το \en{CST}}
@@ -169,10 +177,10 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 Αφού είδαμε ότι είναι εφικτό να μετρηθούν τα χαρακτηριστικά με τον τρόπο που προσομοιώνει το \en{CST}, ως επόμενο βήμα θα υπολογίσουμε το ακριβές προφίλ της δέσμης, δηλαδή θα δημιουργήσουμε έναν \en{Electron Beam Scanner}.
 
 \begin{figure}[tph]
-\includegraphics[width=0.5\textwidth]{figures/EBS_profile_calculation}
+\includegraphics[width=0.5\textwidth]{figures/EBS-profile-calculation}
 \centering
 \caption{Υπολογισμός του προφίλ δέσμης με \en{Electron Beam Scanner}}
-\label{fig:EBS_profile_calculation}
+\label{fig:EBS-profile-calculation}
 \end{figure}
 
 Όπως είδαμε και στο προηγούμενο κεφάλαιο, το προφίλ της δέσμης προκύπτει από την παραγώγιση  της απόκλισης $\theta_y$.
@@ -186,10 +194,10 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 Για τον υπολογισμό του προφίλ μιας \en{Gaussian} δέσμης, συναντήσαμε το πρόβλημα ότι μετά τον υπολογισμό του προφίλ, το σχήμα δε φαινόταν να έχει αυτό που ήταν αναμενόμενο.
 
 \begin{figure}[tph]
-\includegraphics[width=\textwidth]{figures/CST_profile_steps}
+\includegraphics[width=\textwidth]{figures/CST-profile-steps}
 \centering
 \caption{Το αποτέλεσμα του υπολογισμού του προφίλ στο \en{CST} δε μοιάζει \en{Gaussian}}
-\label{fig:CST_profile_steps}
+\label{fig:CST-profile-steps}
 \end{figure}
 
 Για την επίλυση του προβλήματος αυτού, αρχικά ελέγξαμε αν το πρόβλημα βρίσκεται στον τρόπο δημιουργίας της δέσμης ή στον τρόπο ανίχνευσης. 
@@ -207,7 +215,7 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 Μετά από αναζήτηση και επικοινωνία με το ίδιο το \en{support} του \en{CST}, έγινε σαφής ο τρόπος που γίνεται η προσομοίωση των σωματιδίων για \en{Gaussian} κυκλικές πηγές σωματιδίων.
 %TODO citation needed
 Συγκεκριμένα, αρχικά, αφού το συνολικό ποσό φορτίου που εκπέμπεται δεν μεταβάλλεται ανάλογα με τη συνάρτηση κατανομής τίθεται ο περιορισμός ότι:
-\begin{equation}\label{eq:CST_gaussian_restriction}
+\begin{equation}\label{eq:CST-gaussian-restriction}
 2\pi \int_{R_{in}}^{R_{out}} f(r) \dd r = \pi \left(R_{out}^2 - R_{in}^2 \right) 
 \end{equation}
 
@@ -233,10 +241,10 @@ f(r) = c_{off} + c_{scale} \left( \exp \left(-\frac{r^2}{2\sigma^2}\right) - 1 \
 \end{itemize} 
 
 \begin{figure}[tph]
-\includegraphics{figures/CST_gauss_function_for_coff}
+\includegraphics{figures/CST-gauss-function-for-coff}
 \centering
 \caption{Παράδειγμα \en{Gaussian} συνάρτησης για διάφορες τιμές του συντελεστή $c_{off}$}
-\label{fig:CST_gauss_coff}
+\label{fig:CST-gauss-coff}
 \end{figure}
 
 Για να έχουμε μια πραγματικά \en{Gaussian} δέσμη, θέλουμε να ισχύει
@@ -247,17 +255,17 @@ f(r) = c_{off} + c_{scale} \left( \exp \left(-\frac{r^2}{2\sigma^2}\right) - 1 \
 \subsection{Υπολογισμός του κατάλληλου συντελεστή κλιμακοποίησης για \en{Gaussian} δέσμη}
 
 Ο τρόπος που υπολογίζει το \en{CST} την \en{Gaussian} κατανομή, όπως είδαμε παραπάνω είναι
-\begin{eqnarray}\label{eq:CST_gaussian_model}
+\begin{eqnarray}\label{eq:CST-gaussian-model}
 f(r) &= & 	c_{off} + c_{scale} \left( \exp \left(-\frac{r^2}{2\sigma^2}\right) - 1 \right) \nonumber \\
 &= &\left(c_{off} - c_{scale}\right) + c_{scale} e^{-\frac{r^2}{2\sigma^2}}
 \end{eqnarray}
 
 Η πραγματική κατανομή της δέσμης στον επιταχυντή που μελετούμε όμως, έχει γενική μορφή κατανομής:
-\begin{equation}\label{eq:General_gaussian_model}
+\begin{equation}\label{eq:General-gaussian-model}
  f(r) = a e^{-\frac{\left(r-b\right)^2}{2c^2}}
 \end{equation}
 
-Επομένως, εξισώνοντας τις παραπάνω σχέσεις \ref{eq:CST_gaussian_model} και \ref{eq:General_gaussian_model} και δεδομένου ότι πρέπει να ισχύουν $\forall r$ προκύπτουν τα συμπεράσματα ότι:
+Επομένως, εξισώνοντας τις παραπάνω σχέσεις \ref{eq:CST-gaussian-model} και \ref{eq:General-gaussian-model} και δεδομένου ότι πρέπει να ισχύουν $\forall r$ προκύπτουν τα συμπεράσματα ότι:
 \begin{eqnarray}
 a &\equiv & c_{scale}\nonumber \\
 b &\equiv &0\nonumber \\
@@ -265,16 +273,16 @@ c &\equiv & \sigma \nonumber \\
 c_{off} &=&  c_{scale} 
 \end{eqnarray}
 
-Επομένως, πρέπει να βρεθεί ο κατάλληλος συνδυασμός τιμών $\left(c_{off}, c_{scale}\right)$ που να πληροί τον περιορισμό της εξίσωσης \ref{eq:CST_gaussian_restriction}, δεδομένων των τιμών των μεταβλητών $\sigma, R_{out}$ και $R_{in}$ του επιταχυντή μας.
+Επομένως, πρέπει να βρεθεί ο κατάλληλος συνδυασμός τιμών $\left(c_{off}, c_{scale}\right)$ που να πληροί τον περιορισμό της εξίσωσης \ref{eq:CST-gaussian-restriction}, δεδομένων των τιμών των μεταβλητών $\sigma, R_{out}$ και $R_{in}$ του επιταχυντή μας.
 
 Για την επίλυση του παραπάνω προβλήματος δημιουργήθηκε κατάλληλο \en{script} στο \en{MATLAB}. 
 
-Αρχικά δημιουργήθηκε η συνάρτηση \src{c\_scale = calculate\_cscale( sigma, c\_off, Rout, Rin)} η οποία δέχεται ως ορίσματα τις μεταβλητές $\sigma, c_{off}, R_{out}$ και $R_{in}$ και δίνει στην έξοδό του την τιμή του $c_{scale}$ που πληροί την εξίσωση \ref{eq:CST_gaussian_restriction}.
+Αρχικά δημιουργήθηκε η συνάρτηση \src{c-scale = calculate-cscale( sigma, c-off, Rout, Rin)} η οποία δέχεται ως ορίσματα τις μεταβλητές $\sigma, c_{off}, R_{out}$ και $R_{in}$ και δίνει στην έξοδό του την τιμή του $c_{scale}$ που πληροί την εξίσωση \ref{eq:CST-gaussian-restriction}.
 
-Στη συνέχεια, τρέχοντας το \en{script} \src{find\_optimum\_coff.m} δίνουμε τις τιμές των παραμέτρων του προβλήματός μας στα $\sigma, c_{off}, R_{out}, R_{in}$ και βρίσκουμε την τιμή του $c_{off}$ που επαληθεύει τη σχέση $c_{off} = c_{scale} \left(\sigma, c_{off}, R_{out}, R_{in} \right)$.
+Στη συνέχεια, τρέχοντας το \en{script} \src{find-optimum-coff.m} δίνουμε τις τιμές των παραμέτρων του προβλήματός μας στα $\sigma, c_{off}, R_{out}, R_{in}$ και βρίσκουμε την τιμή του $c_{off}$ που επαληθεύει τη σχέση $c_{off} = c_{scale} \left(\sigma, c_{off}, R_{out}, R_{in} \right)$.
 
-\lstinputlisting[caption={\tg{Η συνάρτηση υπολογισμού του $c_{scale}$}}]{code/Calculating-optimum-coff/calculate_cscale.m}
-\lstinputlisting[caption={\tg{Το }script\tg{ υπολογισμού του κατάλληλου για τα δεδομένα μας $c_{off}$}}]{code/Calculating-optimum-coff/find_optimum_coff.m}
+\lstinputlisting[caption={\tg{Η συνάρτηση υπολογισμού του $c_{scale}$}}]{code/Calculating-optimum-coff/calculate-cscale.m}
+\lstinputlisting[caption={\tg{Το }\en{script}\tg{ υπολογισμού του κατάλληλου για τα δεδομένα μας $c_{off}$}}]{code/Calculating-optimum-coff/find-optimum-coff.m}
 %TODO fix this shit
 
 Εν τέλει, για τις τιμές του δικού μας προβλήματος, δίνουμε ως είσοδο $\left(\sigma, R_{out}, R_{in} \right) = \left(0.01/4,0.01, 0 \right)$ και προκύπτει ότι:
