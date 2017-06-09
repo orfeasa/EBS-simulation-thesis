@@ -1,7 +1,6 @@
 %To build the thesis run in this order:
 % PDFLateX + BibTex + PDFLateX (x2) + manual edit + PDFLateX (x2)	
 % manual edit: Manually modify `main.bbl' by adding \selectlanguage{english} (2nd line) and \selectlanguage{english} (last line) in order to correctly display Latin and Greek characters in the bibliography
-% hi chryssa
 
 \documentclass[11pt,a4paper,english,greek,twoside]{auth-thesis}
 \usepackage{epsfig}
@@ -120,7 +119,7 @@
     emph=[1]{for,end,break},
     emphstyle=[1]\color{red}, %some words to emphasise
     %emph=[2]{word1,word2}, emphstyle=[2]{style},    
-%    escapeinside={\%*}{*)},			% if you want to add LaTeX within your code
+%%    escapeinside={\%*}{*)},			% if you want to add LaTeX within your code
 	frame=single,	                   % adds a frame around the code
     identifierstyle=\color{black},	%
     keywordstyle=\color{blue},%
@@ -179,7 +178,7 @@
 
 \include{chapters/appendix_glossary}
 \include{chapters/appendix_CSTmodel}
-%\include{chapters/appendix_MATLABcode}
+%\include{chapters/appendix_MATLABcode} % it works even though it produces an error
 
 \listoffigures
 \listoftables

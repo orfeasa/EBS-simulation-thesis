@@ -227,6 +227,8 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 \end{itemize} 
 
 Η παραπάνω σχέση χρησιμοποιείται για να κλιμακοποιήσει τη συνάρτηση κατανομής. 
+Η λογική του τρόπου υπολογισμού αυτού είναι ότι η συνάρτηση κατανομής θα πρέπει να υπολογίζεται με τρόπο, ώστε ο συνολικός αριθμός του φορτίου που εκπέμπεται να είναι ανεξάρτητος από την ορισμένη κατανομή.
+
 Αυτό σημαίνει ότι ο συντελεστής κατανομής $c_{scale}$ υπολογίζεται αυτόματα.
 
 Στη συνέχεια, η \en{Gaussian} κατανομή δίνεται από τη σχέση:
@@ -281,9 +283,8 @@ c_{off} &=&  c_{scale}
 
 Στη συνέχεια, τρέχοντας το \en{script} \src{findOptimumCoff.m} δίνουμε τις τιμές των παραμέτρων του προβλήματός μας στα $\sigma, c_{off}, R_{out}, R_{in}$ και βρίσκουμε την τιμή του $c_{off}$ που επαληθεύει τη σχέση $c_{off} = c_{scale} \left(\sigma, c_{off}, R_{out}, R_{in} \right)$.
 
-\lstinputlisting[caption={\tg{Η συνάρτηση υπολογισμού του $c_{scale}$}}]{code/Calculating-optimum-coff/calculateCscale.m}
-\lstinputlisting[caption={\tg{Το }\en{script}\tg{ υπολογισμού του κατάλληλου για τα δεδομένα μας $c_{off}$}}]{code/Calculating-optimum-coff/findOptimumCoff.m}
-%TODO fix this shit
+\lstinputlisting[language=matlab, caption={\tg{Η συνάρτηση υπολογισμού του $c_{scale}$}}]{code/Calculating-optimum-coff/calculateCscale.m}
+\lstinputlisting[language=matlab, caption={\tg{Το }\en{script}\tg{ υπολογισμού του κατάλληλου για τα δεδομένα μας $c_{off}$}}]{code/Calculating-optimum-coff/findOptimumCoff.m}
 
 Εν τέλει, για τις τιμές του δικού μας προβλήματος, δίνουμε ως είσοδο $\left(\sigma, R_{out}, R_{in} \right) = \left(0.01/4,0.01, 0 \right)$ και προκύπτει ότι:
 \begin{equation}
