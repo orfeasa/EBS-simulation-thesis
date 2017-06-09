@@ -113,8 +113,8 @@
 \definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
 \definecolor{mylilas}{RGB}{170,55,241}
 \lstset{language=Matlab,%
-	basicstyle=\normalsize\ttfamily,%\selectlanguage{english}
-    breaklines=true,%
+	basicstyle=\normalsize\ttfamily\selectlanguage{english},
+%%    breaklines=false,				% turning it to true breaks the compiling
     captionpos=b,                    % sets the caption-position to bottom
     commentstyle=\color{mygreen},%
     emph=[1]{for,end,break},
@@ -123,7 +123,6 @@
 %    escapeinside={\%*}{*)},			% if you want to add LaTeX within your code
 	frame=single,	                   % adds a frame around the code
     identifierstyle=\color{black},	%
-%  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
     keywordstyle=\color{blue},%
     morekeywords=[2]{1}, 
     keywordstyle=[2]{\color{black}},
