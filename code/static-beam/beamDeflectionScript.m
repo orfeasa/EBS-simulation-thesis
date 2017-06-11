@@ -39,10 +39,10 @@ x = linspace(-20, 20, 10 * x_acc);
 Thetas = zeros(length(x), 2);
 
 for i = 1:length(x)
-    [theta_y, theta_z] = staticBeamDeflection( ...
-        x(i), rho, beta, n, r_e, sigma);
-    Thetas(i, 1) = theta_y;
-    Thetas(i, 2) = theta_z;
+	[theta_y, theta_z] = staticBeamDeflection( ...
+		x(i), rho, beta, n, r_e, sigma);
+	Thetas(i, 1) = theta_y;
+	Thetas(i, 2) = theta_z;
 end
 
 figure;
@@ -81,30 +81,30 @@ Heights_Q = zeros(length(Q_i_range), 1);
 Ratios_Q = zeros(length(Q_i_range), 1);
 
 for i = 1:length(Q_i_range)
-    
-    Q_i = Q_i_range(i);
-    
-    % electrons per bunch
-    N_e = Q_i / (N_b * q_e);
-    
-    % compute new linear density
-    n = @(z) N_e * normpdf(z, 0, sigma);
-    
-    Thetas = zeros(length(x), 2);
+	
+	Q_i = Q_i_range(i);
+	
+	% electrons per bunch
+	N_e = Q_i / (N_b * q_e);
+	
+	% compute new linear density
+	n = @(z) N_e * normpdf(z, 0, sigma);
+	
+	Thetas = zeros(length(x), 2);
 
-    for j = 1:length(x)
-        [theta_y, theta_z] = staticBeamDeflection( ...
-            x(j), rho, beta, n, r_e, sigma);
-        Thetas(j, 1) = theta_y;
-        Thetas(j, 2) = theta_z;
-    end
+	for j = 1:length(x)
+		[theta_y, theta_z] = staticBeamDeflection( ...
+			x(j), rho, beta, n, r_e, sigma);
+		Thetas(j, 1) = theta_y;
+		Thetas(j, 2) = theta_z;
+	end
 
-    ellipseHeight = max(Thetas(:, 1)) - min(Thetas(:, 1));
-    ellipseWidth = max(Thetas(:, 2)) - min(Thetas(:, 2));
-    ellipseRatio = ellipseHeight / ellipseWidth;
-    
-    Heights_Q(i) = ellipseHeight;
-    Ratios_Q(i) = ellipseRatio; 
+	ellipseHeight = max(Thetas(:, 1)) - min(Thetas(:, 1));
+	ellipseWidth = max(Thetas(:, 2)) - min(Thetas(:, 2));
+	ellipseRatio = ellipseHeight / ellipseWidth;
+	
+	Heights_Q(i) = ellipseHeight;
+	Ratios_Q(i) = ellipseRatio; 
 end
 
 figure;
@@ -132,27 +132,27 @@ Heights_sigma = zeros(length(sigma_range), 1);
 Ratios_sigma = zeros(length(sigma_range), 1);
 
 for i = 1:length(sigma_range)
-    
-    sigma = sigma_range(i);
-    
-    % compute new linear density
-    n = @(z) N_e * normpdf(z, 0, sigma);
-    
-    Thetas = zeros(length(x), 2);
+	
+	sigma = sigma_range(i);
+	
+	% compute new linear density
+	n = @(z) N_e * normpdf(z, 0, sigma);
+	
+	Thetas = zeros(length(x), 2);
 
-    for j = 1:length(x)
-        [theta_y, theta_z] = staticBeamDeflection( ...
-            x(j), rho, beta, n, r_e, sigma);
-        Thetas(j, 1) = theta_y;
-        Thetas(j, 2) = theta_z;
-    end
+	for j = 1:length(x)
+		[theta_y, theta_z] = staticBeamDeflection( ...
+			x(j), rho, beta, n, r_e, sigma);
+		Thetas(j, 1) = theta_y;
+		Thetas(j, 2) = theta_z;
+	end
 
-    ellipseHeight = max(Thetas(:, 1)) - min(Thetas(:, 1));
-    ellipseWidth = max(Thetas(:, 2)) - min(Thetas(:, 2));
-    ellipseRatio = ellipseHeight / ellipseWidth;
-    
-    Heights_sigma(i) = ellipseHeight;
-    Ratios_sigma(i) = ellipseRatio; 
+	ellipseHeight = max(Thetas(:, 1)) - min(Thetas(:, 1));
+	ellipseWidth = max(Thetas(:, 2)) - min(Thetas(:, 2));
+	ellipseRatio = ellipseHeight / ellipseWidth;
+	
+	Heights_sigma(i) = ellipseHeight;
+	Ratios_sigma(i) = ellipseRatio; 
 end
 
 figure;
@@ -180,24 +180,24 @@ Heights_rho = zeros(length(rho_range), 1);
 Ratios_rho = zeros(length(rho_range), 1);
 
 for i = 1:length(rho_range)
-    
-    rho = rho_range(i);
-    
-    Thetas = zeros(length(x), 2);
+	
+	rho = rho_range(i);
+	
+	Thetas = zeros(length(x), 2);
 
-    for j = 1:length(x)
-        [theta_y, theta_z] = staticBeamDeflection( ...
-            x(j), rho, beta, n, r_e, sigma);
-        Thetas(j, 1) = theta_y;
-        Thetas(j, 2) = theta_z;
-    end
+	for j = 1:length(x)
+		[theta_y, theta_z] = staticBeamDeflection( ...
+			x(j), rho, beta, n, r_e, sigma);
+		Thetas(j, 1) = theta_y;
+		Thetas(j, 2) = theta_z;
+	end
 
-    ellipseHeight = max(Thetas(:, 1)) - min(Thetas(:, 1));
-    ellipseWidth = max(Thetas(:, 2)) - min(Thetas(:, 2));
-    ellipseRatio = ellipseHeight / ellipseWidth;
-    
-    Heights_rho(i) = ellipseHeight;
-    Ratios_rho(i) = ellipseRatio; 
+	ellipseHeight = max(Thetas(:, 1)) - min(Thetas(:, 1));
+	ellipseWidth = max(Thetas(:, 2)) - min(Thetas(:, 2));
+	ellipseRatio = ellipseHeight / ellipseWidth;
+	
+	Heights_rho(i) = ellipseHeight;
+	Ratios_rho(i) = ellipseRatio; 
 end
 
 figure;
@@ -226,26 +226,26 @@ Heights_V = zeros(length(V_range), 1);
 Ratios_V = zeros(length(V_range), 1);
 
 for i = 1:length(V_range)
-    
-    V = V_range(i);
-    gamma = 1 + V / E_0;
-    beta = sqrt(1 - 1 / (gamma * gamma));
-    
-    Thetas = zeros(length(x), 2);
+	
+	V = V_range(i);
+	gamma = 1 + V / E_0;
+	beta = sqrt(1 - 1 / (gamma * gamma));
+	
+	Thetas = zeros(length(x), 2);
 
-    for j = 1:length(x)
-        [theta_y, theta_z] = staticBeamDeflection( ...
-            x(j), rho, beta, n, r_e, sigma);
-        Thetas(j, 1) = theta_y;
-        Thetas(j, 2) = theta_z;
-    end
+	for j = 1:length(x)
+		[theta_y, theta_z] = staticBeamDeflection( ...
+			x(j), rho, beta, n, r_e, sigma);
+		Thetas(j, 1) = theta_y;
+		Thetas(j, 2) = theta_z;
+	end
 
-    ellipseHeight = max(Thetas(:, 1)) - min(Thetas(:, 1));
-    ellipseWidth = max(Thetas(:, 2)) - min(Thetas(:, 2));
-    ellipseRatio = ellipseHeight / ellipseWidth;
-    
-    Heights_V(i) = ellipseHeight;
-    Ratios_V(i) = ellipseRatio; 
+	ellipseHeight = max(Thetas(:, 1)) - min(Thetas(:, 1));
+	ellipseWidth = max(Thetas(:, 2)) - min(Thetas(:, 2));
+	ellipseRatio = ellipseHeight / ellipseWidth;
+	
+	Heights_V(i) = ellipseHeight;
+	Ratios_V(i) = ellipseRatio; 
 end
 
 figure;

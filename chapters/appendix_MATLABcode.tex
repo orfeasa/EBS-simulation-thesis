@@ -1,7 +1,21 @@
 \chapter{Ο κώδικας \en{MATLAB}}
-Παρακάτω φαίνεται ένα παράδειγμα κώδικα
-
-\lstinputlisting[language=matlab2, caption={\tg{Το }\en{script}\tg{ υπολογισμού της επίδρασης διαφόρων μεγεθών σύμφωνα με το θεωρητικό μοντέλο που παρουσιάζεται στο Κεφάλαιο 3}}]
+%TODO fix header and footer
+\section{Μελέτη επίδρασης μεγεθών στη χαρακτηριστική έλλειψη}
+\lstinputlisting[language=matlab, caption={\tg{Το }\en{script}\tg{ υπολογισμού της επίδρασης διαφόρων μεγεθών σύμφωνα με το θεωρητικό μοντέλο που παρουσιάζεται στο Κεφάλαιο 3}}]
 {code/static-beam/beamDeflectionScript.m}
-\lstinputlisting[language=matlab2, caption={\tg{Το }\en{script}\tg{ αρχικοποίησης των μεγεθών}}]{code/static-beam/setInitialValues.m}
-\lstinputlisting[language=matlab2, caption={\tg{Συνάρτηση υπολογισμού της απόκλισης της δέσμης}}]{code/static-beam/staticBeamDeflection.m}
+\lstinputlisting[language=matlab, caption={\tg{Το }\en{script}\tg{ αρχικοποίησης των μεγεθών}}]{code/static-beam/setInitialValues.m}
+\lstinputlisting[language=matlab, caption={\tg{Συνάρτηση υπολογισμού της απόκλισης της δέσμης}}]{code/static-beam/staticBeamDeflection.m}
+
+\section{Υπολογισμός τροχιάς σωματιδίου σε πεδίο που έχει εξαχθεί από το \en{CST}}
+
+\lstinputlisting[language=matlab, caption={\tg{Η συνάρτηση }\src{importField.m}}]{code/particle-path-calculation/importField.m}
+
+\lstinputlisting[language=matlab, caption={\tg{Η συνάρτηση }\src{convertFieldDataToCell.m}}]{code/particle-path-calculation/convertFieldDataToCell.m}
+
+\lstinputlisting[language=matlab, caption={\tg{Η συνάρτηση }\src{calcNextPosition.m}}]{code/particle-path-calculation/calcNextPosition.m}
+
+\lstinputlisting[language=matlab, caption={\tg{Η συνάρτηση }\src{calcField.m}}]{code/particle-path-calculation/calcField.m}
+
+\lstinputlisting[language=matlab, caption={\tg{Η συνάρτηση }\src{lininterp1.m}}]{code/particle-path-calculation/lininterp1.m}
+
+\lstinputlisting[language=matlab, caption={\tg{Το }\en{script }\tg{ που εκτελεί τον υπολογισμό της τροχιάς}]{code/particle-path-calculation/script.m}

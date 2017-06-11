@@ -274,13 +274,13 @@
 %\supervisor{Νικόλαος Κανταρτζής}
 
 \mysig{
-\vspace{15cm}
-\textit{(Υπογραφή)}\\\\\\
-.........................................\\
-\large{\textbf{\textsc{\@author}}}\\
-\large{Διπλωματούχος Ηλεκτρολόγος Μηχανικός και Μηχανικός
-Υπολογιστών Α.Π.Θ.}\\
-\copyright\ \en{2017 -- All rights reserved}
+	\vspace{15cm}
+	\textit{(Υπογραφή)}\\\\\\
+	.........................................\\
+	\large{\textbf{\textsc{\@author}}}\\
+	\large{Διπλωματούχος Ηλεκτρολόγος Μηχανικός και Μηχανικός
+	Υπολογιστών Α.Π.Θ.}\\
+	\copyright\ \en{2017 -- All rights reserved}
 
 }
 
@@ -298,7 +298,7 @@
 }
 
 \approval{
-    Εγκρίθηκε από την τριμελή εξεταστική επιτροπή την ??η Μαρτίου 2017.
+    Εγκρίθηκε από την τριμελή εξεταστική επιτροπή την ??η Ιουνίου 2017.
     %TODO change date
     \begin{tabbing}
     aaaaaaaaaaaaaaaaaaaaaa\=aaaaaaaaaaaaaaaaaaaaaa\=\kill
@@ -322,8 +322,8 @@
     συγγραφέα.
 }
 
-%\trurl{\en{http://www.dblab.ntua.gr/}}
-%\trftp{\en{ftp://ftp.dblab.ntua.gr/}}
+%\trurl{\en{http://www.ece.auth.gr/}}
+%\trftp{\en{}}
 
 %
 %\def\cr@comma{, }
