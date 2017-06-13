@@ -44,40 +44,8 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 \end{figure}
 
 \section{Επιρροή διάφορων μεταβλητών σε έναν \en{Electron Beam Scanner}}
-\subsection{Θεωρητική βάση}
-Η λεπτή δέσμη ανίχνευσης κινείται κατά τον άξονα $X$, είναι κάθετη στην κίνηση της σχετικιστικής κίνησης της κύριας δέσμης (άξονας $Z$), με παράμετρο απόκλισης $\rho$ (Σχήμα \ref{fig:ellipse-EBS}).
 
-\begin{figure}[tph]
-	\includegraphics[width=0.6\textwidth]{figures/Logatchov1999-EBS}
-	\centering
-	\caption{Διαδικασία ανίχνευσης της χαρακτηριστικής έλλειψης της δέσμης}
-	\label{fig:ellipse-EBS}
-\end{figure}
-
-Τα αποτελέσματα της σάρωσης γίνονται \en{monitor} σε οθόνη παράλληλη στο επίπεδο $Y-Z$ και σε απόσταση $L$ από τον άξονα $Z$.
-
-Έστω ότι το κέντρο της κύριας δέσμης βρίσκεται στην αρχή των αξόνων τη χρονική στιγμή $t = 0$, ενώ η δέσμη ανίχνευσης έχει ομοιόμορφη πυκνότητα κατά $X$ και διάμετρο $d \ll \rho$.
-Εδώ υποθέτουμε ότι το $\rho$ είναι μεγαλύτερο του τυπικού εγκάρσιου μεγέθους της κύριας δέσμης.
-Τη χρονική στιγμή $t = 0$ κάθε  σωματίδιο της δέσμης ανίχνευσης αντιστοιχίζεται σε μια συγκεκριμένη θέση $x$.
-Η συνολική γωνία απόκλισης κατά $Y$ για κάθε σωματίδιο υπό την επιρροή του ηλεκτρικού πεδίου της κύριας δέσμης μπορεί να εκφραστεί ως\cite{Logatchov1999}:
-\begin{equation}
-\theta_y (x) = \frac{2 \rho r_e}{\beta} \int_{-\infty}^{\infty}\frac{n(z) \dd z}{\rho^2 + \left(x+\beta z \right) ^2}
-\end{equation}
-όπου:
-\begin{itemize}
-\item $r_e$: η κλασσική ακτίνα του ηλεκτρονίου,
-\item $\beta =\frac{v_t}{c}$: η σχετική ταχύτητα της δέσμης ανίχνευσης,
-\item $c$: η ταχύτητα του φωτός,
-\item $x$: η θέση σωματιδίου της δέσμης ανίχνευσης τη χρονική στιμή $t=0$,
-\item $n(z)$: η γραμμική πυκνότητα της κύριας δέσμης κατά τον άξονα $Z$.
-\end{itemize} 
-
-Η έκφραση για τη γωνία απόκλισης του σωματιδίου κατά $Z$, λόγω του μαγνητικού πεδίου, μπορεί να γραφεί\cite{Logatchov1999}:
-\begin{equation}
-\theta_z(x) = 2 r_e \int_{-\infty}^{\infty}\frac{(x+\beta z)n(z) \dd z}{\rho^2 + \left(x+\beta z \right) ^2}
-\end{equation}
-\subsection{Αποτελέσματα ανάλυσης με το \en{MATLAB}}
-Ιδιαίτερο ενδιαφέρον για την έναρξη της ανάλυσής μας παρουσιάζει το πώς διάφορες μεταβλητές επηρεάζουν τα στοιχεία της χαρακτηριστικής έλλειψης. 
+Ιδιαίτερο ενδιαφέρον παρουσιάζει το πώς διάφορες μεταβλητές επηρεάζουν τα στοιχεία της χαρακτηριστικής έλλειψης που παρουσιάστηκαν.
 Συγκεκριμένα, θα διερευνήσουμε πώς επηρεάζουν τη χαρακτηριστική έλλειψη οι:
 \begin{enumerate}
 	\item Ένταση της δέσμης ανίχνευσης
@@ -86,65 +54,14 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 	\item Τάση της δέσμης ανίχνευσης
 \end{enumerate}
 
-Για τη διερεύνηση αυτή δημιουργήθηκε ένα \en{script} στο \en{MATLAB}, όπου χρησιμοποιήθηκε το μοντέλο που παρουσιάστηκε προηγουμένως και έγιναν οι μελέτες για το πώς επηρεάζει η κάθε παράμετρος ξεχωριστά. 
-Τα αποτελέσματα φαίνονται παρακάτω.
+\subsection{Μελέτη θεωρητικού μοντέλου με το \en{MATLAB}} \label{sub:variable-analysis-MATLAB}
+Για τη διερεύνηση αυτή δημιουργήθηκε ένα \en{script} στο \en{MATLAB}, όπου χρησιμοποιήθηκε το μοντέλο που παρουσιάστηκε στην υπο-ενότητα \ref{sub:EBS-model} και έγιναν οι μελέτες για το πώς επηρεάζει η κάθε παράμετρος ξεχωριστά. 
 
-\begin{figure}[tph]	
-	\begin{subfigure}{0.45\textwidth}
-		\includegraphics[width=0.9\linewidth]{figures/beam-deflection-script-01-initial-elipse}
-		\centering
-		\caption{Η χαρακτηριστική έλλειψη στην αρχική κατάσταση}
-		\label{fig:beam-deflection-script-01-initial-elipse}
-	\end{subfigure}
-	~
-	\begin{subfigure}{0.45\textwidth}
-		\includegraphics[width=0.9\linewidth]{figures/beam-deflection-script-02-elipse-width}
-		\centering
-		\caption{Το πλάτος και ύψος της έλλειψης στην αρχική κατάσταση}
-		\label{fig:beam-deflection-script-02-elipse-width}
-	\end{subfigure}
-\caption{Απεικόνιση και στοιχεία της χαρακτηριστικής έλλειψης στην αρχική κατάσταση}
-\label{fig:initial-ellipse}
-\end{figure}
+Για το σκοπό της ανάλυσης δημιουργήθηκε η συνάρτηση \src{staticBeamDeflection.m}, η οποία δέχεται ως ορίσματα τα μεγέθη τη θέση $x$ του σωματιδίου την $t = 0$, την αρχική θέση ρίψης $\rho$, τη σχετική ταχύτητα $\beta$ της δέσμης ανίχνευσης, τη συνάρτηση γραμμικής πυκνότητας$n(z)$ και το μήκος $\sigma$ της δέσμης, και δίνει ως έξοδο τις γωνίες απόκλισης $\theta_y$ και $\theta_z$, σύμφωνα με τις εξισώσεις της υπο-ενότητας \ref{sub:EBS-model}.
 
-\begin{figure}[tph]	
-	\begin{subfigure}{0.45\textwidth}
-		\includegraphics[width=0.9\linewidth]{figures/beam-deflection-script-03-elipse-height}
-		\centering
-		\caption{Επιρροή της έντασης της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης}
-		\label{fig:beam-deflection-script-03-elipse-height}
-	\end{subfigure}
-	~
-	\begin{subfigure}{0.45\textwidth}
-		\includegraphics[width=0.9\linewidth]{figures/beam-deflection-script-04-elipse-height-by-bunch-intensity}
-		\centering
-		\caption{Επιρροή του μήκους της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης}
-		\label{fig:beam-deflection-script-04-elipse-height-by-bunch-intensity}
-	\end{subfigure}
-	\par\bigskip
-	\begin{subfigure}{0.45\textwidth}
-		\includegraphics[width=0.9\linewidth]{figures/beam-deflection-script-05-elipse-ratio-by-bunch-intensity}
-		\centering
-		\caption[Επιρροή της αρχικής θέσης ριπής της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης]{Επιρροή της αρχικής θέσης ριπής ($Y$-\en{offset}) της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης}
-		\label{fig:beam-deflection-script-05-elipse-ratio-by-bunch-intensity}
-	\end{subfigure}
-	~
-	\begin{subfigure}{0.45\textwidth}
-		\includegraphics[width=0.9\linewidth]{figures/beam-deflection-script-06}
-		\centering
-		\caption{Επιρροή της γραμμικής μεταβολής τάσης της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης}
-		\label{fig:beam-deflection-script-06}
-	\end{subfigure}
-	\par\bigskip
-	\begin{subfigure}{0.45\textwidth}
-		\includegraphics[width=0.9\linewidth]{figures/beam-deflection-script-07}
-		\centering
-		\caption{Επιρροή της εκθετικής μεταβολής τάσης της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης}
-		\label{fig:beam-deflection-script-07}
-	\end{subfigure}
-\caption{Επιρροή διαφόρων μεγεθών στη χαρακτηριστική έλλειψη}
-\label{fig:beam-deflectoin}
-\end{figure}
+Η συνάρτηση αυτή παρουσιάζεται παρακάτω.
+\lstinputlisting[language=matlab, float, caption={\tg{Η συνάρτηση υπολογισμού των γωνιών απόκλισης της δέσμης}}]
+{code/EBS-variable-alanysis/staticBeamDeflection.m}
 
 \subsection{Αποτελέσματα ανάλυσης με το \en{CST}}
 
@@ -168,13 +85,9 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 \label{fig:CST-mainBeamSource}
 \end{figure}
 
-Τα αποτελέσματα της προσομοίωσης σε φαίνονται παρακάτω. 
+\section{Εκτίμηση του προφίλ δέσμης στο \en{CST}}
 
-%TODO create and add images of the simulation (file 0.21?)
-
-\section{Εκτίμηση του προφίλ στατικής δέσμης στο \en{CST}}
-
-Αφού είδαμε ότι είναι εφικτό να μετρηθούν τα χαρακτηριστικά με τον τρόπο που προσομοιώνει το \en{CST}, ως επόμενο βήμα θα υπολογίσουμε το ακριβές προφίλ της δέσμης, δηλαδή θα δημιουργήσουμε έναν \en{Electron Beam Scanner}.
+Στη συνέχεια ξεκίνησε το χτίσιμο του \en{CST model} που θα υπολογίζει το ακριβές προφίλ της δέσμης, δηλαδή η πλήρης προσομοίωση ενός \en{Electron Beam Scanner}.
 
 \begin{figure}[tph]
 \includegraphics[width=0.8\textwidth]{figures/EBS-profile-calculation}
@@ -183,13 +96,13 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 \label{fig:EBS-profile-calculation}
 \end{figure}
 
-Όπως είδαμε και στο προηγούμενο κεφάλαιο, το προφίλ της δέσμης προκύπτει από την παραγώγιση  της απόκλισης $\theta_y$.
+Όπως είδαμε και στην Εξίσωση \ref{eq:transverseProfile}, το προφίλ της δέσμης προκύπτει από την παραγώγιση  της απόκλισης $\theta_y$.
 
 Στην περίπτωσή μας, ο υπολογισμός τους προφίλ γίνεται μέσα στο \en{CST}, στο στάδιο του \en{post-processing}.
 
 
 
-\section{Εκτίμηση του προφίλ \en{Gaussian} δέσμης στο \en{CST}}
+\subsection{Δημιουργία \en{Gaussian} δέσμης στο \en{CST}}
 
 Για τον υπολογισμό του προφίλ μιας \en{Gaussian} δέσμης, συναντήσαμε το πρόβλημα ότι μετά τον υπολογισμό του προφίλ, το σχήμα δε φαινόταν να έχει αυτό που ήταν αναμενόμενο.
 
@@ -203,7 +116,7 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 Για την επίλυση του προβλήματος αυτού, αρχικά ελέγξαμε αν το πρόβλημα βρίσκεται στον τρόπο δημιουργίας της δέσμης ή στον τρόπο ανίχνευσης. 
 Έτσι:
 \begin{enumerate}
-\item Δημιουργήσαμε ένα νέο project και, αφού στήθηκε όλο το μοντέλο εκ νέου, μπήκε ένας \en{particle monitor} που ανιχνεύει τα σωματίδια της κύριας δέσμης
+\item Δημιουργήσαμε ένα νέο \en{project} και, αφού στήθηκε όλο το μοντέλο εκ νέου, μπήκε ένας \en{particle monitor} που ανιχνεύει τα σωματίδια της κύριας δέσμης
 \item Έγινε εξαγωγή των δεδομένων αυτών της κύριας δέσμης
 \item Τα δεδομένα αυτά εισήχθησαν στο \en{MATLAB} και δημιουργήθηκε το κατάλληλο \en{script} για την ανάλυσή τους
 \end{enumerate}
@@ -283,7 +196,7 @@ c_{off} &=&  c_{scale}
 
 Στη συνέχεια, τρέχοντας το \en{script} \src{findOptimumCoff.m} δίνουμε τις τιμές των παραμέτρων του προβλήματός μας στα $\sigma, c_{off}, R_{out}, R_{in}$ και βρίσκουμε την τιμή του $c_{off}$ που επαληθεύει τη σχέση $c_{off} = c_{scale} \left(\sigma, c_{off}, R_{out}, R_{in} \right)$.
 
-\lstinputlisting[language=matlab, caption={\tg{Η συνάρτηση υπολογισμού του $c_{scale}$}}]{code/Calculating-optimum-coff/calculateCscale.m}
+\lstinputlisting[language=matlab, float, caption={\tg{Η συνάρτηση υπολογισμού του $c_{scale}$}}]{code/Calculating-optimum-coff/calculateCscale.m}
 \lstinputlisting[language=matlab, caption={\tg{Το }\en{script}\tg{ υπολογισμού του κατάλληλου για τα δεδομένα μας $c_{off}$}}]{code/Calculating-optimum-coff/findOptimumCoff.m}
 
 Εν τέλει, για τις τιμές του δικού μας προβλήματος, δίνουμε ως είσοδο $\left(\sigma, R_{out}, R_{in} \right) = \left(0.01/4,0.01, 0 \right)$ και προκύπτει ότι:
@@ -291,6 +204,14 @@ c_{off} &=&  c_{scale}
 c_{off} \approx 8.002684
 \end{equation}
 
-\section{Δυνατότητα ανάλυσης δεσμών στο \en{MATLAB}}
+\section{Ανάλυση δεσμών στο \en{MATLAB}}
 
-
+Για την ανάλυση των δεσμών στο \en{MATLAB} δημιουργήθηκαν τα παρακάτω αρχεία:
+\begin{itemize}
+\item Η συνάρτηση \src{importField.m}
+\item Η συνάρτηση \src{convertFieldDataToCell.m}
+\item Η συνάρτηση \src{calcNextPosition.m}
+\item Η συνάρτηση \src{calcField.m}
+\item Η συνάρτηση \src{lininterp1.m}
+\item Το \en{script} που εκτελεί τον υπολογισμό της τροχιάς
+\end{itemize}

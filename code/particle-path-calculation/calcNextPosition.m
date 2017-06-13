@@ -17,7 +17,8 @@ function [pos_new, v_new, t_new] = calcNextPosition(...
 	t_new = t_old + timeUnit;
 
 	if (t_new <= finalTime)
-		E_new = calcField(pos_new, E_field, t_new, timeUnit);
+		E_new = calcField(pos_new, E_field, t_new, ...
+			timeUnit);
 		
 		% update velocity v1 = v0 + E1 * const1
 		v_new = v_old + E_new .* const1;
