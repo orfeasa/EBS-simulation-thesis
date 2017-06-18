@@ -1,4 +1,4 @@
-function [ cscale ] = calculateCscale( sigma, coff, Rout, Rin)
+function cscale = calculateCscale( sigma, coff, Rout, Rin)
 %CALCULATECSCALE Calculates the scaling factor cscale for a CST 
 %circular particle source with gaussian radial pendency 
 	% create symbolic variables

@@ -60,8 +60,8 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 Για το σκοπό της ανάλυσης δημιουργήθηκε η συνάρτηση \src{staticBeamDeflection.m}, η οποία δέχεται ως ορίσματα τα μεγέθη τη θέση $x$ του σωματιδίου την $t = 0$, την αρχική θέση ρίψης $\rho$, τη σχετική ταχύτητα $\beta$ της δέσμης ανίχνευσης, τη συνάρτηση γραμμικής πυκνότητας$n(z)$ και το μήκος $\sigma$ της δέσμης, και δίνει ως έξοδο τις γωνίες απόκλισης $\theta_y$ και $\theta_z$, σύμφωνα με τις εξισώσεις της υπο-ενότητας \ref{sub:EBS-model}.
 
 Η συνάρτηση αυτή παρουσιάζεται παρακάτω.
-\lstinputlisting[language=matlab, float, caption={\tg{Η συνάρτηση υπολογισμού των γωνιών απόκλισης της δέσμης}}]
-{code/EBS-variable-alanysis/staticBeamDeflection.m}
+
+\lstinputlisting[language=matlab, float, caption={\tg{Η συνάρτηση υπολογισμού των γωνιών απόκλισης της δέσμης}}]{code/EBS-variable-alanysis/staticBeamDeflection.m}
 
 \subsection{Αποτελέσματα ανάλυσης με το \en{CST}}
 
@@ -197,7 +197,8 @@ c_{off} &=&  c_{scale}
 Στη συνέχεια, τρέχοντας το \en{script} \src{findOptimumCoff.m} δίνουμε τις τιμές των παραμέτρων του προβλήματός μας στα $\sigma, c_{off}, R_{out}, R_{in}$ και βρίσκουμε την τιμή του $c_{off}$ που επαληθεύει τη σχέση $c_{off} = c_{scale} \left(\sigma, c_{off}, R_{out}, R_{in} \right)$.
 
 \lstinputlisting[language=matlab, float, caption={\tg{Η συνάρτηση υπολογισμού του $c_{scale}$}}]{code/Calculating-optimum-coff/calculateCscale.m}
-\lstinputlisting[language=matlab, caption={\tg{Το }\en{script}\tg{ υπολογισμού του κατάλληλου για τα δεδομένα μας $c_{off}$}}]{code/Calculating-optimum-coff/findOptimumCoff.m}
+
+\lstinputlisting[language=matlab, float, caption={\tg{Το }\en{script}\tg{ υπολογισμού του κατάλληλου για τα δεδομένα μας $c_{off}$}}]{code/Calculating-optimum-coff/findOptimumCoff.m}
 
 Εν τέλει, για τις τιμές του δικού μας προβλήματος, δίνουμε ως είσοδο $\left(\sigma, R_{out}, R_{in} \right) = \left(0.01/4,0.01, 0 \right)$ και προκύπτει ότι:
 \begin{equation}

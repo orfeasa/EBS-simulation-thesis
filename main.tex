@@ -109,10 +109,12 @@
 \renewcommand{\theexample}{\arabic{chapter}.\arabic{example}}
 
 %typesetting matlab code
-\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mygreen}{RGB}{28,172,0} 
+\definecolor{lightgray}{rgb}{0.97,0.97,0.97}
 \definecolor{mylilas}{RGB}{170,55,241}
 \lstset{
-    language=matlab,%
+    language=matlab,
+   backgroundcolor=\color{lightgray},
 	basicstyle=\normalsize\ttfamily\selectlanguage{english},
 %%    breaklines=false,				% turning it to true breaks the compiling
     captionpos=b,                    % sets the caption-position to bottom
