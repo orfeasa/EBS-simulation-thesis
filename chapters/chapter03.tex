@@ -43,7 +43,7 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 \label{img:MATLABlogo}
 \end{figure}
 
-\section{Επιρροή διάφορων μεταβλητών σε έναν \en{Electron Beam Scanner}}
+\section{Επιρροή μεταβλητών σε έναν \en{Electron Beam Scanner}}
 
 Ιδιαίτερο ενδιαφέρον παρουσιάζει το πώς διάφορες μεταβλητές επηρεάζουν τα στοιχεία της χαρακτηριστικής έλλειψης που παρουσιάστηκαν.
 Συγκεκριμένα, θα διερευνήσουμε πώς επηρεάζουν τη χαρακτηριστική έλλειψη οι:
@@ -100,7 +100,7 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 
 Στην περίπτωσή μας, ο υπολογισμός τους προφίλ γίνεται μέσα στο \en{CST}, στο στάδιο του \en{post-processing}.
 
-
+Για την αναλυτική περιγραφή όλων των μεθόδων \en{post processing} στο \en{CST} μπορεί κανείς να ανατρέξει στην ενότητα \ref{sec:CSTpostProcessing} \en{Template Based Post Processing} του Παραρτήματος \ref{ch:CSTmodel}.
 
 \subsection{Δημιουργία \en{Gaussian} δέσμης στο \en{CST}}
 
@@ -207,12 +207,57 @@ c_{off} \approx 8.002684
 
 \section{Ανάλυση δεσμών στο \en{MATLAB}}
 
-Για την ανάλυση των δεσμών στο \en{MATLAB} δημιουργήθηκαν τα παρακάτω αρχεία:
-\begin{itemize}
-\item Η συνάρτηση \src{importField.m}
-\item Η συνάρτηση \src{convertFieldDataToCell.m}
-\item Η συνάρτηση \src{calcNextPosition.m}
-\item Η συνάρτηση \src{calcField.m}
-\item Η συνάρτηση \src{lininterp1.m}
-\item Το \en{script} που εκτελεί τον υπολογισμό της τροχιάς
-\end{itemize}
+Με σκοπό τη βελτιστοποίηση της ταχύτητας προσομοίωσης, ώστε να είναι δυνατή η προσομοίωση παλμών (\en{pulses}, πολλαπλών δεσμών) και τρένων (\en{trains}, πολλαπλών παλμών) σωματιδίων, η διαδικασία προσομοίωσης επεκτάθηκε και στην ενεργή χρήση του \en{MATLAB}.
+Η διαδικασία προσομοίωσης σε αυτή την περίπτωση παίρνει τη μορφή:
+\begin{enumerate}
+\item Ηλεκτρομαγνητική προσομοίωση του κύριου σωλήνα του επιταχυντή στο \en{CST}, που περιλαμβάνει την κύρια δέσμη, όσες φορές είναι επιθυμητό
+\item Εξαγωγή των αποτελεσμάτων της προσομοίωσης από το \en{CST} σε μορφή αρχείου \en{ASCII}
+\item Μετατροπή των αποτελεσμάτων της προσομοίωσης σε μορφή αρχείου \en{MATLAB formatted data} (\src{.mat}) για βελτιστοποίηση στο χώρο αποθήκευσης και χρόνο προσπέλασης
+\item Εισαγωγή των δεδομένων στο \en{MATLAB}
+\item Υπολογισμός των τροχιών σωματιδίων της δέσμης ανίχνευσης μέσα από το \en{MATLAB} στο προσομοιωμένο μαγνητικό πεδίο εισήχθη
+\end{enumerate}
+
+\subsection{Προσομοίωση του κύριου σωλήνα του επιταχυντή στο \en{CST}}
+Για την προσομοίωση του κύριου σωλήνα δημιουργήθηκε ένα \en{project} στο \en{CST}.
+Το \en{project} αυτό περιέχει τη γεωμετρία που χρησιμοποιήθηκε και στο \en{project} με τις δύο δέσμες, δηλαδή δύο κάθετοι σωλήνες ίδιας διαμέτρου που περιλαμβάνουν κενό, μέσα σε χώρο τέλειου αγωγού (\en{PEC}).
+Αυτή τη φορά έχουμε μόνο ένα \en{Particle Source}, την κύρια δέσμη, που εκπέμπει σωματίδια με \en{Gaussian emission model}.
+
+Γύρω από το χώρο διασταύρωσης των σωλήνων της κύριας δέσμης και της δέσμης ανίχνευσης έχει τοποθετηθεί ένας \en{E-field monitor}, που αποθηκεύει τις τιμές του ηλεκτρικού πεδίου σε κάθε χρονική στιγμή της προσομοίωσης. 
+Οι τιμές αυτές είναι αυτές που θα εξαχθούν για να χρησιμοποιηθούν στα επόμενα βήματα.
+
+Η διάταξη φαίνεται στο Σχήμα \ref{fig:CST-export-main-beam-project-efield-box}.
+
+\begin{figure}[tbh]
+\includegraphics[width=\textwidth]{figures/export-main-beam-project-efield-box}
+\centering
+\caption[Η διάταξη προσομοίωσης του κύριου σωλήνα στο \en{CST}]{Η διάταξη προσομοίωσης του κύριου σωλήνα στο \en{CST}. Με πράσινο χρώμα φαίνεται ο \en{E-field monitor}}
+\label{fig:CST-export-main-beam-project-efield-box}
+\end{figure}
+
+\subsection{Εξαγωγή των αποτελεσμάτων του \en{CST}}
+Μετά την εκτέλεση της προσομοίωσης, τα αποτελέσματα εξάγονται από το πρόγραμμα, επιλέγοντας τα αποτελέσματα στο φάκελο \en{e-field}, μέσα στα \en{2D/3D Results} και κάνοντας \en{export} από την καρτέλα \en{Post Processing} στη μορφή \en{ASCII}.
+
+Έτσι, τα αποτελέσματα εξάγονται σε μορφή \src{.txt}, που έχει 9 στήλες: 3 στήλες για τη θέση κάθε σωματιδίου (συντεταγμένες $x$, $y$ και $z$) και 6 για τις τιμές του ηλεκτρικού πεδίου στη θέση αυτή ($\operatorname{Re}(E_x)$, $\operatorname{Re}(E_y)$, $\operatorname{Re}(E_z)$, $\operatorname{Im}(E_x)$, $\operatorname{Im}(E_y)$, $\operatorname{Im}(E_z)$).
+Τα αποτελέσματα απεικονίζουν όλες τις παραπάνω τιμές ξεκινώντας από το πρώτο \en{sample} και συνεχίζοντας μέχρι το τελευταίο.
+
+\subsection{Μετατροπή των αποτελεσμάτων}
+
+%TODO continue from here
+
+\lstinputlisting[language=matlab, float, linerange={1-8, 44-62}, caption={\tg{Μέρος της συνάρτησης }\src{importField.m}}]{code/particle-path-calculation/importField.m}
+
+\lstinputlisting[language=matlab, float, linerange={1-9,16-37, 51-60}, caption={\tg{Μέρος της συνάρτησης }\src{convertFieldDataToCell.m}}]{code/particle-path-calculation/convertFieldDataToCell.m}
+
+\subsection{Εισαγωγή των δεδομένων στο \en{MATLAB}}
+
+
+\subsection{Υπολογισμός των τροχιών της δέσμης ανίχνευσης}
+\lstinputlisting[language=matlab, float, caption={\tg{Η συνάρτηση }\src{calcNextPosition.m}}]{code/particle-path-calculation/calcNextPosition.m}
+
+\lstinputlisting[language=matlab, float, caption={\tg{Η συνάρτηση }\src{calcField.m}}]{code/particle-path-calculation/calcField.m}
+
+\lstinputlisting[language=matlab, float, caption={\tg{Η συνάρτηση }\src{lininterp1.m}}]{code/particle-path-calculation/lininterp1.m}
+
+
+Το \en{script} που εκτελεί τον υπολογισμό της τροχιάς
+

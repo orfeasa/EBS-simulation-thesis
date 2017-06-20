@@ -7,8 +7,6 @@ function Field = importField(filename)
     % open file
     fid = fopen(filename,'r');
 
-    % find last occurance of the word 'Sample'
-    % save the number of samples
     noOfSamples = 0;
     noOfDatapoints = 0;
 
@@ -37,7 +35,7 @@ function Field = importField(filename)
 
     % read the data
 
-    %skip header
+    % skip header
     fgetl(fid);fgetl(fid);
 
     currentSample = 0;

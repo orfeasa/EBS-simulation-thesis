@@ -13,7 +13,7 @@ function [pos_new, v_new, t_new] = calcNextPosition(...
 
 	% update field
 	% TODO make it work for diffferent time (interpolate 
-    % linearly between the two calculated timesteps)
+	% linearly between the two calculated timesteps)
 	t_new = t_old + timeUnit;
 
 	if (t_new <= finalTime)

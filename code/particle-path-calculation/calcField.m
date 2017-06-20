@@ -6,7 +6,7 @@ function E_new = calcField(pos, Field, t, timeUnit)
 % [-7.3163e+03, -7.2088e+03, 0.1743e+03]
 
 	sampleNo = round(t/timeUnit); 
-    % round because it sometimes gives result as double
+	% round because it sometimes gives result as double
 
 	Xq = pos(1);
 	Yq = pos(2);

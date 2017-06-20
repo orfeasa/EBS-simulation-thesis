@@ -108,6 +108,21 @@
 \renewcommand{\thelemma}{\arabic{chapter}.\arabic{lemma}}
 \renewcommand{\theexample}{\arabic{chapter}.\arabic{example}}
 
+% "hack" to print the correct line numbers when skipping lines. matchrangestart=t must be added in the listings configuration
+\makeatletter
+\lst@Key{matchrangestart}{f}{\lstKV@SetIf{#1}\lst@ifmatchrangestart}
+\def\lst@SkipToFirst{%
+    \lst@ifmatchrangestart\c@lstnumber=\numexpr-1+\lst@firstline\fi
+    \ifnum \lst@lineno<\lst@firstline
+        \def\lst@next{\lst@BeginDropInput\lst@Pmode
+        \lst@Let{13}\lst@MSkipToFirst
+        \lst@Let{10}\lst@MSkipToFirst}%
+        \expandafter\lst@next
+    \else
+        \expandafter\lst@BOLGobble
+    \fi}
+\makeatother
+
 %typesetting matlab code
 \definecolor{mygreen}{RGB}{28,172,0} 
 \definecolor{lightgray}{rgb}{0.97,0.97,0.97}
@@ -134,7 +149,10 @@
     numberstyle={\tiny \color{black}},%  the style that is used for the line-numbers
     showstringspaces=false,%without this there will be a symbol in the places where there is a space
     stringstyle=\color{mylilas},
+    matchrangestart=t,
 }
+
+
 
 \selectlanguage{greek}
 \hyphenation{τμή-μα Επο-μέ-νως}
@@ -185,6 +203,7 @@
 
 \listoffigures
 \listoftables
+
 \backmatter
 \printindex
 
