@@ -17,7 +17,7 @@
 Το \en{CST PARTICLE STUDIO\textsuperscript{\textregistered} (CST\textsuperscript{\textregistered} PS) } είναι ένα εξειδικευμένο εργαλείο για την γρήγορη και ακριβή ανάλυση δυναμικών φορτισμένων σωματιδίων σε τρισδιάστατα ηλεκτρομαγνητικά πεδία.
 Είναι ένα ισχυρό εργαλείο, κατάλληλο για μεγάλο φάσμα εργασιών, από σχεδιασμό \en{magnetrons} και ρύθμιση σωλήνων ηλεκτρονίως έως μοντελοποίηση πηγών σωματιδίων και εξαρτημάτων για επιταχυντές.
 
-%\en{The particle tracking solver can model the behavior of particles through static fields, and with the gun iteration, space charge limited emission. 
+%\en{The particle tracking solver can model the behavior of particles through static fields, and with the gun iteration, space charge limited emission. }
 Ο \en{particle-in-cell (PIC) solver}, ο οποίος μπορεί να λειτουργήσει στο πεδίο του χρόνου, μπορεί να εκτελέσει μια πλήρη προσομοίωση σωματιδίων και ηλεκτρομαγνητικών πεδίων.
 
 Για σχετικιστικές εφαρμογής, ο \en{wakefield solver} μπορεί να υπολογίσει πώς τα πεδία που δημιουργούνται από σωματίδια που κινούνται στην (ή κοντά στην) ταχύτητα του φωτός, αλληλεπιδρούν με τη δομή γύρω τους.
@@ -59,9 +59,9 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 
 Για το σκοπό της ανάλυσης δημιουργήθηκε η συνάρτηση \src{staticBeamDeflection.m}, η οποία δέχεται ως ορίσματα τα μεγέθη τη θέση $x$ του σωματιδίου την $t = 0$, την αρχική θέση ρίψης $\rho$, τη σχετική ταχύτητα $\beta$ της δέσμης ανίχνευσης, τη συνάρτηση γραμμικής πυκνότητας$n(z)$ και το μήκος $\sigma$ της δέσμης, και δίνει ως έξοδο τις γωνίες απόκλισης $\theta_y$ και $\theta_z$, σύμφωνα με τις εξισώσεις της υπο-ενότητας \ref{sub:EBS-model}.
 
-Η συνάρτηση αυτή παρουσιάζεται παρακάτω.
+Η συνάρτηση αυτή παρουσιάζεται στον Κώδικα \ref{lst:staticBeamDeflection}.
 
-\lstinputlisting[language=matlab, float, caption={\tg{Η συνάρτηση υπολογισμού των γωνιών απόκλισης της δέσμης}}]{code/EBS-variable-alanysis/staticBeamDeflection.m}
+\lstinputlisting[language=matlab, float, label={lst:staticBeamDeflection}, caption={\tg{Η συνάρτηση υπολογισμού των γωνιών απόκλισης της δέσμης}}]{code/EBS-variable-alanysis/staticBeamDeflection.m}
 
 \subsection{Αποτελέσματα ανάλυσης με το \en{CST}}
 
@@ -196,9 +196,9 @@ c_{off} &=&  c_{scale}
 
 Στη συνέχεια, τρέχοντας το \en{script} \src{findOptimumCoff.m} δίνουμε τις τιμές των παραμέτρων του προβλήματός μας στα $\sigma, c_{off}, R_{out}, R_{in}$ και βρίσκουμε την τιμή του $c_{off}$ που επαληθεύει τη σχέση $c_{off} = c_{scale} \left(\sigma, c_{off}, R_{out}, R_{in} \right)$.
 
-\lstinputlisting[language=matlab, float, caption={\tg{Η συνάρτηση υπολογισμού του $c_{scale}$}}]{code/Calculating-optimum-coff/calculateCscale.m}
+\lstinputlisting[language=matlab, float, label={lst:calculateCscale}, caption={\tg{Η συνάρτηση υπολογισμού του $c_{scale}$}}]{code/calculating-optimum-coff/calculateCscale.m}
 
-\lstinputlisting[language=matlab, float, caption={\tg{Το }\en{script}\tg{ υπολογισμού του κατάλληλου για τα δεδομένα μας $c_{off}$}}]{code/Calculating-optimum-coff/findOptimumCoff.m}
+\lstinputlisting[language=matlab, float, label={lst:findOptimumCoff}, caption={\tg{Το }\en{script}\tg{ υπολογισμού του κατάλληλου για τα δεδομένα μας $c_{off}$}}]{code/calculating-optimum-coff/findOptimumCoff.m}
 
 Εν τέλει, για τις τιμές του δικού μας προβλήματος, δίνουμε ως είσοδο $\left(\sigma, R_{out}, R_{in} \right) = \left(0.01/4,0.01, 0 \right)$ και προκύπτει ότι:
 \begin{equation}
@@ -213,7 +213,7 @@ c_{off} \approx 8.002684
 \item Ηλεκτρομαγνητική προσομοίωση του κύριου σωλήνα του επιταχυντή στο \en{CST}, που περιλαμβάνει την κύρια δέσμη, όσες φορές είναι επιθυμητό
 \item Εξαγωγή των αποτελεσμάτων της προσομοίωσης από το \en{CST} σε μορφή αρχείου \en{ASCII}
 \item Μετατροπή των αποτελεσμάτων της προσομοίωσης σε μορφή αρχείου \en{MATLAB formatted data} (\src{.mat}) για βελτιστοποίηση στο χώρο αποθήκευσης και χρόνο προσπέλασης
-\item Εισαγωγή των δεδομένων στο \en{MATLAB}
+\item Εισαγωγή και προεπεξεργασία των δεδομένων στο \en{MATLAB}
 \item Υπολογισμός των τροχιών σωματιδίων της δέσμης ανίχνευσης μέσα από το \en{MATLAB} στο προσομοιωμένο μαγνητικό πεδίο εισήχθη
 \end{enumerate}
 
@@ -229,6 +229,7 @@ c_{off} \approx 8.002684
 
 \begin{figure}[tbh]
 \includegraphics[width=\textwidth]{figures/export-main-beam-project-efield-box}
+%from Project v0.51 reworked with export.cst
 \centering
 \caption[Η διάταξη προσομοίωσης του κύριου σωλήνα στο \en{CST}]{Η διάταξη προσομοίωσης του κύριου σωλήνα στο \en{CST}. Με πράσινο χρώμα φαίνεται ο \en{E-field monitor}}
 \label{fig:CST-export-main-beam-project-efield-box}
@@ -239,25 +240,97 @@ c_{off} \approx 8.002684
 
 Έτσι, τα αποτελέσματα εξάγονται σε μορφή \src{.txt}, που έχει 9 στήλες: 3 στήλες για τη θέση κάθε σωματιδίου (συντεταγμένες $x$, $y$ και $z$) και 6 για τις τιμές του ηλεκτρικού πεδίου στη θέση αυτή ($\operatorname{Re}(E_x)$, $\operatorname{Re}(E_y)$, $\operatorname{Re}(E_z)$, $\operatorname{Im}(E_x)$, $\operatorname{Im}(E_y)$, $\operatorname{Im}(E_z)$).
 Τα αποτελέσματα απεικονίζουν όλες τις παραπάνω τιμές ξεκινώντας από το πρώτο \en{sample} και συνεχίζοντας μέχρι το τελευταίο.
+Παρακάτω φαίνεται ένα δείγμα εξόδου.
+\begin{lstlisting}[
+	language={},
+	backgroundcolor=\color{white},
+	basicstyle=\tiny\ttfamily\selectlanguage{english},
+	float,
+	frame=none,
+    numbers=none,                        
+    tabsize=2,	
+    literate={\ \ \ }{{\ \ }}2 {---}{{--}}2,
+]
+       x [m]          y [m]          z [m]     ExRe [V/m]     EyRe [V/m]     EzRe [V/m]     ExIm [V/m]     EyIm [V/m]     EzIm [V/m]  
+------------------------------------------------------------------------------------------------------------------------------------------
+Sample 1
+       -0.125          -0.05           -2.5              0              0              0              0              0              0
+       -0.115          -0.05           -2.5              0              0              0              0              0              0
+       -0.105          -0.05           -2.5              0              0              0              0              0              0
+       -0.095          -0.05           -2.5              0              0              0              0              0              0
+       -0.085          -0.05           -2.5              0              0              0              0              0              0
+       -0.075          -0.05           -2.5              0              0              0              0              0              0
+       -0.065          -0.05           -2.5              0              0              0              0              0              0
+Sample 2
+       -0.125          -0.05           -2.5              0              0              0              0              0              0
+       -0.115          -0.05           -2.5              0              0              0              0              0              0
+       -0.105          -0.05           -2.5              0              0              0              0              0              0
+       -0.095          -0.05           -2.5              0              0              0              0              0              0
+       -0.085          -0.05           -2.5              0              0              0              0              0              0
+       -0.075          -0.05           -2.5              0              0              0              0              0              0
+       -0.065          -0.05           -2.5              0              0              0              0              0              0
+\end{lstlisting}
 
 \subsection{Μετατροπή των αποτελεσμάτων}
 
-%TODO continue from here
+Τα αποτελέσματα, όπως βγαίνουν από το \en{CST}, είναι σε μορφή εύκολη για ανάγνωση από άνθρωπο αλλά όχι για επεξεργασία ή αποτελεσματική αποθήκευση. 
+Για το λόγο αυτό, τα αποτελέσματα μετατρέπονται σε άλλη μορφή. 
 
-\lstinputlisting[language=matlab, float, linerange={1-8, 44-62}, caption={\tg{Μέρος της συνάρτησης }\src{importField.m}}]{code/particle-path-calculation/importField.m}
+Η μορφή που επιλέχθηκε για τη μετατροπή των δεδομένων είναι η μορφή αρχείου \en{MATLAB formatted data} (\src{.mat}).
+Η επιλογή έγινε με βάση την απόδοση του τύπου αρχείου σε χώρο αποθήκευσης και χρόνο προσπέλασης, καθώς και το γεγονός ότι χρησιμοποιείται το \en{MATLAB} για την χρήση των δεδομένων στα επόμενα στάδια της διαδικασίας.
 
-\lstinputlisting[language=matlab, float, linerange={1-9,16-37, 51-60}, caption={\tg{Μέρος της συνάρτησης }\src{convertFieldDataToCell.m}}]{code/particle-path-calculation/convertFieldDataToCell.m}
+Για τη μετατροπή αυτή δημιουργήθηκε η συνάρτηση \src{importField.m}, η οποία ουσιαστικά είναι \en{parser} αρχείων της μορφής που παρουσιάστηκε, και τα αποθηκεύει σε έναν πίνακα της μορφής \src{Field} $=$ \en{Samples} $\times$ Μεταβλητές $\times$ Τιμές.
+Η συνάρτηση ανοίγει το αρχείο των αποτελεσμάτων του \en{CST} και το διαβάζει γραμμή-γραμμή αγνοώντας τις πρώτες 2 γραμμές. 
+Αν η γραμμή περιέχει δεδομένα, τα αποθηκεύει στον πίνακα, στο τρέχον \en{Sample}, αλλιώς (αν δηλαδή περιέχει το \en{string } \src{Sample X}) αυξάνει το τρέχον \en{Sample} κατά 1. 
+Κατά τη διαδικασία αυτή αγνοούμε τις 3 τελευταίες στήλες, που περιέχουν τα δεδομένα $\operatorname{Im}(E_x)$, $\operatorname{Im}(E_y)$ και $\operatorname{Im}(E_z)$, καθώς για την περίπτωσή μας δεν έχουμε μιγαδική συνιστώσα στο ηλεκτρικό πεδίο.
+Τμήμα του κώδικα φαίνεται στον Κώδικα \ref{lst:importField}. 
+Δεν παρατίθεται το κομμάτι που αρχικοποιεί τις διαστάσεις του πίνακα.
 
-\subsection{Εισαγωγή των δεδομένων στο \en{MATLAB}}
+\lstinputlisting[language=matlab, float, label={lst:importField}, linerange={1-8, 44-62}, caption={\tg{Τμήμα της συνάρτησης }\src{importField.m}}]{code/particle-path-calculation/importField.m}
 
+\subsection{Εισαγωγή και προεπεξεργασία των δεδομένων στο \en{MATLAB}}
+
+Αφού γίνει η μετατροπή του αρχείου σε επεξεργάσιμη μορφή, τα δεδομένα εισάγονται στο \en{MATLAB} για επεξεργασία και χρήση.
+Η μορφή πίνακα, στην οποία είναι αποθηκευμένα, αν και πιο βολική από την αρχική, χρειάζεται επιπλέον επεξεργασία για την αποτελεσματική χρήση των δεδομένων.
+Συγκεκριμένα, για να υπολογιστεί η τροχιά σωματιδίων στο ηλεκτρικό πεδίο που λαμβάνουμε από το \en{CST}, θα χρειαστεί να κάνουμε παρεμβολή για τη θέση του σωματιδίου σε κάθε χρονική στιγμή, για να βρούμε την τιμή του πεδίου στη θέση αυτή και να υπολογίσουμε την επόμενη. 
+Η παρεμβολή αυτή απαιτεί τα δεδομένα να βρίσκονται σε μορφή \en{mesh}.
+
+Έτσι, μετατρέπουμε τον πίνακα που λαμβάνουμε από το προηγούμενο πίνακα σε ένα \en{`cell array'} που περιέχει ως στοιχεία πίνακες σε \en{mesh format}, έναν για κάθε χρονική στιγμή. 
+Αυτή η διαδικασία πραγματοποιείται με τη συνάρτηση \src{convertFieldDataToCell.ms}
+
+Τμήμα του κώδικα της συνάρτησης φαίνεται στον Κώδικα \ref{lst:convertFieldDataToCell}. 
+Δεν παρατίθεται το κομμάτι που κάνει αλλαγές στη σειρά αποθήκευσης των μεταβλητών μέσα στο \en{cell}.
+
+\lstinputlisting[language=matlab, float, label={lst:convertFieldDataToCell}, linerange={1-9,16-37, 51-60}, caption={\tg{Τμήμα της συνάρτησης }\src{convertFieldDataToCell.m}}]{code/particle-path-calculation/convertFieldDataToCell.m}
 
 \subsection{Υπολογισμός των τροχιών της δέσμης ανίχνευσης}
-\lstinputlisting[language=matlab, float, caption={\tg{Η συνάρτηση }\src{calcNextPosition.m}}]{code/particle-path-calculation/calcNextPosition.m}
 
-\lstinputlisting[language=matlab, float, caption={\tg{Η συνάρτηση }\src{calcField.m}}]{code/particle-path-calculation/calcField.m}
+Στην τελευταία φάση της διαδικασίας υπολογίζουμε τις τροχιές της δέσμης ανίχνευσης.
+Η διαδικασία που ακολουθείται είναι η εξής: ξεκινώντας από την πρώτη χρονική στιγμή, δημιουργούμε ένα σωματίδιο κάθε χρονική στιγμή στη θέση αφετηρίας της δέσμης ανίχνευσης, με δεδομένη αρχική ταχύτητα.
+Στη συνέχεια, υπολογίζουμε για καθένα από τα σωματίδια το διάνυσμα $\left(x, y, z, v_x, v_y, v_z\right)$, δεδομένης της τιμής  του πεδίου στη θέση που βρίσκεται το σωματίδιο.
+Σε περίπτωση που το ηλεκτρικό πεδίο δεν είναι καθορισμένο στη συγκεκριμένη θέση, γίνεται γραμμική παρεμβολή για τον υπολογισμό της τιμής του, κάνοντας χρήση της συνάρτησης του \en{MATLAB} \src{interp3}.
 
-\lstinputlisting[language=matlab, float, caption={\tg{Η συνάρτηση }\src{lininterp1.m}}]{code/particle-path-calculation/lininterp1.m}
+Για την υλοποίηση της διαδικασίας αυτής υλοποιήθηκαν 4 συναρτήσεις.
+
+Για τον υπολογισμό του διανύσματος $\left(x, y, z, v_x, v_y, v_z\right)$ στην επόμενη θέση, δημιουργήθηκε η συνάρτηση \src{calcNextPosition.m}.
+Αυτή υπολογίζει τη νέα θέση σύμφωνα με την εξίσωση $\vec{s}_{new} = \vec{s}_{old} + \vec{v}_{old}\, \Delta t$ και στη συνέχεια, αφού υπολογιστεί η τιμή του μαγνητικού πεδίου $\vec{E}_{new}$ στη νέα θέση, υπολογίζεται η νέα ταχύτητα με βάση την εξίσωση $\vec{v}_{new} = \vec{v}_{old} + \vec{E}_{new} \frac{q_e \, \Delta t}{m_e}$.
+%TODO check if the science is right
+Η συνάρτηση \src{calcNextPosition.m} φαίνεται στον Κώδικα \ref{lst:calcNextPosition}.
+
+\lstinputlisting[language=matlab, float, label={lst:calcNextPosition}, linerange={1-13,18-29}, caption={\tg{Η συνάρτηση }\src{calcNextPosition.m}}]{code/particle-path-calculation/calcNextPosition.m}
+
+Για τον υπολογισμό της τιμή του μαγνητικού πεδίου $\vec{E}_{new}$ σε δεδομένη θέση, δημιουργήθηκε η συνάρτηση  \src{calcField.m}, η οποία πραγματοποιεί τη γραμμική παρεμβολή που αναφέρθηκε παραπάνω. 
+Η συνάρτηση \src{calcField.m} φαίνεται στον Κώδικα \ref{lst:calcField}.
+
+\lstinputlisting[language=matlab, float, label={lst:calcField},  linerange={1-4,7-27}, caption={\tg{Η συνάρτηση }\src{calcField.m}}]{code/particle-path-calculation/calcField.m}
+
+Η υλοποίηση της μεθόδου γίνεται στο σχετικό \src{script}, τμήμα του οποίου παρατίθεται στον Κώδικα \ref{lst:particle-path-calculation-script}.
 
 
-Το \en{script} που εκτελεί τον υπολογισμό της τροχιάς
+\lstinputlisting[language=matlab, float, label={lst:particle-path-calculation-script}, linerange={54-71,96-116}, caption={\tg{Τμήμα του }\en{script}\tg{ που εκτελεί τον υπολογισμό της τροχιάς για ένα σωματίδιο}}]{code/particle-path-calculation/script.m}
+
+%not worth mentioning
+%\lstinputlisting[language=matlab, float, label={lst:lininterp1}, caption={\tg{Η συνάρτηση }\src{lininterp1.m}}]{code/particle-path-calculation/lininterp1.m}
+
+
 

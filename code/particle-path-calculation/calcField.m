@@ -8,16 +8,11 @@ function E_new = calcField(pos, Field, t, timeUnit)
 	sampleNo = round(t/timeUnit); 
 	% round because it sometimes gives result as double
 
-	Xq = pos(1);
-	Yq = pos(2);
-	Zq = pos(3);
+	Xq = pos(1); Yq = pos(2); Zq = pos(3);
 
-	X  = Field{sampleNo, 1};
-	Y  = Field{sampleNo, 2};
-	Z  = Field{sampleNo, 3};
-	Ex = Field{sampleNo, 4};
-	Ey = Field{sampleNo, 5};
-	Ez = Field{sampleNo, 6};
+	X  = Field{sampleNo, 1}; Ex = Field{sampleNo, 4};
+	Y  = Field{sampleNo, 2}; Ey = Field{sampleNo, 5};
+	Z  = Field{sampleNo, 3}; Ez = Field{sampleNo, 6};	
 
 	Exq = interp3(X, Y, Z, Ex, Xq, Yq, Zq, 'linear');
 	Eyq = interp3(X, Y, Z, Ey, Xq, Yq, Zq, 'linear');
