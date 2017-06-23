@@ -1,7 +1,8 @@
 ## My ignored folders
 images/unused/
 figures/unused/
-code/unused
+code/unused/
+cst models/
 
 ## My ignored files
 main.edx
