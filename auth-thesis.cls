@@ -114,9 +114,10 @@
                 %
                 \begin{center}
                     \huge{\textsc{\@translator}}\\
-                    \vspace{3mm}
-                    \normalsize{του}\\
-                    \vspace{3mm}
+                    %\vspace{3mm}
+                    % \normalsize{του}\\
+                    %\vspace{3mm}
+                    \vspace{8mm}
                     \large{\textbf{ΟΡΦΕΑ ΑΝΤΩΝΙΟΥ}}
                 \end{center}
                 %
