@@ -5,7 +5,7 @@
 \section{Επίδραση παραμέτρων του επιταχυντή στην ανίχνευση της δέσμης}
 
 \subsection{Αποτελέσματα θεωρητικού μοντέλου}
-Τα αποτελέσματα της ανάλυσης που παρουσιάστηκε στην υπο-ενότητα \ref{sub:variable-analysis-MATLAB} φαίνονται παρακάτω.
+Τα αποτελέσματα της ανάλυσης που παρουσιάστηκαν στην υπο-ενότητα \ref{sub:variable-analysis-MATLAB} φαίνονται παρακάτω.
 
 \begin{figure}[tph]	
 	\begin{subfigure}{0.47\textwidth}
@@ -18,10 +18,10 @@
 	\begin{subfigure}{0.47\textwidth}
 		\includegraphics[width=\linewidth]{figures/MATLAB-variable-analysis/initial-ellipse-height-width}
 		\centering
-		\caption{Το πλάτος και ύψος της έλλειψης στην αρχική κατάσταση}
+		\caption{Το πλάτος και ύψος της χαρακτηριστικής έλλειψης στην αρχική κατάσταση}
 		\label{fig:MATLAB-variable-analysis-initial-ellipse-height-width}
 	\end{subfigure}
-\caption{Απεικόνιση και στοιχεία της χαρακτηριστικής έλλειψης στo αρχική κατάσταση}
+\caption{Απεικόνιση και στοιχεία της χαρακτηριστικής έλλειψης στην αρχική κατάσταση}
 \label{fig:initial-ellipse}
 \end{figure}
 
@@ -29,40 +29,45 @@
 	\begin{subfigure}{0.47\textwidth}
 		\includegraphics[width=\linewidth]{figures/MATLAB-variable-analysis/EBS-variables-intensity}
 		\centering
-		\caption{Επιρροή της έντασης της δέσμης ανίχνευσης στo ύψος και το λόγο της έλλειψης}
+		\caption{Επιρροή της έντασης της κύριας δέσμης στο ύψος και το λόγο της έλλειψης}
 		\label{fig:EBS-variables-intensity}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.47\textwidth}
 		\includegraphics[width=\linewidth]{figures/MATLAB-variable-analysis/EBS-variables-length}
 		\centering
-		\caption{Επιρροή του μήκους της δέσμης ανίχνευσης στo ύψος και το λόγο της έλλειψης}
+		\caption{Επιρροή του μήκους της κύριας δέσμης στο ύψος και το λόγο της έλλειψης}
 		\label{fig:EBS-variables-length}
 	\end{subfigure}
 	\par\bigskip
 	\begin{subfigure}{0.47\textwidth}
 		\includegraphics[width=\linewidth]{figures/MATLAB-variable-analysis/EBS-variables-rho}
 		\centering
-		\caption[Επιρροή της αρχικής θέσης ριπής της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης]{Επιρροή της αρχικής θέσης ριπής ($Y$-\en{offset}) της δέσμης ανίχνευσης στo ύψος και το λόγο της έλλειψης}
+		\caption[Επιρροή της αρχικής θέσης ριπής της δέσμης ανίχνευσης στην ύψος και το λόγο της έλλειψης]{Επιρροή της αρχικής θέσης ριπής ($Y$-\en{offset}) της δέσμης ανίχνευσης στο ύψος και το λόγο της έλλειψης}
 		\label{fig:EBS-variables-rho}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.47\textwidth}
 		\includegraphics[width=\linewidth]{figures/MATLAB-variable-analysis/EBS-variables-voltage-linear}
 		\centering
-		\caption{Επιρροή της τάσης της δέσμης ανίχνευσης στo ύψος και το λόγο της έλλειψης, σε γραμμικούς άξονες}
+		\caption{Επιρροή της τάσης της κύριας δέσμης στο ύψος και το λόγο της έλλειψης, σε γραμμικούς άξονες}
 		\label{fig:EBS-variables-voltage-linear}
 	\end{subfigure}
-	\par\bigskip
-	\begin{subfigure}{0.47\textwidth}
-		\includegraphics[width=\linewidth]{figures/MATLAB-variable-analysis/EBS-variables-voltage-log}
-		\centering
-		\caption{Επιρροή της τάσης της δέσμης ανίχνευσης στo ύψος και το λόγο της έλλειψης, σε ημιλογαριθμικούς άξονες}
-		\label{fig:EBS-variables-voltage-log}
-	\end{subfigure}
-\caption{Επιρροή διαφόρων μεγεθών στη χαρακτηριστική έλλειψη}
 \label{fig:beam-deflectoin}
 \end{figure}
+
+
+
+Παρατηρούμε ότι:
+\begin{itemize}
+\item Η ένταση της δέσμης έχει γραμμική σχέση με το ύψος της έλλειψης, αλλά ο λόγος δεν επηρεάζεται, και άρα δεν εξαρτάται από αυτήν
+\item Όσο αυξάνεται το μήκος της κύριας δέσμης μειώνεται το ύψος της έλλειψης. \\
+Μειώνεται επίσης και ο λόγος της έλλειψης, αλλά πολύ λιγότερο
+\item Η αύξηση της αρχικής θέσης ριπής οδηγεί σε ραγδαία μείωση του ύψους και του λόγου της έλλειψης
+\item Η τάση της κύριας δέσμης προκαλεί μείωση του ύψους και λόγου της έλλειψης, για μικρές τιμές της. 
+Μετά τα \SI{3e5}{\kilo \volt} περίπου η επιπλέον αύξηση της τάσης δεν προκαλεί αλλαγές στην έλλειψη
+\end{itemize}
+
 
 \subsection{Αποτελέσματα προσομοίωσης}
 % check "Student meeting 2014-06-23" and "Student meeting 2014-08-04"
@@ -70,6 +75,12 @@
 
 
 \subsection{Σύγκριση αποτελεσμάτων}
+
+
+
+
+
+
 
 \section{Αποτελέσματα προσομοίωσης της μεθόδου στο \en{CST}}
 
@@ -97,6 +108,8 @@
 \caption{Σύγκριση της εκτίμησης για την 1\textsuperscript{η} και 10\textsuperscript{η} δέσμη, και της πραγματικής κατανομής σωματιδίων στη δέσμη στο \en{CST}}
 \label{fig:CST-EBS-implementation}
 \end{figure}
+
+
 
 
 \section{Αποτελέσματα ανάλυσης με χρήση \en{CST} και \en{MATLAB}}

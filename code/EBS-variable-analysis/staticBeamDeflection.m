@@ -5,11 +5,11 @@ function [theta_y, theta_z] = staticBeamDeflection( ...
 % x:	position of the scanning beam, assuming the main beam is 
 %	   centered at x = 0	   
 % rho:  offset of the scanning beam in Y axis
-% beta: relative velocity of the testing beam, beta = v_t / c
+% beta: relative velocity of the main beam, beta = v_t / c
 % n(z): function expressing the main beam linear density along 
 %	   Z axis
 % r_e:  electron radius
-% sigma:bunch length
+% sigma:main beam bunch length
 	  
 	% compute theta Y
 	fun_y = @(z) n(z) ./ (rho .* rho + (x + beta .* z) .* ...

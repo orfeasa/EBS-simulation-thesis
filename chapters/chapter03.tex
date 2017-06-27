@@ -45,21 +45,64 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 
 \section{Επιρροή μεταβλητών σε έναν \en{Electron Beam Scanner}}
 
-Ιδιαίτερο ενδιαφέρον παρουσιάζει το πώς διάφορες μεταβλητές επηρεάζουν τα στοιχεία της χαρακτηριστικής έλλειψης που παρουσιάστηκαν.
+Ενδιαφέρον παρουσιάζει το πώς διάφορες μεταβλητές επηρεάζουν τα στοιχεία της χαρακτηριστικής έλλειψης που παρουσιάστηκαν.
 Συγκεκριμένα, διερευνήθηκε πώς επηρεάζουν τη χαρακτηριστική έλλειψη τα εξής μεγέθη:
 \begin{enumerate}
-	\item Ένταση της δέσμης ανίχνευσης
-	\item Μήκος της δέσμης ανίχνευσης
-	\item Αρχική θέση ριπής κατά $Y$ ($\rho$) 
-	\item Τάση της δέσμης ανίχνευσης
+	\item Ένταση της κύριας δέσμης $Q_i$ (ανά παλμό)
+	\item Μήκος της κύριας δέσμης $\sigma$
+	\item Αρχική θέση ριπής $\rho$ κατά $Y$
+	\item Τάση της δέσμης ανίχνευσης $V$
 \end{enumerate}
+
+Το εύρος των παραμέτρων που μελετήθηκε φαίνεται στον Πίνακα \ref{tab:simulation-ranges}.
+
+\begin{table}[tph]
+\centering
+	\begin{tabular}{l c c}
+		\toprule
+		Μέγεθος & Σύμβολο & Εύρος τιμών μελέτης\\		
+		\midrule
+		Ένταση της κύριας δέσμης	& $Q_i$		& \SIrange{5.9e-5}{5.9e-3}{\coulomb} \\
+		Μήκος της κύριας δέσμης 	& $\sigma$	& \SIrange{1e-4}{2e-1}{\meter}\\
+		Αρχική θέση ριπής κατά $Y$ 	& $\rho$	& \SIrange{0}{2}{\meter}\\
+		Τάση της δέσμης ανίχνευσης	& $V$		& \SIrange{2e2}{2e6}{\volt}\\
+		\bottomrule
+	\end{tabular}
+\caption{Το εύρος των παραμέτρων που μελετήθηκαν στην μελέτη επιρροής μεταβλητών}
+\label{tab:simulation-ranges}
+\end{table}
 
 \subsection{Μελέτη θεωρητικού μοντέλου με το \en{MATLAB}} \label{sub:variable-analysis-MATLAB}
 Για τη διερεύνηση αυτή δημιουργήθηκε ένα \en{script} στο \en{MATLAB}, όπου χρησιμοποιήθηκε το μοντέλο που παρουσιάστηκε στην υπο-ενότητα \ref{sub:EBS-model} και έγιναν οι μελέτες για το πώς επηρεάζει η κάθε παράμετρος ξεχωριστά τη χαρακτηριστική έλλειψη της δέσμης. 
 
-Για το σκοπό της ανάλυσης δημιουργήθηκε η συνάρτηση \src{staticBeamDeflection.m}, η οποία δέχεται ως ορίσματα τη θέση $x$ του σωματιδίου την $t = 0$, την αρχική θέση ρίψης $\rho$, τη σχετική ταχύτητα $\beta$ της δέσμης ανίχνευσης, τη συνάρτηση γραμμικής πυκνότητας $n(z)$ και το μήκος $\sigma$ της δέσμης, και δίνει ως έξοδο τις γωνίες απόκλισης $\theta_y$ και $\theta_z$, σύμφωνα με τις εξισώσεις της υπο-ενότητας \ref{sub:EBS-model}.
+Για τη διευκόλυνση του αναγνώστη παρατίθενται οι Εξισώσεις \ref{eq:thetayLogatchov1999} και \ref{eq:thetazLogatchov1999} εκ νέου:
+\begin{equation}
+\theta_y (x) = \frac{2 \rho r_e}{\beta} \int_{-\infty}^{\infty}\frac{n(z) \dd z}{\rho^2 + \left(x+\beta z \right) ^2} \tag{\ref{eq:thetayLogatchov1999}} 
+\end{equation}
+\begin{equation}
+\theta_z(x) = 2 r_e \int_{-\infty}^{\infty}\frac{(x+\beta z)n(z) \dd z}{\rho^2 + \left(x+\beta z \right) ^2}	\tag{\ref{eq:thetazLogatchov1999}} 
+\end{equation}
+όπου:
+\begin{itemize}
+\item $r_e$: η κλασική ακτίνα του ηλεκτρονίου,
+\item $\beta =\frac{v_t}{c}$: η σχετική ταχύτητα της δέσμης ανίχνευσης,
+\item $c$: η ταχύτητα του φωτός,
+\item $x$: η θέση σωματιδίου της δέσμης ανίχνευσης τη χρονική στιμή $t=0$,
+\item $n(z)$: η γραμμική πυκνότητα της κύριας δέσμης κατά τον άξονα $Z$.
+\end{itemize} 
 
+Για το σκοπό της ανάλυσης δημιουργήθηκε στο \en{MATLAB} η συνάρτηση \src{staticBeamDeflection.m}, η οποία δέχεται ως ορίσματα τη θέση $x$ του σωματιδίου την $t = 0$, την αρχική θέση ρίψης $\rho$, τη σχετική ταχύτητα $\beta$ της δέσμης ανίχνευσης, τη συνάρτηση γραμμικής πυκνότητας $n(z)$ και το μήκος $\sigma$ της δέσμης, και δίνει ως έξοδο τις γωνίες απόκλισης $\theta_y$ και $\theta_z$, σύμφωνα με τις εξισώσεις Εξισώσεις \ref{eq:thetayLogatchov1999} και \ref{eq:thetazLogatchov1999}.
 Η συνάρτηση αυτή παρουσιάζεται στον Κώδικα \ref{lst:staticBeamDeflection}.
+
+Λόγω του γεγονότος ότι το παραπάνω μοντέλο δε έχει ως μεταβλητές κάποιες από αυτές που θέλουμε να μελετήσουμε ως έχουν χρειάστηκε να γίνουν κάποιες μετατροπές. 
+Συγκεκριμένα για την ένταση της κύριας δέσμης και την τάση της δέσμης ανίχνευσης, χρησιμοποιήσαμε τις παρακάτω ιδιότητες:
+
+\begin{itemize}
+	\item Η ένταση της κύριας δέσμης $Q_i$ ανά παλμό επηρεάζει τα ηλεκτρόνια ανά δέσμη $N_e$ σύμφωνα με την εξίσωση $N_e = \frac{Q_i}{N_b q_e}$, όπου $N_b$ ο αριθμός δεσμών ανά παλμό και $q_e$ το στοιχειώδες φορτίο του ηλεκτρονίου.
+	Επομένως, έτσι επηρεάζεται η γραμμική πυκνότητα της κύριας δέσμης $n(z)$ κατά τον άξονα $Z$ ως εξής: $n(z) = N_e \cdot \mathcal{N}\left(0, \sigma^2 \right)$
+	\item Η τάση της δέσμης ανίχνευσης $V$ επηρεάζει το συντελεστή ενέργειας κινούμενου σωματιδίου $\gamma = 1 + \frac{V}{E_0}$, όπου για το $\gamma$ ισχύει ότι η ενέργεια $E$ κινούμενου σωματιδίου ισούται με $E = \gamma E_0 = \gamma m_ 0c^2$. 
+	Έτσι, επηρεάζεται η σχετική ταχύτητα $\beta =\frac{v_t}{c}$ της δέσμης ανίχνευσης, λόγω του ότι $\beta = \sqrt{1 - \frac{1}{\gamma^2}}$
+\end{itemize}
 
 \lstinputlisting[
 	float,
@@ -67,6 +110,34 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 	label={lst:staticBeamDeflection}, 
 	caption={\tg{Η συνάρτηση υπολογισμού των γωνιών απόκλισης της δέσμης}}]
 {code/EBS-variable-analysis/staticBeamDeflection.m}
+
+\subsection{Μελέτη επιρροής μεταβλητών με το \en{CST}} \label{sub:variable-analysis-CST}
+Η ίδια μελέτη έγινε και στο \en{CST}, με σκοπό να φανεί το πώς επηρεάζουν οι μεταβλητές αυτές το μοντέλο όταν αυτό προσομοιωθεί ως κατασκευή.
+
+Τα μεγέθη που μεταβλήθηκαν για την εξαγωγή των αποτελεσμάτων φαίνονται στον Πίνακα \ref{tab:CST-variables-corresponding}. 
+Η μόνη διαφοροποίηση σχετικά με τον τρόπο που έγινε η προσομοίωση στο \en{CST} αφορά την τάση $V$ της δέσμης ανίχνευσης. 
+Καθώς αυτό το μέγεθος δε χρησιμοποιείται έτσι στο μοντέλο του \en{CST}, αυτό έπρεπε να μετατραπεί σε ενέργεια της δέσμης ανίχνευσης. 
+Αυτό έγινε ως εξής:
+%TODO continue from here
+
+\begin{table}[tph]
+\centering
+	\begin{tabular}{l c l}
+		\toprule
+		Μέγεθος & Σύμβολο & Παράμετρος του μοντέλου \en{CST}\\		
+		\midrule
+		Ένταση της κύριας δέσμης	& $Q_i$		& \src{main\_beam\_charge} \\
+		Μήκος της κύριας δέσμης 	& $\sigma$	& \src{main\_beam\_length}\\
+		Αρχική θέση ριπής κατά $Y$ 	& $\rho$	& \src{scan\_beam\_vertical\_offset}\\
+		Τάση της δέσμης ανίχνευσης	& $V$		& \src{scan\_beam\_energy}\\
+		\bottomrule
+	\end{tabular}
+\caption{Αντιστοιχία των μεταβλητών που μελετήθηκαν με το αντίστοιχο μέγεθος στο μοντέλο του \en{CST}}
+\label{tab:CST-variables-corresponding}
+\end{table}
+
+
+
 
 \section{Προσομοίωση \en{Electron Beam Scanner} στο \en{CST}}
 
@@ -149,10 +220,21 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 Για τον υπολογισμό του προφίλ μιας \en{Gaussian} δέσμης, συναντήσαμε το πρόβλημα ότι μετά τον υπολογισμό του προφίλ, το σχήμα δε φαινόταν να έχει αυτό που ήταν αναμενόμενο.
 
 \begin{figure}[tph]
-\includegraphics[width=\textwidth]{figures/CST-profile-steps}
-\centering
-\caption{Το αποτέλεσμα του υπολογισμού του προφίλ στο \en{CST} δε μοιάζει \en{Gaussian}}
-\label{fig:CST-profile-steps}
+	\begin{subfigure}{\textwidth}
+		\includegraphics[width=\textwidth]{figures/CST-profile-steps}
+		\centering
+		\caption{Το αποτέλεσμα του υπολογισμού του προφίλ στο \en{CST} για $c_{off} = 2$. Η μορφή του δεν είναι \en{Gaussian}}
+		\label{fig:CST-profile-steps}
+	\end{subfigure}
+	%TODO compute again steps to have same axes
+	\begin{subfigure}{\textwidth}
+		\includegraphics[width=\textwidth]{figures/CST-profile-nosteps}
+		\centering
+		\caption{Το αποτέλεσμα του υπολογισμού του προφίλ στο \en{CST} για $c_{off} = 8.0027$ έχει \en{Gaussian} μορφή}
+		\label{fig:CST-profile-nosteps}
+	\end{subfigure}
+\caption{Σύγκριση του αποτελέσματος υπολογισμού του προφίλ της δέσμης για $c_{off} = 2$ και $c_{off} = 8.0027$}
+\label{fig:CST-profile-stepcomparison}
 \end{figure}
 
 Για την επίλυση του προβλήματος αυτού, αρχικά ελέγξαμε αν το πρόβλημα βρίσκεται στον τρόπο δημιουργίας της δέσμης ή στον τρόπο ανίχνευσης. 

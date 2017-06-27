@@ -201,13 +201,16 @@ To \en{CERN}, διατηρώντας το ακρωνύμιο της αρχική
 \begin{table}[tph]
 \centering
 	\begin{tabular}{l c}
-		\hline
-		\en{Bunch population}	& \SI{5e10}{\electrons} \\ \hline
-		\en{Transverse Emittance}	& \SI{100}{\nano \meter \radian} \\\hline
-		\en{Bunch length / spacing}	& \SI{13}{\pico \second} / \SI{2}{\nano \second} \\\hline
-		\en{Pulse length}	& \SI{140}{\micro \second} \\\hline
-		\en{Pulse Population}		& \SI{3e15}{\electrons} \\\hline
-		\en{Repetition Frequency}	& \SI{50}{\Hz} \\\hline
+		\toprule
+		Μέγεθος	& Τιμή\\ 
+		\midrule
+		Πληθυσμός δέσμης	& \SI{5e10}{\electrons} \\
+		Εγκάρσια \en{emittance}	& \SI{100}{\nano \meter \radian} \\
+		Μήκος δέσμης / διάκενο	& \SI{13}{\pico \second} / \SI{2}{\nano \second} \\
+		Μήκος παλμού	& \SI{140}{\micro \second} \\
+		Πληθυσμός παλμού		& \SI{3e15}{\electrons} \\
+		Συχνότητα επανάληψης	& \SI{50}{\Hz} \\
+		\bottomrule
 	\end{tabular}
 \caption[Σχετικές παράμετροι για την Δέσμη Οδηγό του επιταχυντή \en{CLIC}]{Σχετικές παράμετροι για την Δέσμη Οδηγό του επιταχυντή \en{CLIC} \protect{\cite{Aicheler2012}}}
 \label{tab:parameters}
@@ -233,7 +236,7 @@ To \en{CERN}, διατηρώντας το ακρωνύμιο της αρχική
 Εδώ υποθέτουμε ότι το $\rho$ είναι μεγαλύτερο του τυπικού εγκάρσιου μεγέθους της κύριας δέσμης.
 Τη χρονική στιγμή $t = 0$ κάθε  σωματίδιο της δέσμης ανίχνευσης αντιστοιχίζεται σε μια συγκεκριμένη θέση $x$.
 Η συνολική γωνία απόκλισης κατά $Y$ για κάθε σωματίδιο υπό την επιρροή του ηλεκτρικού πεδίου της κύριας δέσμης μπορεί να εκφραστεί ως\cite{Logatchov1999}:
-\begin{equation}
+\begin{equation} \label{eq:thetayLogatchov1999}
 \theta_y (x) = \frac{2 \rho r_e}{\beta} \int_{-\infty}^{\infty}\frac{n(z) \dd z}{\rho^2 + \left(x+\beta z \right) ^2}
 \end{equation}
 όπου:
@@ -246,6 +249,6 @@ To \en{CERN}, διατηρώντας το ακρωνύμιο της αρχική
 \end{itemize} 
 
 Η έκφραση για τη γωνία απόκλισης του σωματιδίου κατά $Z$ μπορεί να γραφεί\cite{Logatchov1999}:
-\begin{equation}
+\begin{equation} \label{eq:thetazLogatchov1999}
 \theta_z(x) = 2 r_e \int_{-\infty}^{\infty}\frac{(x+\beta z)n(z) \dd z}{\rho^2 + \left(x+\beta z \right) ^2}
 \end{equation}

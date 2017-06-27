@@ -110,6 +110,7 @@ plot(Q_i_range, Ratios_Q);
 title('Ellipse ratio by bunch intensity');
 xlabel('Bunch intensity [C]');
 ylabel('Ellipse ratio');
+axis([0, 0.006, 3.63, 3.64]);
 
 saveas(f3,'EBS-variables-intensity','epsc')
 
@@ -252,26 +253,28 @@ plot(V_range, Heights_V);
 title('Ellipse height by Voltage [V]');
 xlabel('Voltage [V]');
 ylabel('Ellipse height');
+axis([0, 2000000, 0, 0.3]);
 
 subplot(2,1,2);
 plot(V_range, Ratios_V);
 title('Ellipse ratio by Voltage [V]');
 xlabel('Voltage [V]');
 ylabel('Ellipse ratio');
+axis([0, 2000000, 0, 4]);
 
 saveas(f6,'EBS-variables-voltage-linear','epsc')
 
-f7 = figure;
-subplot(2,1,1);
-semilogx(V_range, Heights_V);
-title('Ellipse height by Voltage [V]');
-xlabel('Voltage [V]');
-ylabel('Ellipse height');
-
-subplot(2,1,2);
-semilogx(V_range, Ratios_V);
-title('Ellipse ratio by Voltage [V]');
-xlabel('Voltage [V]');
-ylabel('Ellipse ratio');
-
-saveas(f7,'EBS-variables-voltage-log','epsc')
+% f7 = figure;
+% subplot(2,1,1);
+% semilogx(V_range, Heights_V);
+% title('Ellipse height by Voltage [V]');
+% xlabel('Voltage [V]');
+% ylabel('Ellipse height');
+% 
+% subplot(2,1,2);
+% semilogx(V_range, Ratios_V);
+% title('Ellipse ratio by Voltage [V]');
+% xlabel('Voltage [V]');
+% ylabel('Ellipse ratio');
+% 
+% saveas(f7,'EBS-variables-voltage-log','epsc')

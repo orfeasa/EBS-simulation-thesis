@@ -15,6 +15,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{array}
+\usepackage{booktabs} %beautiful tables
 \usepackage{color}
 \usepackage{courier}
 \usepackage{caption}
@@ -78,6 +79,10 @@
 
 % create a unit for electrons
 \DeclareSIUnit\electrons{\ensuremath{\mathrm{e^-}}}
+\sisetup{
+	range-phrase = \tg{ έως },
+	range-units = single,
+}
 
 %typeset infx(a) supx(a) etc
 %\newcommand{\infx}[1]{inf_x({#1})}

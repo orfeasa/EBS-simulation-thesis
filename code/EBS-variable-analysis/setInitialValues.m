@@ -53,7 +53,7 @@ Q_i_min = 5.9e-5;
 Q_i_max = 5.9e-3;
 
 sigma_min = 0.1e-3;
-sigma_max = 5e-3;
+sigma_max = 2e-1;
 
 rho_min = 0;
 rho_max = 2;
