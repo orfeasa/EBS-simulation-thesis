@@ -21,7 +21,7 @@ rho = 0.01; % in m
 sigma_s = 4e-3; % in m
 
 % beta: relative velocity of the testing beam, beta = v_t / c
-gamma = 1 + V / E_0;
+gamma = 1 + V / E_0; % because E_0 in eV
 beta = sqrt(1 - 1 / (gamma ^ 2));
 
 % charge per pulse

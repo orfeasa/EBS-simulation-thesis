@@ -1,10 +1,16 @@
-\chapter{Μέθοδοι προσομοίωσης}
-Στο κεφάλαιο αυτό περιγράφεται η υλοποίηση του συστήματος, με βάση τη μελέτη που παρουσιάστηκε στο προηγούμενο κεφάλαιο. 
-Αρχικά παρουσιάζεται η πλατφόρμα και τα προγραμματιστικά εργαλεία που χρησιμοποιήθηκαν. 
+\chapter{Μέθοδοι προσομοίωσης} \label{ch:simulation-methods}
+Στο κεφάλαιο αυτό περιγράφεται η υλοποίηση του συστήματος, με βάση τη θεωρητική ανάλυση που παρουσιάστηκε στο προηγούμενο κεφάλαιο. 
+Αρχικά παρουσιάζεται η πλατφόρμα και τα εργαλεία που χρησιμοποιήθηκαν.
+Στη συνέχεια παρουσιάζονται όσα υλοποιήθηκαν για τη μελέτη του αντικειμένου:
+\begin{itemize}
+\item Η μελέτη επιρροής μεταβλητών σε έναν \en{Electron Beam Scanner}, τόσο σε θεωρητικό επίπεδο όσο και στο προσομοιωμένο μοντέλο του \en{CST}
+\item Ο τρόπος προσομοίωσης ενός \en{Electron Beam Scanner} εξολοκλήρου στο \en{CST}
+\item Η βελτίωση της μεθόδου προσομοίωσης, χρησιμοποιώντας το \en{CST} ως το μέσο προσομοίωσης του ηλεκτρικού πεδίου της κύριας δέσμης και στη συνέχεια το \en{MATLAB} για τον υπολογισμό των τροχιών των σωματιδίων της δέσμης ανίχνευσης μέσα στο πεδίο που εξάγεται από το \en{CST}
+\end{itemize}
 
 \section{Εργαλεία που χρησιμοποιήθηκαν}
 Για την υλοποίηση των προσομοιώσεων χρησιμοποιήθηκε το πρόγραμμα \en{CST Particle Studio}, της σουίτας προγραμμάτων προσομοίωσης \en{CST Studio Suite}. 
-Για την επεξεργασία των αποτελεσμάτων χρησιμοποιήθηκε το πρόγραμμα \en{MATLAB}. 
+Για την επεξεργασία και επιπλέον ανάλυση των αποτελεσμάτων του \en{CST}, καθώς και βοηθητικά για τη βελτίωση του μοντέλου στο \en{CST} χρησιμοποιήθηκε το πρόγραμμα \en{MATLAB}. 
 Τα προγράμματα παρουσιάζονται πιο αναλυτικά παρακάτω.
 
 \subsection{Το \en{CST Particle Studio}}
@@ -22,7 +28,7 @@
 
 Για σχετικιστικές εφαρμογές, ο \en{wakefield solver} μπορεί να υπολογίσει πώς τα πεδία που δημιουργούνται από σωματίδια που κινούνται στην (ή κοντά στην) ταχύτητα του φωτός, αλληλεπιδρούν με τη δομή γύρω τους.
 
-Το \en{CST PS} έχει ενσωματωμένα τα \en{3D EM modules} του \en{CST STUDIO SUITE\textsuperscript{\textregistered}}, όπως τα \en{CST EM STUDIO\textsuperscript{\textregistered} electro- and magnetostatic solvers} και το \en{CST MICROWAVE STUDIO\textsuperscript{\textregistered} eigenmode solver}.
+Το \en{CST PS} έχει ενσωματωμένα τα \en{3D EM modules} του \en{CST STUDIO SUITE\textsuperscript{\textregistered}}, όπως τα \en{CST EM STUDIO\textsuperscript{\textregistered} electro-} και \en{magnetostatic solvers} και το \en{CST MICROWAVE STUDIO\textsuperscript{\textregistered} eigenmode solver}.
 
 Είναι πλήρως ενσωματωμένα στο περιβάλλον σχεδίασης \en{CST STUDIO SUITE}, χρησιμοποιώντας έτσι τις δυνατότητες μοντελοποίησης και τα \en{import interfaces}.
 
@@ -31,10 +37,11 @@
 
 \subsection{Το \en{MATLAB}}
 Το \en{MATLAB (matrix laboratory)} είναι ένα περιβάλλον αριθμητικής υπολογιστικής και μια προγραμματιστική γλώσσα τέταρτης γενιάς. 
-\en{A proprietary programming language developed by MathWorks, MATLAB allows matrix manipulations, plotting of functions and data, implementation of algorithms, creation of user interfaces, and interfacing with programs written in other languages, including C, C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\tiny\bf +}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\tiny\bf +}, C$\sharp$, Java, Fortran and Python.}
+Το \en{MATLAB} δίνει έχει δυνατότητες όπως αποτελεσματικό πολλαπλασιασμό πινάκων, γραφική παράσταση συναρτήσεων και δεδομένων, υλοποίηση αλγορίθμων, δημιουργία \en{user interfaces} και δυνατότητα διεπαφής με προγράμματα γραμμένα σε άλλες γλώσσες, όπως
+\en{C, C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\tiny\bf +}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\tiny\bf +}, C$\sharp$, Java, Fortran} και \en{Python}.
 
-\en{Although MATLAB is intended primarily for numerical computing, an optional toolbox uses the MuPAD symbolic engine, allowing access to symbolic computing abilities. 
-An additional package, Simulink, adds graphical multi-domain simulation and model-based design for dynamic and embedded systems.}
+Αν και το \en{MATLAB} προορίζεται κυρίως για αριθμητικούς υπολογισμούς, έχει προαιρετικό \en{toolbox} που χρησιμοποιεί τη συμβολική μηχανή \en{MuPAD}, επιτρέποντας έτσι την εκτέλεση συμβολικών υπολογισμών.
+Ένα επιπλέον πακέτο, το \en{Simulink}, προσθέτει δυνατότητα προσομοιώσεων σε διάφορους τομείς και δυνατότητες μοντελοποίησης για δυναμικά και ενσωματωμένα συστήματα.
 
 \begin{figure}[tph]
 \includegraphics[width=0.25\textwidth]{images/Matlab-logo}
@@ -58,14 +65,32 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 
 \begin{table}[tph]
 \centering
-	\begin{tabular}{l c c}
+	\begin{tabular}{l c S s}
 		\toprule
-		Μέγεθος & Σύμβολο & Εύρος τιμών μελέτης\\		
+		Μέγεθος & Σύμβολο & {Αρχική Τιμή} & \multicolumn{1}{c}{Μονάδα Μέτρησης}\\		
 		\midrule
-		Ένταση της κύριας δέσμης	& $Q_i$		& \SIrange{5.9e-5}{5.9e-3}{\coulomb} \\
-		Μήκος της κύριας δέσμης 	& $\sigma$	& \SIrange{1e-4}{2e-1}{\meter}\\
-		Αρχική θέση ριπής κατά $Y$ 	& $\rho$	& \SIrange{0}{2}{\meter}\\
-		Τάση της δέσμης ανίχνευσης	& $V$		& \SIrange{2e2}{2e6}{\volt}\\
+		Ένταση της κύριας δέσμης	& $Q_i$		& 5.9e-4	& \coulomb \\
+		Μήκος της κύριας δέσμης 	& $\sigma$	& 4e-3		& \meter \\
+		Αρχική θέση ριπής κατά $Y$ 	& $\rho$	& 1e-2		& \meter \\
+		Τάση της δέσμης ανίχνευσης	& $V$		& 2e4		& \volt \\
+		\bottomrule
+	\end{tabular}
+\caption{Αρχικές τιμές των παραμέτρων που μελετήθηκαν}
+\label{tab:simulation-initial-values}
+\end{table}
+
+\begin{table}[tph]
+\centering
+	\begin{tabular}{c SS s}
+		\toprule
+		Σύμβολο & \multicolumn{2}{c}{Εύρος τιμών} & \multicolumn{1}{c}{Μονάδα Μέτρησης}\\	
+		\cmidrule{2-3}	
+		 & {Ελάχιστη} & {Μέγιστη} & \\
+		\midrule
+		$Q_i$		& 5.9e-5	& 5.9e-3	& \coulomb \\
+		$\sigma$	& 1e-4		& 2e-1		& \meter \\
+		$\rho$		& 0			& 2			& \meter \\
+		$V$			& 2e2		& 2e6		& \volt \\
 		\bottomrule
 	\end{tabular}
 \caption{Το εύρος των παραμέτρων που μελετήθηκαν στην μελέτη επιρροής μεταβλητών}
@@ -91,7 +116,7 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 \item $n(z)$: η γραμμική πυκνότητα της κύριας δέσμης κατά τον άξονα $Z$.
 \end{itemize} 
 
-Για το σκοπό της ανάλυσης δημιουργήθηκε στο \en{MATLAB} η συνάρτηση \src{staticBeamDeflection.m}, η οποία δέχεται ως ορίσματα τη θέση $x$ του σωματιδίου την $t = 0$, την αρχική θέση ρίψης $\rho$, τη σχετική ταχύτητα $\beta$ της δέσμης ανίχνευσης, τη συνάρτηση γραμμικής πυκνότητας $n(z)$ και το μήκος $\sigma$ της δέσμης, και δίνει ως έξοδο τις γωνίες απόκλισης $\theta_y$ και $\theta_z$, σύμφωνα με τις εξισώσεις Εξισώσεις \ref{eq:thetayLogatchov1999} και \ref{eq:thetazLogatchov1999}.
+Για το σκοπό της ανάλυσης δημιουργήθηκε η συνάρτηση \src{staticBeamDeflection.m} στο \en{MATLAB}, η οποία δέχεται ως ορίσματα τη θέση $x$ του σωματιδίου την $t = 0$, την αρχική θέση ρίψης $\rho$, τη σχετική ταχύτητα $\beta$ της δέσμης ανίχνευσης, τη συνάρτηση γραμμικής πυκνότητας $n(z)$ και το μήκος $\sigma$ της δέσμης, και δίνει ως έξοδο τις γωνίες απόκλισης $\theta_y$ και $\theta_z$, σύμφωνα με τις εξισώσεις Εξισώσεις \ref{eq:thetayLogatchov1999} και \ref{eq:thetazLogatchov1999}.
 Η συνάρτηση αυτή παρουσιάζεται στον Κώδικα \ref{lst:staticBeamDeflection}.
 
 Λόγω του γεγονότος ότι το παραπάνω μοντέλο δε έχει ως μεταβλητές κάποιες από αυτές που θέλουμε να μελετήσουμε ως έχουν χρειάστηκε να γίνουν κάποιες μετατροπές. 
@@ -99,9 +124,9 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 
 \begin{itemize}
 	\item Η ένταση της κύριας δέσμης $Q_i$ ανά παλμό επηρεάζει τα ηλεκτρόνια ανά δέσμη $N_e$ σύμφωνα με την εξίσωση $N_e = \frac{Q_i}{N_b q_e}$, όπου $N_b$ ο αριθμός δεσμών ανά παλμό και $q_e$ το στοιχειώδες φορτίο του ηλεκτρονίου.
-	Επομένως, έτσι επηρεάζεται η γραμμική πυκνότητα της κύριας δέσμης $n(z)$ κατά τον άξονα $Z$ ως εξής: $n(z) = N_e \cdot \mathcal{N}\left(0, \sigma^2 \right)$
-	\item Η τάση της δέσμης ανίχνευσης $V$ επηρεάζει το συντελεστή ενέργειας κινούμενου σωματιδίου $\gamma = 1 + \frac{V}{E_0}$, όπου για το $\gamma$ ισχύει ότι η ενέργεια $E$ κινούμενου σωματιδίου ισούται με $E = \gamma E_0 = \gamma m_ 0c^2$. 
-	Έτσι, επηρεάζεται η σχετική ταχύτητα $\beta =\frac{v_t}{c}$ της δέσμης ανίχνευσης, λόγω του ότι $\beta = \sqrt{1 - \frac{1}{\gamma^2}}$
+	Επομένως, έτσι επηρεάζεται η γραμμική πυκνότητα της κύριας δέσμης $n(z)$ κατά τον άξονα $Z$ ως εξής: $n(z) = N_e \cdot \mathcal{N}\left(0, \sigma^2 \right)$.
+	\item Η τάση της δέσμης ανίχνευσης $V$ επηρεάζει τον παράγοντα \en{Lorenz} $\gamma = 1 + \frac{V}{E_0}$, όπου για το $\gamma$ ισχύει ότι η ενέργεια $E$ κινούμενου σωματιδίου ισούται με $E = \gamma E_0 = \gamma m_ 0c^2$. 
+	Έτσι, επηρεάζεται η σχετική ταχύτητα $\beta =\frac{v_t}{c}$ της δέσμης ανίχνευσης, λόγω του ότι $\beta = \sqrt{1 - \frac{1}{\gamma^2}}$ \cite{Forshaw2014}.
 \end{itemize}
 
 \lstinputlisting[
@@ -112,13 +137,23 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 {code/EBS-variable-analysis/staticBeamDeflection.m}
 
 \subsection{Μελέτη επιρροής μεταβλητών με το \en{CST}} \label{sub:variable-analysis-CST}
-Η ίδια μελέτη έγινε και στο \en{CST}, με σκοπό να φανεί το πώς επηρεάζουν οι μεταβλητές αυτές το μοντέλο όταν αυτό προσομοιωθεί ως κατασκευή.
+Η ίδια μελέτη έγινε και στο \en{CST}, με σκοπό να φανεί το πώς επηρεάζουν οι μεταβλητές αυτές το μοντέλο, όταν αυτό προσομοιωθεί ως κατασκευή.
 
 Τα μεγέθη που μεταβλήθηκαν για την εξαγωγή των αποτελεσμάτων φαίνονται στον Πίνακα \ref{tab:CST-variables-corresponding}. 
-Η μόνη διαφοροποίηση σχετικά με τον τρόπο που έγινε η προσομοίωση στο \en{CST} αφορά την τάση $V$ της δέσμης ανίχνευσης. 
-Καθώς αυτό το μέγεθος δε χρησιμοποιείται έτσι στο μοντέλο του \en{CST}, αυτό έπρεπε να μετατραπεί σε ενέργεια της δέσμης ανίχνευσης. 
-Αυτό έγινε ως εξής:
-%TODO continue from here
+%Η μόνη διαφοροποίηση σχετικά με τον τρόπο που έγινε η προσομοίωση στο \en{CST} αφορά την τάση $V$ της δέσμης ανίχνευσης. 
+%Καθώς αυτό το μέγεθος δε χρησιμοποιείται έτσι στο μοντέλο του \en{CST}, αυτό έπρεπε να μετατραπεί σε ενέργεια της δέσμης ανίχνευσης. 
+%Αυτό έγινε ως εξής:
+%\begin{equation}
+%\begin{split}
+%E &= \gamma E_0 = \left(1 + \frac{V}{E_0} \right) E_0 = E_0 + V = m_0 c^2 + V = N_e m_e c^2 + V  = \frac{Q_i}{N_b q_e}m_e c^2 + V \\
+%&= \frac{5.9 \times 10^{-4}}{70128 q_e}m_e c^2 + V = \\
+%&\Longrightarrow   
+%\begin{cases}
+%    E_{min} = 2,    & \quad V = V_{min} = \text{\SI{2e2}{\volt}}\\
+%    E_{max} = 3,	& \quad V = V_{max} = \text{\SI{2e6}{\volt}}
+%  \end{cases}
+%\end{split}   
+%\end{equation}
 
 \begin{table}[tph]
 \centering
@@ -136,9 +171,6 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 \label{tab:CST-variables-corresponding}
 \end{table}
 
-
-
-
 \section{Προσομοίωση \en{Electron Beam Scanner} στο \en{CST}}
 
 \subsection{Περιγραφή του μοντέλου}
@@ -152,22 +184,25 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 Για την ευκολότερη επαλήθευση της ακρίβειας των αποτελεσμάτων του \en{Electron Beam Scanner}, προστέθηκε ένας \en{PIC Position Monitor} σε όλη την κατασκευή, κάτι που μας επιτρέπει να γνωρίζουμε ανά πάσα χρονική στιγμή τις θέσεις στις οποίες έχουμε σωματίδια.
 Ακόμη, προστέθηκαν δύο \en{PIC 2D Monitors}, τα οποία ανιχνεύουν τη διέλευση σωματιδίων στο επίπεδο που βρίσκονται.
 Το ένα τοποθετήθηκε στην κύρια δέσμη, λίγο πριν την αλληλεπίδρασή της με τη δέσμη ανίχνευσης, ενώ το δεύτερο τοποθετήθηκε στο τέλος της δέσμης ανίχνευσης.
-Το τελευταίο αποτελεί και το $``$αποτέλεσμα$''$ του \en{Electron Beam Scanner}, από το οποίο υπολογίζεται και το προφίλ της δέσμης που ανιχνεύουμε.
+Το τελευταίο αποτελεί και το $``$αποτέλεσμα$"$ του \en{Electron Beam Scanner}, από το οποίο υπολογίζεται και το προφίλ της δέσμης που ανιχνεύουμε.
 
 Στο \en{CST project} όλες οι διαστάσεις και τα μεγέθη εισάγονται ως παράμετροι, οι οποίες μπορούν να τροποποιηθούν. Οι τελικές παράμετροι του μοντέλου που χρησιμοποιήθηκε παρατίθενται στο Παράρτημα \ref{ch:CSTmodel}, στην ενότητα \ref{sec:CSTparameterlist}.
 
 \begin{figure}[tbh]
 \includegraphics[width=\textwidth]{figures/CST-pic-monitor}
 \centering
-\caption[Η διάταξη προσομοιωμένη στο \en{CST}]{Η διάταξη προσομοιωμένη στο \en{CST}. 
-Στον σωλήνα της κύριας δέσμης φαίνεται ανιχνευτής σωματιδίων, λίγο πριν το σημείο που γίνεται η συνάντηση της κύριας δέσμης με τη δέσμη ανίχνευσης}
+\caption[Η διάταξη προσομοιωμένη στο \en{CST}]
+{Η διάταξη προσομοιωμένη στο \en{CST}. 
+Στον σωλήνα της δέσμης ανίχνευσης φαίνεται ανιχνευτής σωματιδίων (\en{PIC 2D monitor}), όπου ανιχνεύονται η απόκλιση της δέσμης ανίχνευσης και με βάση αυτό εκτιμάται το προφίλ της κύριας δέσμης.}
 \label{fig:CST-PICmonitor}
 \end{figure}
 
 \begin{figure}[tbh]
 \includegraphics[width=\textwidth]{figures/CST-main-beam-source}
 \centering
-\caption{Η πηγή της κύριας δέσμης στο \en{CST}}
+\caption[Η πηγή της κύριας δέσμης στο \en{CST}]
+{Η πηγή της κύριας δέσμης στο \en{CST}. 
+Με μπλε χρώμα φαίνονται τα $``$\en{emission points}$"$, τα σημεία απ' όπου εκπέμπονται ηλεκτρόνια.}
 \label{fig:CST-mainBeamSource}
 \end{figure}
 
@@ -199,7 +234,7 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 \begin{figure}[tph]
 \includegraphics[width=0.6\textwidth]{figures/EBS-profile-calculation}
 \centering
-\caption{Υπολογισμός του προφίλ δέσμης με \en{Electron Beam Scanner}}
+\caption{Γραφική παρουσίαση του τρόπου εκτίμησης του προφίλ δέσμης με \en{Electron Beam Scanner} \cite{Blokland2009}}
 \label{fig:EBS-profile-calculation}
 \end{figure}
 
@@ -223,17 +258,17 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 	\begin{subfigure}{\textwidth}
 		\includegraphics[width=\textwidth]{figures/CST-profile-steps}
 		\centering
-		\caption{Το αποτέλεσμα του υπολογισμού του προφίλ στο \en{CST} για $c_{off} = 2$. Η μορφή του δεν είναι \en{Gaussian}}
+		\caption{Το αποτέλεσμα του υπολογισμού του προφίλ στο \en{CST} για $c_{\text{\en{off}}} = 2$. Η μορφή του δεν είναι \en{Gaussian}}
 		\label{fig:CST-profile-steps}
 	\end{subfigure}
 	%TODO compute again steps to have same axes
 	\begin{subfigure}{\textwidth}
 		\includegraphics[width=\textwidth]{figures/CST-profile-nosteps}
 		\centering
-		\caption{Το αποτέλεσμα του υπολογισμού του προφίλ στο \en{CST} για $c_{off} = 8.0027$ έχει \en{Gaussian} μορφή}
+		\caption{Το αποτέλεσμα του υπολογισμού του προφίλ στο \en{CST} για $c_{\text{\en{off}}} = 8.0027$ έχει \en{Gaussian} μορφή}
 		\label{fig:CST-profile-nosteps}
 	\end{subfigure}
-\caption{Σύγκριση του αποτελέσματος υπολογισμού του προφίλ της δέσμης για $c_{off} = 2$ και $c_{off} = 8.0027$}
+\caption{Σύγκριση του αποτελέσματος υπολογισμού του προφίλ της δέσμης για $c_{\text{\en{off}}} = 2$ και $c_{\text{\en{off}}} = 8.0027$}
 \label{fig:CST-profile-stepcomparison}
 \end{figure}
 
@@ -253,49 +288,49 @@ An additional package, Simulink, adds graphical multi-domain simulation and mode
 %TODO citation needed
 Συγκεκριμένα, αρχικά, αφού το συνολικό ποσό φορτίου που εκπέμπεται δεν μεταβάλλεται ανάλογα με τη συνάρτηση κατανομής τίθεται ο περιορισμός ότι:
 \begin{equation}\label{eq:CST-gaussian-restriction}
-2\pi \int_{R_{in}}^{R_{out}} f(r) \dd r = \pi \left(R_{out}^2 - R_{in}^2 \right) 
+2\pi \int_{R_{\text{\en{in}}}}^{R_{\text{\en{out}}}} f(r) \dd r = \pi \left(R_{\text{\en{out}}}^2 - R_{\text{\en{in}}}^2 \right) 
 \end{equation}
 
 όπου:
 \begin{itemize}
-\item $R_{out}$: η εξωτερική ακτίνα της κυκλικής πηγής σωματιδίων
-\item $R_{in}$: η εσωτερική ακτίνα της κυκλικής πηγής σωματιδίων (στην περίπτωσή μας $R_{in} = 0$)
+\item $R_{\text{\en{out}}}$: η εξωτερική ακτίνα της κυκλικής πηγής σωματιδίων
+\item $R_{\text{\en{in}}}$: η εσωτερική ακτίνα της κυκλικής πηγής σωματιδίων (στην περίπτωσή μας $R_{\text{\en{in}}} = 0$)
 \item $f(r)$: η συνάρτηση ακτινικής κατανομής 
 \end{itemize} 
 
 Η παραπάνω σχέση χρησιμοποιείται για να κλιμακοποιήσει τη συνάρτηση κατανομής. 
 Η λογική του τρόπου υπολογισμού αυτού είναι ότι η συνάρτηση κατανομής θα πρέπει να υπολογίζεται με τρόπο, ώστε ο συνολικός αριθμός του φορτίου που εκπέμπεται να είναι ανεξάρτητος από την ορισμένη κατανομή.
-Αυτό σημαίνει ότι ο συντελεστής κατανομής $c_{scale}$ υπολογίζεται αυτόματα.
+Αυτό σημαίνει ότι ο συντελεστής κατανομής $c_{\text{\en{scale}}}$ υπολογίζεται αυτόματα.
 
 Στη συνέχεια, η \en{Gaussian} κατανομή δίνεται από τη σχέση:
 \begin{equation}
-f(r) = c_{off} + c_{scale} \left( \exp \left(-\frac{r^2}{2\sigma^2}\right) - 1 \right)
+f(r) = c_{\text{\en{off}}} + c_{\text{\en{scale}}} \left( \exp \left(-\frac{r^2}{2\sigma^2}\right) - 1 \right)
 \end{equation}
 
 όπου:
 \begin{itemize}
-\item $c_{off}$: η τιμή της συνάρτησης για $r = 0$
+\item $c_{\text{\en{off}}}$: η τιμή της συνάρτησης για $r = 0$
 \item $\sigma$: η τυπική απόκλιση
 \end{itemize} 
 
 \begin{figure}[tph]
 \includegraphics[width=0.6\textwidth]{figures/CST-gauss-function-for-coff}
 \centering
-\caption{Παράδειγμα \en{Gaussian} συνάρτησης για διάφορες τιμές του συντελεστή $c_{off}$}
+\caption{Παράδειγμα \en{Gaussian} συνάρτησης για διάφορες τιμές του συντελεστή $c_{\text{\en{off}}}$}
 \label{fig:CST-gauss-coff}
 \end{figure}
 
 Για να έχουμε μια πραγματικά \en{Gaussian} δέσμη, θέλουμε να ισχύει
-\[c_{off} = 0\]
+\[c_{\text{\en{off}}} = 0\]
 
-Αφού οι υπόλοιπες μεταβλητές είναι καθορισμένες από τις απαιτήσεις του επιταχυντή, απομένει να βρεθεί η τιμή του $c_{scale}$ που θα μας δίνει τη ζητούμενη συνθήκη.
+Αφού οι υπόλοιπες μεταβλητές είναι καθορισμένες από τις απαιτήσεις του επιταχυντή, απομένει να βρεθεί η τιμή του $c_{\text{\en{scale}}}$ που θα μας δίνει τη ζητούμενη συνθήκη.
 
 \subsection{Υπολογισμός του κατάλληλου συντελεστή κλιμακοποίησης για \en{Gaussian} δέσμη}
 
 Ο τρόπος που υπολογίζει το \en{CST} την \en{Gaussian} κατανομή, όπως είδαμε παραπάνω είναι
 \begin{eqnarray}\label{eq:CST-gaussian-model}
-f(r) &= & 	c_{off} + c_{scale} \left( \exp \left(-\frac{r^2}{2\sigma^2}\right) - 1 \right) \nonumber \\
-&= &\left(c_{off} - c_{scale}\right) + c_{scale} e^{-\frac{r^2}{2\sigma^2}}
+f(r) &= & 	c_{\text{\en{off}}} + c_{\text{\en{scale}}} \left( \exp \left(-\frac{r^2}{2\sigma^2}\right) - 1 \right) \nonumber \\
+&= &\left(c_{\text{\en{off}}} - c_{\text{\en{scale}}}\right) + c_{\text{\en{scale}}} e^{-\frac{r^2}{2\sigma^2}}
 \end{eqnarray}
 
 Η πραγματική κατανομή της δέσμης στον επιταχυντή που μελετούμε όμως, έχει γενική μορφή κατανομής:
@@ -303,40 +338,42 @@ f(r) &= & 	c_{off} + c_{scale} \left( \exp \left(-\frac{r^2}{2\sigma^2}\right) -
  f(r) = a e^{-\frac{\left(r-b\right)^2}{2c^2}}
 \end{equation}
 
-Επομένως, εξισώνοντας τις παραπάνω σχέσεις \ref{eq:CST-gaussian-model} και \ref{eq:General-gaussian-model} και δεδομένου ότι πρέπει να ισχύουν $\forall r$ προκύπτουν τα συμπεράσματα ότι:
+Επομένως, εξισώνοντας τις παραπάνω σχέσεις \ref{eq:CST-gaussian-model} και \ref{eq:General-gaussian-model} και δεδομένου ότι πρέπει να ισχύουν $\forall \; r$ προκύπτουν τα συμπεράσματα ότι:
 \begin{eqnarray}
-a &\equiv & c_{scale}\nonumber \\
+a &\equiv & c_{\text{\en{scale}}}\nonumber \\
 b &= &0\nonumber \\
 c &\equiv & \sigma \nonumber \\
-c_{off} &=&  c_{scale} 
+c_{\text{\en{off}}} &=&  c_{\text{\en{scale}}} 
 \end{eqnarray}
 
-Επομένως, πρέπει να βρεθεί ο κατάλληλος συνδυασμός τιμών $\left(c_{off}, c_{scale}\right)$ που να πληροί τον περιορισμό της εξίσωσης \ref{eq:CST-gaussian-restriction}, δεδομένων των τιμών των μεταβλητών $\sigma, R_{out}$ και $R_{in}$ του επιταχυντή μας.
+Επομένως, πρέπει να βρεθεί ο κατάλληλος συνδυασμός τιμών $\left(c_{\text{\en{off}}}, c_{\text{\en{scale}}}\right)$ που να πληροί τον περιορισμό της εξίσωσης \ref{eq:CST-gaussian-restriction}, δεδομένων των τιμών των μεταβλητών $\sigma, R_{\text{\en{out}}}$ και $R_{\text{\en{in}}}$ του επιταχυντή μας.
 
 Για την επίλυση του παραπάνω προβλήματος δημιουργήθηκε κατάλληλο \en{script} στο \en{MATLAB}. 
 
-Αρχικά δημιουργήθηκε η συνάρτηση \src{cscale = calculateCscale( sigma, coff, Rout, Rin)} η οποία δέχεται ως ορίσματα τις μεταβλητές: $\sigma, c_{off}, R_{out}$ και $R_{in}$ και δίνει στην έξοδό του την τιμή του $c_{scale}$ που πληροί την εξίσωση \ref{eq:CST-gaussian-restriction}.
+Αρχικά δημιουργήθηκε η συνάρτηση \src{cscale = calculateCscale( sigma, coff, Rout, Rin)} η οποία δέχεται ως ορίσματα τις μεταβλητές: $\sigma, c_{\text{\en{off}}}, R_{\text{\en{out}}}$ και $R_{\text{\en{in}}}$ και δίνει στην έξοδό του την τιμή του $c_{\text{\en{scale}}}$ που πληροί την εξίσωση \ref{eq:CST-gaussian-restriction}.
 
-Στη συνέχεια, τρέχοντας το \en{script} \src{findOptimumCoff.m} δίνουμε τις τιμές των παραμέτρων του προβλήματός μας στα $\sigma, c_{off}, R_{out}, R_{in}$ και βρίσκουμε την τιμή του $c_{off}$ που επαληθεύει τη σχέση $c_{off} = c_{scale} \left(\sigma, c_{off}, R_{out}, R_{in} \right)$.
+Στη συνέχεια, τρέχοντας το \en{script} \src{findOptimumCoff.m} δίνουμε τις τιμές των παραμέτρων του προβλήματός μας στα $\sigma, c_{\text{\en{off}}}, R_{\text{\en{out}}}, R_{\text{\en{in}}}$ και βρίσκουμε την τιμή του $c_{\text{\en{off}}}$ που επαληθεύει τη σχέση $c_{\text{\en{off}}} = c_{\text{\en{scale}}} \left(\sigma, c_{\text{\en{off}}}, R_{\text{\en{out}}}, R_{\text{\en{in}}} \right)$.
 
 \lstinputlisting[
 	float,
 	language=matlab, 
 	label={lst:calculateCscale}, 
-	caption={\tg{Η συνάρτηση υπολογισμού του $c_{scale}$}}]
+	caption={\tg{Η συνάρτηση υπολογισμού του $c_{\text{\tl{scale}}}$}}]
 {code/calculating-optimum-coff/calculateCscale.m}
 
 \lstinputlisting[
 	float,
 	language=matlab, 
 	label={lst:findOptimumCoff}, 
-	caption={\tg{Το }\en{script}\tg{ υπολογισμού του κατάλληλου για τα δεδομένα μας $c_{off}$}}]
+	caption={\tg{Το }\en{script}\tg{ υπολογισμού του κατάλληλου για τα δεδομένα μας $c_{\text{\tl{off}}}$}}]
 {code/calculating-optimum-coff/findOptimumCoff.m}
 
-Εν τέλει, για τις τιμές του δικού μας προβλήματος, δίνουμε ως είσοδο $\left(\sigma, R_{out}, R_{in} \right) = \left(0.01/4,0.01, 0 \right)$ και προκύπτει ότι:
+Εν τέλει, για τις τιμές του δικού μας προβλήματος, δίνουμε ως είσοδο $\left(\sigma, R_{\text{\en{out}}}, R_{\text{\en{in}}} \right) = \left(0.01/4,0.01, 0 \right)$ και προκύπτει η ζητούμενη τιμή του συντελεστή:
 \begin{equation}
-c_{off} \approx 8.002684
+	\boxed{c_{\text{\en{off}}} \approx 8.002684}
 \end{equation}
+
+Ο υπολογισμός του συντελεστή για διαφορετικές τιμές των $\sigma, R_{\text{\en{out}}}$ και $R_{\text{\en{in}}}$ δεν έχουμε παρά να αλλάξουμε τις τιμές στον Κώδικα \ref{lst:findOptimumCoff} και να τρέξουμε εκ νέου το πρόγραμμα.
 
 \section{Ανάλυση δεσμών στο \en{MATLAB}}
 
@@ -436,12 +473,12 @@ c_{off} \approx 8.002684
 
 Στην τελευταία φάση της διαδικασίας υπολογίζουμε τις τροχιές της δέσμης ανίχνευσης.
 Η διαδικασία που ακολουθείται είναι η εξής: ξεκινώντας από την πρώτη χρονική στιγμή, δημιουργούμε ένα σωματίδιο κάθε χρονική στιγμή στη θέση αφετηρίας της δέσμης ανίχνευσης, με δεδομένη αρχική ταχύτητα.
-Στη συνέχεια, υπολογίζουμε για καθένα από τα σωματίδια το διάνυσμα $\left(x, y, z, v_x, v_y, v_z\right)$, δεδομένης της τιμής  του πεδίου στη θέση που βρίσκεται το σωματίδιο.
+Στη συνέχεια, υπολογίζουμε για καθένα από τα σωματίδια το διάνυσμα $\left(x, y, z; v_x, v_y, v_z\right)$, δεδομένης της τιμής  του πεδίου στη θέση που βρίσκεται το σωματίδιο.
 Σε περίπτωση που το ηλεκτρικό πεδίο δεν είναι καθορισμένο στη συγκεκριμένη θέση, γίνεται γραμμική παρεμβολή για τον υπολογισμό της τιμής του, κάνοντας χρήση της συνάρτησης του \en{MATLAB} \src{interp3}.
 
 Για την υλοποίηση της διαδικασίας αυτής υλοποιήθηκαν 4 συναρτήσεις.
 
-Για τον υπολογισμό του διανύσματος $\left(x, y, z, v_x, v_y, v_z\right)$ στην επόμενη θέση, δημιουργήθηκε η συνάρτηση \src{calcNextPosition.m}.
+Για τον υπολογισμό του διανύσματος $\left(x, y, z; v_x, v_y, v_z\right)$ στην επόμενη θέση, δημιουργήθηκε η συνάρτηση \src{calcNextPosition.m}.
 Αυτή υπολογίζει τη νέα θέση σύμφωνα με την εξίσωση $\vec{s}_{new} = \vec{s}_{old} + \vec{v}_{old}\, \Delta t$ και στη συνέχεια, αφού υπολογιστεί η τιμή του μαγνητικού πεδίου $\vec{E}_{new}$ στη νέα θέση, υπολογίζεται η νέα ταχύτητα με βάση την εξίσωση $\vec{v}_{new} = \vec{v}_{old} + \vec{E}_{new} \frac{q_e \, \Delta t}{m_e}$.
 %TODO check if the science is right
 Η συνάρτηση \src{calcNextPosition.m} φαίνεται στον Κώδικα \ref{lst:calcNextPosition}.

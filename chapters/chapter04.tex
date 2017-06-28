@@ -1,11 +1,33 @@
 \chapter{Αποτελέσματα}
 % Some examples illustrating the dependence on bunch intensity, bunch length and transverse size, plus at least on example from the multi-bunch simulations.
 
+Στο παρόν κεφάλαιο παρουσιάζονται τα αποτελέσματα των προσομοιώσεων και προγραμμάτων που υλοποιήθηκαν στα πλαίσια της διπλωματικής εργασίας. 
+Η αναλυτική περιγραφή του τρόπου προσομοίωσης και υλοποίησης παρουσιάζεται στο Κεφάλαιο \ref{ch:simulation-methods}, ενώ η θεωρητική ανάλυση παρουσιάζεται στο Κεφάλαιο \ref{ch:theoretical-background}.
+Επιγραμματικά, παρουσιάζονται:
+\begin{itemize}
+\item Τα αποτελέσματα της μελέτης επιρροής μεταβλητών σε έναν \en{Electron Beam Scanner} με βάση το θεωρητικό μοντέλο, όπως υλοποιήθηκε στο \en{MATLAB}
+\item Τα αποτελέσματα της μελέτης επιρροής μεταβλητών σε έναν \en{Electron Beam Scanner}, όπως αυτός προσομοιώνεται στο \en{CST}
+\item Τα αποτελέσματα της πλήρους προσομοίωσης ενός \en{Electron Beam Scanner} στο \en{CST} για πολλαπλές δέσμες
+\item Τα αποτελέσματα της προσομοίωσης που χρησιμοποιεί το \en{CST} ως το μέσο υπολογισμού του ηλεκτρικού πεδίου της κύριας δέσμης και στη συνέχεια το \en{MATLAB} για τον υπολογισμό των τροχιών των σωματιδίων της δέσμης ανίχνευσης μέσα στο πεδίο που εξάγεται από το \en{CST}
+\end{itemize}
 
 \section{Επίδραση παραμέτρων του επιταχυντή στην ανίχνευση της δέσμης}
+Στην ενότητα αυτή θα δούμε τα αποτελέσματα της επιρροής των παραμέτρων που αναφέρθηκαν στα στοιχεία της χαρακτηριστικής έλλειψης της δέσμης.
+Οι παράμετροι που εξετάστηκαν επαναλαμβάνονται εδώ για τη διευκόλυνση του αναγνώστη:
+\begin{enumerate}
+	\item Ένταση της κύριας δέσμης $Q_i$ (ανά παλμό)
+	\item Μήκος της κύριας δέσμης $\sigma$
+	\item Αρχική θέση ριπής $\rho$ κατά $Y$
+	\item Τάση της δέσμης ανίχνευσης $V$
+\end{enumerate}
 
-\subsection{Αποτελέσματα θεωρητικού μοντέλου}
-Τα αποτελέσματα της ανάλυσης που παρουσιάστηκαν στην υπο-ενότητα \ref{sub:variable-analysis-MATLAB} φαίνονται παρακάτω.
+Η μελέτη της επιρροής των παραμέτρων έγινε αρχικά με υλοποίηση του μοντέλου που παρουσιάστηκε στην Υπο-Ενότητα \ref{sub:EBS-model} στο \en{MATLAB}.
+Στη συνέχεια εξετάστηκε η επιρροή των ίδιων μεγεθών στο προσομοιωτικό περιβάλλον του \en{CST}.
+
+\subsection{Αποτελέσματα μελέτης θεωρητικού μοντέλου στο \en{MATLAB}}
+
+Αρχικά υπολογίστηκε και παρουσιάζεται η γραφική απεικόνιση της χαρακτηριστικής έλλειψης στις αρχικές τιμές των παραμέτρων.
+Η χαρακτηριστική έλλειψη, όπως προκύπτει από τη χρήση των αρχικών τιμών των παραμέτρων (Πίνακας \ref{tab:simulation-initial-values}) παρουσιάζεται στο Σχήμα \ref{fig:MATLAB-initial-ellipse}.
 
 \begin{figure}[tph]	
 	\begin{subfigure}{0.47\textwidth}
@@ -22,10 +44,14 @@
 		\label{fig:MATLAB-variable-analysis-initial-ellipse-height-width}
 	\end{subfigure}
 \caption{Απεικόνιση και στοιχεία της χαρακτηριστικής έλλειψης στην αρχική κατάσταση}
-\label{fig:initial-ellipse}
+\label{fig:MATLAB-initial-ellipse}
 \end{figure}
 
+Στη συνέχεια υπολογίστηκε και παρουσιάζεται ο τρόπος επιρροής των παραμέτρων που αναφέρθηκαν, στο εύρος τιμών του Πίνακα \ref{tab:simulation-ranges}.
+
+
 \begin{figure}[tph]	
+	\centering
 	\begin{subfigure}{0.47\textwidth}
 		\includegraphics[width=\linewidth]{figures/MATLAB-variable-analysis/EBS-variables-intensity}
 		\centering
@@ -53,30 +79,120 @@
 		\caption{Επιρροή της τάσης της κύριας δέσμης στο ύψος και το λόγο της έλλειψης, σε γραμμικούς άξονες}
 		\label{fig:EBS-variables-voltage-linear}
 	\end{subfigure}
-\label{fig:beam-deflectoin}
+\caption{Παρουσίαση της επιρροής των παραμέτρων στο πλάτος και το λόγο της έλλειψης, σύμφωνα με το θεωρητικό μοντέλο, όπως υλοποιήθηκε στο \en{MATLAB}}	
+\label{fig:EBS-MATLAB-variables}
 \end{figure}
 
-
-
-Παρατηρούμε ότι:
+Από το Σχήμα \ref{fig:EBS-MATLAB-variables} μπορεί κανείς να παρατηρήσει τα εξής:
 \begin{itemize}
 \item Η ένταση της δέσμης έχει γραμμική σχέση με το ύψος της έλλειψης, αλλά ο λόγος δεν επηρεάζεται, και άρα δεν εξαρτάται από αυτήν
-\item Όσο αυξάνεται το μήκος της κύριας δέσμης μειώνεται το ύψος της έλλειψης. \\
-Μειώνεται επίσης και ο λόγος της έλλειψης, αλλά πολύ λιγότερο
-\item Η αύξηση της αρχικής θέσης ριπής οδηγεί σε ραγδαία μείωση του ύψους και του λόγου της έλλειψης
+\item Όσο αυξάνεται το μήκος της κύριας δέσμης μειώνεται το ύψος της έλλειψης.
+Μειώνεται επίσης και ο λόγος της έλλειψης, αλλά πολύ λιγότερο.
+\item Η αύξηση της αρχικής θέσης ριπής οδηγεί σε ραγδαία μείωση του ύψους και του λόγου της έλλειψης.
 \item Η τάση της κύριας δέσμης προκαλεί μείωση του ύψους και λόγου της έλλειψης, για μικρές τιμές της. 
-Μετά τα \SI{3e5}{\kilo \volt} περίπου η επιπλέον αύξηση της τάσης δεν προκαλεί αλλαγές στην έλλειψη
+Μετά τα \SI{3e5}{\kilo \volt} περίπου η επιπλέον αύξηση της τάσης δεν προκαλεί αλλαγές στην έλλειψη.
 \end{itemize}
 
 
-\subsection{Αποτελέσματα προσομοίωσης}
-% check "Student meeting 2014-06-23" and "Student meeting 2014-08-04"
+\subsection{Αποτελέσματα προσομοίωσης στο \en{CST}}
+
+Όμοια με παραπάνω, αρχικά υπολογίστηκε και παρουσιάζεται η γραφική απεικόνιση της χαρακτηριστικής έλλειψης στις αρχικές τιμές των παραμέτρων.
+Η χαρακτηριστική έλλειψη, όπως προκύπτει από τη χρήση των αρχικών τιμών των παραμέτρων (Πίνακας \ref{tab:simulation-initial-values}) παρουσιάζεται στο Σχήμα \ref{fig:CST-initial-ellipse}.
+
+\begin{figure}[tph]	
+\centering
+	\begin{subfigure}{0.7\textwidth}
+		\includegraphics[width=\linewidth]{figures/CST-variable-analysis/CST-initial-ellipse}
+		\centering
+		\caption{Η χαρακτηριστική έλλειψη στην αρχική κατάσταση}
+		\label{fig:CST-variable-analysis-initial-ellipse}
+	\end{subfigure}
+	~
+	\begin{subfigure}{0.47\textwidth}
+		\includegraphics[width=\linewidth]{figures/CST-variable-analysis/CST-initial-ellipse-height}
+		\centering
+		\caption{Το ύψος της χαρακτηριστικής έλλειψης στην αρχική κατάσταση}
+		\label{fig:CST-variable-analysis-initial-ellipse-height}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.47\textwidth}
+		\includegraphics[width=\linewidth]{figures/CST-variable-analysis/CST-initial-ellipse-width}
+		\centering
+		\caption{Το πλάτος της χαρακτηριστικής έλλειψης στην αρχική κατάσταση}
+		\label{fig:CST-variable-analysis-initial-ellipse-width}
+	\end{subfigure}	
+\caption{Απεικόνιση και στοιχεία της χαρακτηριστικής έλλειψης στην αρχική κατάσταση}
+\label{fig:CST-initial-ellipse}
+\end{figure}
+
+Παρατηρούμε ότι η έλλειψη έχει μια μικρή θετική περιστροφή, λόγω του ότι το πλάτος της χαρακτηριστικής έλλειψης στο Σχήμα \ref{fig:CST-initial-ellipse} (\subref{fig:CST-variable-analysis-initial-ellipse-width}) παρουσιάζει ελάχιστο για τιμή μεγαλύτερη (κατά απόλυτη τιμή) από την τιμή για την οποία παρουσιάζει μέγιστο.
+
+Στη συνέχεια παρουσιάζονται οι επιρροές των μεταβολών των μεταβλητών στο ύψος και το λόγο της έλλειψης.
+
+\begin{figure}[tph]	
+	\centering
+	\begin{subfigure}{0.47\textwidth}
+		\includegraphics[width=\linewidth]{figures/CST-variable-analysis/CST-ellipse-height-by-bunch-intensity}
+		\centering
+		\caption{Επιρροή της έντασης της κύριας δέσμης στο ύψος της έλλειψης}
+		\label{fig:CST-ellipse-height-by-bunch-intensity}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.47\textwidth}
+		\includegraphics[width=\linewidth]{figures/CST-variable-analysis/CST-ellipse-ratio-by-bunch-intensity}
+		\centering
+		\caption{Επιρροή της έντασης της κύριας δέσμης στο λόγο της έλλειψης}
+		\label{fig:CST-ellipse-ratio-by-bunch-intensity}
+	\end{subfigure}	
+	\par\bigskip	
+	\begin{subfigure}{0.47\textwidth}
+		\includegraphics[width=\linewidth]{figures/CST-variable-analysis/CST-ellipse-height-by-bunch-length}
+		\centering
+		\caption{Επιρροή του μήκους της κύριας δέσμης στο ύψος της έλλειψης}
+		\label{fig:CST-ellipse-height-by-bunch-length}
+	\end{subfigure}
+	\hfill	
+	\begin{subfigure}{0.47\textwidth}
+		\includegraphics[width=\linewidth]{figures/CST-variable-analysis/CST-ellipse-ratio-by-bunch-length}
+		\centering
+		\caption{Επιρροή του μήκους της κύριας δέσμης στο λόγο της έλλειψης}
+		\label{fig:CST-ellipse-ratio-by-bunch-length}
+	\end{subfigure}		
+	\par\bigskip
+	\begin{subfigure}{0.47\textwidth}
+		\includegraphics[width=\linewidth]{figures/CST-variable-analysis/CST-ellipse-height-by-vertical-offset}
+		\centering
+		\caption{Επιρροή της αρχικής θέσης ριπής ($Y$-\en{offset}) της δέσμης ανίχνευσης στο ύψος της έλλειψης}
+		\label{fig:CST-ellipse-height-by-vertical-offset}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.47\textwidth}
+		\includegraphics[width=\linewidth]{figures/CST-variable-analysis/CST-ellipse-ratio-by-vertical-offset}
+		\centering
+		\caption{Επιρροή της αρχικής θέσης ριπής ($Y$-\en{offset}) της δέσμης ανίχνευσης στο ύψος της έλλειψης}
+		\label{fig:CST-ellipse-ratio-by-vertical-offset}
+	\end{subfigure}
+%TODO add voltage	
+\caption{Παρουσίαση της επιρροής των παραμέτρων στο πλάτος και το λόγο της έλλειψης στο περιβάλλον προσομοίωσης του \en{CST}}	
+\label{fig:EBS-CST-variables}
+\end{figure}
 
 
+Από το Σχήμα \ref{fig:EBS-CST-variables} μπορεί κανείς να παρατηρήσει τα εξής:
+\begin{itemize}
+\item Η ένταση της δέσμης έχει γραμμική σχέση με το ύψος της έλλειψης. 
+Έχει επίσης γραμμική σχέση με το λόγο της έλλειψης, αλλά η κλίση της καμπύλης είναι σημαντικά μικρότερη.
+\item Με εξαίρεση τα πρώτα δείγματα, όσο αυξάνεται το μήκος της κύριας δέσμης μειώνεται το ύψος της έλλειψης.
+Ο λόγος της έλλειψης μειώνεται επίσης ως ένα σημείο όπου παρουσιάζει ελάχιστο, και στη συνέχεια αυξάνεται.
+\item Η αύξηση της αρχικής θέσης ριπής οδηγεί στην αδυναμία μέτρησης, καθώς μειώνεται η επιρροή της κύριας δέσμης στη δευτερεύουσα.
+Βλέπουμε ότι ο λόγος της έλλειψης στο Σχήμα \ref{fig:EBS-CST-variables} (\subref{fig:CST-ellipse-ratio-by-vertical-offset}) σταματά να έχει δείγματα μετά τα πρώτα 2, γι' αυτό και έχει σημειωθεί με κόκκινο χρώμα.
+Αυτό γίνεται διότι η απόκλιση κατά $Z$ είναι μηδενική, με αποτέλεσμα να ισχύει $\theta_z = 0$ και να απειρίζεται ο λόγος.
+%\item Η τάση της κύριας δέσμης προκαλεί μείωση του ύψους και λόγου της έλλειψης, για μικρές τιμές της.  Μετά τα \SI{3e5}{\kilo \volt} περίπου η επιπλέον αύξηση της τάσης δεν προκαλεί αλλαγές στην έλλειψη.
+\end{itemize}
 
 \subsection{Σύγκριση αποτελεσμάτων}
 
-
+%TODO Fill in 
 
 
 
@@ -84,7 +200,12 @@
 
 \section{Αποτελέσματα προσομοίωσης της μεθόδου στο \en{CST}}
 
+
+
+
+
 \begin{figure}[tph]	
+	\centering
 	\begin{subfigure}{0.8\textwidth}
 		\includegraphics[width=\linewidth]{figures/CST-EBS-implementation/CST-EBS-1st-bunch-thetay}
 		\centering
@@ -98,14 +219,16 @@
 		\caption{Το αποτέλεσμα της προσομοίωσης για την εκτίμηση του προφίλ της 10\textsuperscript{ης} δέσμης}
 		\label{fig:CST-EBS-10th-bunch-thetay}
 	\end{subfigure}
-	\par\bigskip
-	\begin{subfigure}{0.8\textwidth}
-		\includegraphics[width=\linewidth]{figures/CST-EBS-implementation/CST-EBS-actual-weight-function}
-		\centering
-		\caption{Γραφική παράσταση της πραγματικής κατανομής της δέσμης}
-		\label{fig:CST-EBS-actual-weight-function}
-	\end{subfigure}
-\caption{Σύγκριση της εκτίμησης για την 1\textsuperscript{η} και 10\textsuperscript{η} δέσμη, και της πραγματικής κατανομής σωματιδίων στη δέσμη στο \en{CST}}
+%	\par\bigskip
+%	\begin{subfigure}{0.8\textwidth}
+%		\includegraphics[width=\linewidth]{figures/CST-EBS-implementation/CST-EBS-actual-weight-function}
+%		\centering
+%		\caption{Γραφική παράσταση της πραγματικής κατανομής της δέσμης}
+%		\label{fig:CST-EBS-actual-weight-function}
+%	\end{subfigure}
+\caption{Σύγκριση της εκτίμησης για την 1\textsuperscript{η} και 10\textsuperscript{η} δέσμη
+%, και της πραγματικής κατανομής 
+σωματιδίων της κύριας δέσμης στο \en{CST}}
 \label{fig:CST-EBS-implementation}
 \end{figure}
 
