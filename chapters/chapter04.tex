@@ -1,6 +1,4 @@
 \chapter{Αποτελέσματα}
-% Some examples illustrating the dependence on bunch intensity, bunch length and transverse size, plus at least on example from the multi-bunch simulations.
-
 Στο παρόν κεφάλαιο παρουσιάζονται τα αποτελέσματα των προσομοιώσεων και προγραμμάτων που υλοποιήθηκαν στα πλαίσια της διπλωματικής εργασίας. 
 Η αναλυτική περιγραφή του τρόπου προσομοίωσης και υλοποίησης παρουσιάζεται στο Κεφάλαιο \ref{ch:simulation-methods}, ενώ η θεωρητική ανάλυση παρουσιάζεται στο Κεφάλαιο \ref{ch:theoretical-background}.
 Επιγραμματικά, παρουσιάζονται:
@@ -190,9 +188,9 @@
 %\item Η τάση της κύριας δέσμης προκαλεί μείωση του ύψους και λόγου της έλλειψης, για μικρές τιμές της.  Μετά τα \SI{3e5}{\kilo \volt} περίπου η επιπλέον αύξηση της τάσης δεν προκαλεί αλλαγές στην έλλειψη.
 \end{itemize}
 
-\subsection{Σύγκριση αποτελεσμάτων}
+%\subsection{Σύγκριση αποτελεσμάτων}
 
-%TODO Fill in 
+%TODO Fill in if needed
 
 
 
@@ -200,20 +198,45 @@
 
 \section{Αποτελέσματα προσομοίωσης της μεθόδου στο \en{CST}}
 
+Σε αυτή την υπο-ενότητα παρουσιάζονται τα αποτελέσματα του μοντέλου που δημιουργήθηκε στο \en{CST}.
+Για την αναλυτική περιγραφή της μεθοδολογίας δημιουργίας του μοντέλου, μπορεί κανείς να ανατρέξει στην Ενότητα \ref{sec:EBS-in-CST}.
+Επίσης, στο Παράρτημα \ref{ch:CSTmodel} μπορεί ο αναγνώστης να δει τις τιμές όλων των παραμέτρων που χρησιμοποιήθηκαν, τις μεθόδους επεξεργασίας εντός του \en{CST}, καθώς και τις μονάδες του συστήματος.
+
+Στο Σχήμα \ref{fig:CST-EBS-2D-monitor-snapshot} φαίνεται το ίχνος της δέσμης ανίχνευσης, όπως αυτό φαίνεται στον \en{PIC 2D Monitor} του \en{CST}. 
+Το στίγμα αυτό εκτελεί ελλειπτική τροχιά δεξιόστροφα κατά το πέρασμα της κύριας δέσμης από το σημείο ανίχνευσης.
+Το μέγιστο ύψος της έλλειψης αποθηκεύεται και η σειρά των διαδοχικών υψών, αφού παραγωγιστεί ως προς το αρχικό σημείο ριπής, δίνει την εκτίμηση του προφίλ της κύριας δέσμης.
 
 
+\begin{figure}[tbh]
+	\includegraphics[width=\textwidth]{figures/CST-EBS-implementation/CST-EBS-2D-monitor-snapshot}
+	\centering
+	\caption{Στιγμιότυπο ίχνους της δευτερεύουσας δέσμης στον \en{PIC 2D monitor}.}
+	\label{fig:CST-EBS-2D-monitor-snapshot}
+\end{figure}
 
+Στη συνέχεια, παρουσιάζονται στο Σχήμα \ref{fig:CST-EBS-ellipses} οι χαρακτηριστικές ελλείψεις που προκύπτουν για διάφορες τιμές της αρχικής θέσης ριπής $\rho$, ή \src{scan\_beam\_vertical\_offset} όπως είναι στο \en{CST}.
+Παρατηρούμε ότι για μεγαλύτερες τιμές του $\rho$, η χαρακτηριστική έλλειψη μετατοπίζει τον κύριο άξονά της δεξιόστροφα. 
+Παρόλα αυτά, μετά από ένα σημείο θα χαθεί το στίγμα και άρα η αποτύπωση της δέσμης ως έλλειψη, όταν πλέον το $\rho$ μεγαλώσει σε σχέση με την ακτίνα της κύριας δέσμης.
+
+\begin{figure}[tbh]
+	\includegraphics[width=\textwidth]{figures/CST-EBS-implementation/CST-EBS-ellipses}
+	\centering
+	\caption{Η μορφή της χαρακτηριστικής έλλειψης για διάφορες τιμές της αρχικής θέσης ριπής $\rho$.}
+	\label{fig:CST-EBS-ellipses}
+\end{figure}
+
+Τέλος, παρατίθεται στο Σχήμα \ref{fig:CST-EBS-implementation} το τελικό αποτέλεσμα του \en{Electron Beam Scanner}. 
 
 \begin{figure}[tph]	
 	\centering
-	\begin{subfigure}{0.8\textwidth}
+	\begin{subfigure}{\textwidth}
 		\includegraphics[width=\linewidth]{figures/CST-EBS-implementation/CST-EBS-1st-bunch-thetay}
 		\centering
 		\caption{Το αποτέλεσμα της προσομοίωσης για την εκτίμηση του προφίλ της 1\textsuperscript{ης} δέσμης}
 		\label{fig:CST-EBS-1st-bunch-thetay}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{0.8\textwidth}
+	\begin{subfigure}{\textwidth}
 		\includegraphics[width=\linewidth]{figures/CST-EBS-implementation/CST-EBS-10th-bunch-thetay}
 		\centering
 		\caption{Το αποτέλεσμα της προσομοίωσης για την εκτίμηση του προφίλ της 10\textsuperscript{ης} δέσμης}
@@ -226,17 +249,17 @@
 %		\caption{Γραφική παράσταση της πραγματικής κατανομής της δέσμης}
 %		\label{fig:CST-EBS-actual-weight-function}
 %	\end{subfigure}
-\caption{Σύγκριση της εκτίμησης για την 1\textsuperscript{η} και 10\textsuperscript{η} δέσμη
-%, και της πραγματικής κατανομής 
-σωματιδίων της κύριας δέσμης στο \en{CST}}
-\label{fig:CST-EBS-implementation}
+	\caption{Σύγκριση της εκτίμησης για την 1\textsuperscript{η} και 10\textsuperscript{η} δέσμη σωματιδίων της κύριας δέσμης στο \en{CST}}
+	\label{fig:CST-EBS-implementation}
 \end{figure}
 
+Βλέπουμε ότι οι κατανομές των δεσμών είναι ομαλές και μοιάζουν πολύ με \en{Gaussian}. 
+Επίσης, βλέπουμε ότι οι διαφορές μεταξύ της 1\textsuperscript{ης} και 10\textsuperscript{ης} δέσμης είναι μηδαμινές και παρατηρούνται κυρίως στα πρώτα δείγμα, για μικρές δηλαδή τιμές του $\rho$.
+Τα αποτελέσματα είναι εξαιρετικά ικανοποιητικά και μας δείχνουν ότι πλέον έχουμε ένα αρκετά ακριβές μοντέλο για την προσομοίωση του \en{Electron Beam Scanner}.
 
 
-
-\section{Αποτελέσματα ανάλυσης με χρήση \en{CST} και \en{MATLAB}}
-
+%\section{Αποτελέσματα ανάλυσης με χρήση \en{CST} και \en{MATLAB}}
+%TODO create results for it if needed
 
 
 

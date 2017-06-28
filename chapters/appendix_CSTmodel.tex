@@ -2,81 +2,102 @@
 
 \chapter{Το μοντέλο στο \en{CST Particle Studio}}\label{ch:CSTmodel}
 \section{Λίστα παραμέτρων}\label{sec:CSTparameterlist}
+Στον παρακάτω πίνακα παρουσιάζονται όλες οι παράμετροι που έχει το τελικό \en{CST project} που χρησιμοποιήθηκε για την πλήρη προσομοίωση του \en{Electron Beam Scanner}.
 
-\begin{longtabu} to \linewidth {>{\ttfamily}l|>{\ttfamily}l|X}
-%\caption{Λίστα παραμέτρων του περιβάλλοντος προσόμοίωσης στο \en{CST}}
+\begin{longtabu} to \textwidth {
+>{\ttfamily}X[3,l]
+>{\ttfamily}X[3,c]
+X[4,l] }
+\caption{Λίστα παραμέτρων του περιβάλλοντος προσομοίωσης στο \en{CST}}\\
 %\label{table:CST-parameters}
-\rowfont\bfseries Όνομα παραμέτρου	&	Τιμή	&	Περιγραφή  \\ \hline 
+\toprule
+Όνομα παραμέτρου	&	Τιμή	&	Περιγραφή  \\ 
+\midrule
+\endfirsthead
+
+\caption[]{(συνέχεια) Λίστα παραμέτρων του περιβάλλοντος προσομοίωσης στο \en{CST}}\\
+%\label{table:CST-parameters}
+\toprule
+Όνομα παραμέτρου	&	Τιμή	&	Περιγραφή  \\ 
+\midrule
 \endhead
 
-\hline
+\midrule
 \multicolumn{3}{r}{Συνεχίζεται στην επόμενη σελίδα} \\
 \endfoot
 
-\hline
+\bottomrule
 \endlastfoot
 
-\hline
 \en{simulation\_time}				&	\en{2e-8}						&	\en{Simulation Time} \\
 \en{scan\_pipe\_length}				&	\en{0.25}						&	\en{Scan pipe length} \\
 \en{scan\_pipe\_diameter}			&	\en{main\_pipe\_diameter}		&	\en{Scan pipe diameter} \\
 \en{scan\_monitor\_step}			&	\en{1e-10}						&	\en{Scan beam monitor step width} \\
-\en{scan\_monitor\_start\_time}		&	\en{0}							&	\en{Scan beam monitor start time} \\
-\en{scan\_beam\_vertical\_offset}	&	\en{0.01}						&	\en{Scan Beam vertical offset} \\
+\en{scan\_monitor\_start\_\+time}	&	\en{0}							&	\en{Scan beam monitor start time} \\
+\en{scan\_beam\_vertical\_\+offset}	&	\en{0.01}						&	\en{Scan Beam vertical offset} \\
 \en{scan\_beam\_rise\_time}			&	\en{1e-9}						&	\en{Scan beam rise time} \\
 \en{scan\_beam\_pulse\_charge}		&	\en{1}							&	\en{Scan beam charge per pulse} \\
 \en{scan\_beam\_offset}				&	\en{0}							&	\en{Scan beam offset} \\
 \en{scan\_beam\_length}				&	\en{4e-3}						&	\en{Scan beam length (sigma)} \\
 \en{scan\_beam\_energy}				&	\en{2e4}						&	\en{Scan beam energy} \\
-\en{scan\_beam\_emission\_lines}	&	\en{5}							&	\en{Scan beam emission lines (density)} \\
+\en{scan\_beam\_emission\_\+lines}	&	\en{5}							&	\en{Scan beam emission lines (density)} \\
 \en{scan\_beam\_diameter}			&	\en{1e-4}						&	\en{Scan beam diameter} \\
 \en{scan\_beam\_cutoff}				&	\en{1e-3}						&	\en{Scan beam cutoff length} \\
 \en{scan\_beam\_current}			&	\en{1e-6}						&	\en{Scan beam current} \\
 \en{scan\_beam\_bunches}			&	\en{1}							&	\en{Scan beam number of bunches} \\
-\en{scan\_beam\_bunch\_distances}	&	\en{1e-3}						&	\en{Scan beam distance between bunches} \\
-\en{pic\_monitor\_xcut}				&	\en{3/4*scan\_pipe\_length/2}	&	\en{X coordinate of PIC 2D monitor} \\
+\en{scan\_beam\_bunch\_\+distances}	&	\en{1e-3}						&	\en{Scan beam distance between bunches} \\
+\en{pic\_monitor\_xcut}				&	\en{3 / 4 * \+scan\_pipe\_length\+ / 2}	&	\en{X coordinate of PIC 2D monitor} \\
 \en{monitor\_step\_width}			&	\en{5e-10}						&	\en{PIC position monitor step width} \\
 \en{main\_pipe\_length}				&	\en{5}							&	\en{Main pipe length} \\
 \en{main\_pipe\_diameter}			&	\en{0.1}						&	\en{Main pipe diameter} \\
 \en{main\_beam\_rise\_time}			&	\en{1e-9}						&	\en{Main beam rise time} \\
-\en{main\_beam\_offset}				&	\en{main\_beam\_length * 2.01}	&	\en{Main beam offset} \\
-\en{main\_beam\_number\_of\_bunches}&	\en{10}							&	\en{Main beam number of bunches} \\
+\en{main\_beam\_offset}				&	\en{main\_beam\_length\+ * 2.01}	&	\en{Main beam offset} \\
+\en{main\_beam\_number\_\+of\_bunches}&	\en{10}							&	\en{Main beam number of bunches} \\
 \en{main\_beam\_lines}				&	\en{7}							&	\en{Main beam emission lines (density)} \\
 \en{main\_beam\_length}				&	\en{0.15}						&	\en{Main beam bunch length (sigma)} \\
 \en{main\_beam\_energy}				&	\en{1e8}						&	\en{Main beam energy} \\
 \en{main\_beam\_diameter}			&	\en{1e-2}						&	\en{Main Beam diameter} \\
-\en{main\_beam\_cutoff}				&	\en{main\_beam\_length * 2.01}	&	\en{Main beam cutoff length} \\
+\en{main\_beam\_cutoff}				&	\en{main\_beam\_length\+ * 2.01}	&	\en{Main beam cutoff length} \\
 \en{main\_beam\_current}			&	\en{4.2}						&	\en{Main beam current} \\
-\en{main\_beam\_charge\_per\_bunch}	&	\en{main\_beam\_charge/70128}	&	\en{Main beam charge per bunch} \\
+\en{main\_beam\_charge\_per\_\+bunch}	&	\en{main\_beam\_charge\+ / 70128}	&	\en{Main beam charge per bunch} \\
 \en{main\_beam\_charge}				&	\en{590e-6}						&	\en{Main beam charge per pulse} \\
-\en{main\_beam\_bunch\_distances}	&	\en{main\_beam\_length * 10}	&	\en{Main beam distance between bunches} \\
+\en{main\_beam\_bunch\_\+distances}	&	\en{main\_beam\_length\+ * 10}	&	\en{Main beam distance between bunches} \\
 \end{longtabu}
 \begin{landscape}
 \section{\en{Template Based Post Processing}}\label{sec:CSTpostProcessing}
 
-\begin{longtabu} to \linewidth {c|>{\ttfamily}X|c|X|X}
-%\caption{Οι μεταβλητές και ο τρόπος υπολογισμού τους στο \en{Template Based Post Processing} του \en{CST}}
+\begin{longtabu} to \linewidth {c>{\ttfamily}XcX[l]X}
+\caption{Οι μεταβλητές και ο τρόπος υπολογισμού τους στο \en{Template Based Post Processing} του \en{CST}} \\
 %\label{table:CST-postprocessing}
-\rowfont\bfseries $\#$ & \en{Result name} & \en{Type} & \en{Expression} & \en{Template name} \\ \hline 
+\toprule
+ $\#$ & \en{Result name} & \en{Type} & \en{Expression} & \en{Template name} \\ 
+\midrule
+\endfirsthead
+
+\caption[]{ (συνέχεια) Οι μεταβλητές και ο τρόπος υπολογισμού τους στο \en{Template Based Post Processing} του \en{CST}} \\
+%\label{table:CST-postprocessing}
+\toprule
+ $\#$ & \en{Result name} & \en{Type} & \en{Expression} & \en{Template name} \\ 
+\midrule
 \endhead
 
-\hline
+\midrule
 \multicolumn{5}{r}{Συνεχίζεται στην επόμενη σελίδα} \\
 \endfoot
 
-\hline
+\bottomrule
 \endlastfoot
 
-\hline
+
 1	& \en{x-average Position}													& \en{1D}	& \en{x-average position }															& \en{Evaluate PIC 2D monitor with average} \\
 2	& \en{y-average Position}													& \en{1D}	& \en{y-average position }															& \en{Evaluate PIC 2D monitor with average} \\
 3	& \en{z-average Position}													& \en{1D}	& \en{z-average position }															& \en{Evaluate PIC 2D monitor with average} \\
 4	& \en{theta\_y}																& \en{1D}	& \en{\src{Atn( (y-average Position - scan\_beam\_vertical\_offset) / pic\_monitor\_xcut) }}	& \en{Mix template results} \\
 5	& \en{theta\_z}																& \en{1D}	& \en{\src{Atn( (z-average position - 0) / pic\_monitor\_xcut) }}						& \en{Mix template results} \\
-6	& \en{theta\_y\_1D\_xSub}														& \en{1D}	& \en{Extract data in subrange, \src{theta\_y} for  $x \in [5e-9, 1]$}						& \en{0D or 1D Result from 1D Result} \\
-7	& \en{1st bunch theta\_y\_1D\_xSub}											& \en{1D}	& \en{Extract data in subrange, \src{theta\_y} for  $x \in [0.8e-8, 1.3e-8]$}				& \en{0D or 1D Result from 1D Result} \\
-8	& \en{10th bunch theta\_y\_1D\_xSub}											& \en{1D}	& \en{Extract data in subrange, \src{theta\_y} for  $x \in [5.3e-8, 5.8e-8]$}				& \en{0D or 1D Result from 1D Result} \\
-9	& \en{theta\_z\_1D\_xSub}														& \en{1D}	& \en{Extract data in subrange, \src{theta\_z} for  $x \in [5e-9, 1]$}						& \en{0D or 1D Result from 1D Result} \\
+6	& \en{theta\_y\_1D\_xSub}														& \en{1D}	& \en{Extract data in subrange, \src{theta\_y} for  $x \in [\num{5e-9}, 1]$}						& \en{0D or 1D Result from 1D Result} \\
+7	& \en{1st bunch theta\_y\_1D\_xSub}											& \en{1D}	& \en{Extract data in subrange, \src{theta\_y} for  $x \in [\num{0.8e-8}, \num{1.3e-8}]$}				& \en{0D or 1D Result from 1D Result} \\
+8	& \en{10th bunch theta\_y\_1D\_xSub}											& \en{1D}	& \en{Extract data in subrange, \src{theta\_y} for  $x \in [\num{5.3e-8}, \num{5.8e-8}]$}				& \en{0D or 1D Result from 1D Result} \\
+9	& \en{theta\_z\_1D\_xSub}														& \en{1D}	& \en{Extract data in subrange, \src{theta\_z} for  $x \in [\num{5e-9}, 1]$}						& \en{0D or 1D Result from 1D Result} \\
 10	& \en{theta\_y\_0D\_GlobalyMax}												& \en{0D}	& \en{Global y-Maximum, \src{theta\_y} }													& \en{0D or 1D Result from 1D Result} \\
 11	& \en{1st bunch theta\_y\_1D\_xSub\_0D\_GlobalyMax}								& \en{0D}	& \en{Global y-Maximum, 1st bunch \src{theta\_y\_1D\_xSub}}								& \en{0D or 1D Result from 1D Result} \\
 12	& \en{10th bunch theta\_y\_1D\_xSub\_0D\_GlobalyMax}								& \en{0D}	& \en{Global y-Maximum, 10th bunch \src{theta\_y\_1D\_xSub}}									& \en{0D or 1D Result from 1D Result} \\
@@ -98,11 +119,15 @@
 \end{landscape}
 
 \section{Μονάδες Μέτρησης \en{(Units)}}
-\begin{tabular}{l|c}
-%\caption{Οι μονάδες μέτρησης του περιβάλλοντος του \en{CST}}
-%\label{table:CST-units}
-Μέγεθος		& Μονάδα μέτρησης \\
-\hline
+Στον Πίνακα \ref{table:CST-units} φαίνονται οι μονάδες μέτρησης του περιβάλλοντος στο \en{CST}, όπως αυτές ζητείται να οριστούν.
+Οι μονάδες είναι όλες μονάδες του \en{SI}, χωρίς τη χρήση πολλαπλασιαστών (προθεμάτων), εκτός από τη χωρητικότητα και την επαγωγή, τα οποία δε χρησιμοποιήθηκαν στο \en{project} μας.
+
+\begin{table}
+\centering
+\begin{tabular}{l c}
+\toprule
+Μέγεθος				& Μονάδα μέτρησης \\
+\midrule
 \en{Dimentions}		& \en{m} \\
 \en{Temperature}	& \en{Kelvin} \\
 \en{Frequency}		& \en{Hz} \\
@@ -113,5 +138,9 @@
 \en{Conductance}	& \en{S} \\
 \en{Inductance} 	& \en{nH} \\
 \en{Capacitance}	& \en{pF} \\
+\bottomrule
 \end{tabular}
+\caption{Οι μονάδες μέτρησης του περιβάλλοντος του \en{CST}}
+\label{table:CST-units}
+\end{table}
 
