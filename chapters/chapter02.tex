@@ -1,8 +1,15 @@
-\chapter{\selectlanguage{greek}Θεωρητικό υπόβαθρο} \label{ch:theoretical-background}
-%TODO Write intro
+\chapter{Θεωρητικό υπόβαθρο} \label{ch:theoretical-background}
+Στο κεφάλαιο αυτό παρουσιάζονται η βάση στην οποία στηρίχτηκε η παρούσα διπλωματική εργασία.
 
-\section{Υπόβαθρο}
-\subsection{\selectlanguage{greek}Το \en{CERN}}
+Αρχικά γίνεται μια σύντομη περιγραφή του \en{CERN} και του επιταχυντή \en{CLIC}, τα οποία διαμορφώνουν το πλαίσιο στο οποίο δημιουργήθηκε η ανάγκη για τη μελέτη του \en{Electron Beam Scanner}. 
+Στη συνέχεια, παρουσιάζεται αναλυτικά η λειτουργία του \en{Electron Beam Scanner}, η ήδη υπάρχουσα βιβλιογραφία σχετικά με το αντικείμενο και ένα θεωρητικό μοντέλο που περιγράφει τη λειτουργία του. 
+
+
+\section{Το \en{CERN} και ο επιταχυντής \en{CLIC}}
+
+
+
+\subsection{Το \en{CERN}}
 
 To \en{CERN}, διατηρώντας το ακρωνύμιο της αρχικής Γαλλικής ονομασίας του \en{$``$Conseil Européen pour la Recherche Nucléaire$"$}, είναι το μεγαλύτερο σε έκταση πειραματικό κέντρο πυρηνικών ερευνών και ειδικότερα επί της σωματιδιακής φυσικής στον κόσμο. 
 Βρίσκεται δυτικά της Γενεύης, στα σύνορα Ελβετίας και Γαλλίας και ιδρύθηκε το 1954 από 12 ευρωπαϊκές χώρες. 
@@ -11,7 +18,7 @@ To \en{CERN}, διατηρώντας το ακρωνύμιο της αρχική
 \begin{figure}[tph]
 \includegraphics[width=0.25\linewidth]{images/CERNlogo}
 \centering
-\caption{Το λογότυπο του \en{CERN}}
+\caption{Το λογότυπο του \en{CERN}.}
 \label{img:CERNlogo}
 \end{figure}
 
@@ -42,7 +49,7 @@ To \en{CERN}, διατηρώντας το ακρωνύμιο της αρχική
 \begin{figure}[b]
 \includegraphics[trim={12mm 12mm 12mm 12mm},clip=true,width=0.25\linewidth]{images/CLIClogo}
 \centering
-\caption{Το λογότυπο του \en{CLIC}}
+\caption{Το λογότυπο του \en{CLIC}.}
 \label{img:CLIClogo}
 \end{figure}
 
@@ -56,7 +63,7 @@ To \en{CERN}, διατηρώντας το ακρωνύμιο της αρχική
 \begin{figure}[tph]
 \includegraphics[width=0.6\linewidth]{images/CLIC-twobeam}
 \centering
-\caption{Το σύστημα δύο δεσμών του \en{CLIC}}
+\caption{Το σύστημα δύο δεσμών του \en{CLIC}.}
 \label{img:CLICtwobeamscheme}
 \end{figure}
 
@@ -66,21 +73,29 @@ To \en{CERN}, διατηρώντας το ακρωνύμιο της αρχική
 
 Για να επιτευχθεί αυτό, χρησιμοποιείται μια καινοτόμα μέθοδος επιτάχυνσης, όπου εξάγεται ενέργεια από μια δέσμη πολύ μεγάλης έντασης που περιέχει σχετικά χαμηλής ενέργειας ηλεκτρόνια (Δέσμη Οδηγός) και χρησιμοποιείται για την επιτάχυνση της χαμηλότερης σε ένταση Κύριας Δέσμης (\en{Main Beam}) σε πολύ μεγάλη ενέργεια.
 
-Αυτή η Δέσμη Οδηγός (\en{Drive Beam}) επιβραδύνεται σε ειδικές Διατάξεις Εξαγωγής και Mεταφοράς Ισχύος --- \en{Power Extraction and Transfer Structures (PETS)}, και η παραγόμενη \en{RF} ισχύς μεταφέρεται στην κύρια δέσμη. 
+Αυτή η Δέσμη Οδηγός (\en{Drive Beam}) επιβραδύνεται σε ειδικές Διατάξεις Εξαγωγής και Μεταφοράς Ισχύος --- \en{Power Extraction and Transfer Structures (PETS)}, και η παραγόμενη \en{RF} ισχύς μεταφέρεται στην κύρια δέσμη. 
 Αυτό οδηγεί σε μια πολύ απλή διάταξη σήραγγας χωρίς ενεργά \en{RF} μέρη (δηλ. \en{klystrons}).
 
 \begin{figure}[tph]
 \includegraphics[width=\linewidth]{images/CLIC-layout}
 \centering
-\caption{Το σχεδιάγραμμα του \en{CLIC}}
-\label{img:CLIClayout}
+\caption{Το σχεδιάγραμμα του \en{CLIC}.}
+\label{img:CLIC-layout}
 \end{figure}
 
 \begin{figure}[tph]
 \includegraphics[width=\linewidth]{images/CLIC-maquette}
 \centering
-\caption[Η μακέτα του \en{CLIC}]{Η μακέτα του \en{CLIC} που βρίσκεται στο κτήριο δοκιμών \en{CLIC Test Facility 3 (CTF3)} του \en{CERN}}
-\label{img:CLIClmaquette}
+\caption[Η μακέτα του \en{CLIC}.]
+{Η μακέτα του \en{CLIC} που βρίσκεται στο κτήριο δοκιμών \en{CLIC Test Facility 3 (CTF3)} του \en{CERN}.}
+\label{img:CLIC-maquette}
+\end{figure}
+
+\begin{figure}[tph]
+\includegraphics[width=\linewidth]{images/CLIC-potential-location}
+\centering
+\caption{Χάρτης που δείχνει μια πιθανή θέση για τον επιταχυντή \en{CLIC} \cite{Aicheler2012}.}
+\label{img:CLIC-potential-location}
 \end{figure}
 
 Ο \en{CLIC} είναι μία από τις επιλογές για έναν μελλοντική επιταχυντή κατασκευασμένο στο \en{CERN}. 
@@ -117,15 +132,13 @@ To \en{CERN}, διατηρώντας το ακρωνύμιο της αρχική
 		\centering
 		\includegraphics[width=\linewidth]{images/CLIC-CTF3-img4}
     \end{subfigure}
-\caption[Εικόνες από το \en{CLIC Testing Facility 3}]
+\caption[Εικόνες από το \en{CLIC Testing Facility 3}.]
 {Εικόνες από το \en{CLIC Testing Facility 3 (CTF3)}, όπου γίνονται δοκιμές για το \en{CLIC}. 
-Λόγω της φύσης των δοκιμών, το \en{CTF3} θεωρείται \en{$``$radiation controlled zone$"$} και για την είσοδο κάποιου στο χώρο απαιτείται να έχει περάσει 7-ωρη εκπαίδευση (\en{radiation training}) και να φέρει ειδικό δοσίμετρο κατά την επίσκεψη}
+Λόγω της φύσης των δοκιμών, το \en{CTF3} θεωρείται \en{$``$radiation controlled zone$"$} και για την είσοδο κάποιου στο χώρο απαιτείται να έχει περάσει 7-ωρη εκπαίδευση (\en{radiation training}) και να φέρει ειδικό δοσίμετρο κατά την επίσκεψη.}
 \label{img:CLIC-CTF3}        
 \end{figure}
 
-
-
-\section{\selectlanguage{greek}Ο \en{Electron Beam Scanner}}
+\section{Ο \en{Electron Beam Scanner}}
 
 \subsection{Εισαγωγή}
 
@@ -138,7 +151,7 @@ To \en{CERN}, διατηρώντας το ακρωνύμιο της αρχική
 Ανιχνεύοντας τη δέσμη ανίχνευσης και μετρώντας την εκτροπή της σε σχέση με την αρχική της θέση, είναι εφικτός ο υπολογισμός του προφίλ της Δέσμης Οδηγού.
 
 Ανιχνευτές \en{Electron Beam Scanner} έχουν χρησιμοποιηθεί στο παρελθόν σε άλλους επιταχυντές που έχουν συνεχείς και πολύ μακριές δέσμες, όπου η κατανομή του φορτίου θεωρείται σταθερή κατά τη μέτρηση.
-Η Δέσμη Οδηγός του \en{CLIC} θα έχει δέσμες μήκους μόλις \num{12} \en{picoseconds}. 
+Η Δέσμη Οδηγός του \en{CLIC} θα έχει δέσμες μήκους μόλις \SI{12}{\pico\second}. 
 Αυτό δημιουργεί πρόσθετες προκλήσεις για τη λειτουργία του \en{Electron Beam Scanner}.
 Στην παρούσα εργασία θα εξετάσουμε τη λειτουργία ενός \en{Electron Beam Scanner} σε επιταχυντή που το μήκος της δέσμης είναι σημαντικά μικρότερο από το χρόνο σάρωσης της δέσμης ανίχνευσης. 
 Συγκεκριμένα, η περίπτωση όπου το μήκος της δέσμης είναι μικρότερο από το χρόνο που απαιτείται για ένα σωματίδιο της δέσμης ανίχνευσης να διασχίσει τη κύρια δέσμη είναι δύσκολο να μοντελοποιηθεί αναλυτικά. 
@@ -151,17 +164,17 @@ To \en{CERN}, διατηρώντας το ακρωνύμιο της αρχική
 
 Ο \en{Electron Beam Scanner} δουλεύει μετρώντας την εκτροπή της δέσμης ανίχνευσης που αποτελείται από χαμηλής ενέργειας ηλεκτρόνια, καθώς αυτά διαπερνούν κάθετα την κύρια δέσμη (Σχήμα \ref{fig:beam-deflection}).
 Για την απεικόνιση επιλέξαμε σε αυτή τη διπλωματική εργασία ότι μετράμε το εγκάρσιο προφίλ, και ότι η δέσμη οδηγός ταξιδεύει οριζοντίως. 
-Φυσικά, το προφίλ μπορεί να μετρηθεί σε κάθε άξονα στρέφοντας τη διάταξη. 
+Φυσικά, το προφίλ μπορεί να μετρηθεί σε κάθε άξονα περιστρέφοντας κατάλληλα τη διάταξη. 
 
 
 \begin{figure}[tph]
 \includegraphics[width=0.8\linewidth]{figures/Beam-deflection}
 \centering
-\caption{Εκτροπή δέσμης ανίχνευσης από την μετρούμενη δέσμη}
+\caption{Εκτροπή δέσμης ανίχνευσης από την μετρούμενη δέσμη.}
 \label{fig:beam-deflection}
 \end{figure}
 
-Η γωνία απόκλισης $\theta$ της δέσμης οδηγού μετράται για διαφορετικές τιμές ύψους $y_0$, και το προφίλ της κύριας δέσμης $\delta (y)$ είναι ανάλογο του διαφορικού  \cite{Blokland2009}
+Η γωνία απόκλισης $\theta$ της δέσμης οδηγού μετράται για διαφορετικές τιμές ύψους $y_0$, και το προφίλ της κύριας δέσμης $\delta (y)$ είναι ανάλογο του διαφορικού  \cite{Blokland2009}.
 
 \begin{equation} \label{eq:transverseProfile}
 \frac{\dd{} |\theta|}{\dd y_0} \propto \delta (y)
@@ -170,9 +183,9 @@ To \en{CERN}, διατηρώντας το ακρωνύμιο της αρχική
 Η σταθερά αναλογίας εξαρτάται από την ενέργεια της δέσμης ανίχνευσης. 
 Εδώ έχουν γίνει οι εξής απλοποιητικές υποθέσεις:
 \begin{enumerate}
-\item Η απόκλιση είναι μικρή
-\item Η μεταβολή ενέργειας της δέσμης ανίχνευσης είναι αμελητέα 
-\item Η επίδραση του μαγνητικού πεδίου της κύριας δέσμης είναι πολύ μικρότερη από αυτή του ηλεκτρικού πεδίου
+\item Η απόκλιση είναι μικρή.
+\item Η μεταβολή ενέργειας της δέσμης ανίχνευσης είναι αμελητέα.
+\item Η επίδραση του μαγνητικού πεδίου της κύριας δέσμης είναι πολύ μικρότερη από αυτή του ηλεκτρικού πεδίου.
 \end{enumerate} 
 
 Για να μετρηθεί η γωνία απόκλισης για διαφορετικά $y_0$ σε μία εικόνα, σαρώνεται διαγώνια η αρχική θέση της δέσμης οδηγού. 
@@ -204,15 +217,16 @@ To \en{CERN}, διατηρώντας το ακρωνύμιο της αρχική
 		\toprule
 		Μέγεθος	& Τιμή\\ 
 		\midrule
-		Πληθυσμός δέσμης	& \SI{5e10}{\electrons} \\
+		Πληθυσμός δέσμης		& \SI{5e10}{\electrons} \\
 		Εγκάρσια \en{emittance}	& \SI{100}{\nano \meter \radian} \\
 		Μήκος δέσμης / διάκενο	& \SI{13}{\pico \second} / \SI{2}{\nano \second} \\
-		Μήκος παλμού	& \SI{140}{\micro \second} \\
+		Μήκος παλμού			& \SI{140}{\micro \second} \\
 		Πληθυσμός παλμού		& \SI{3e15}{\electrons} \\
 		Συχνότητα επανάληψης	& \SI{50}{\Hz} \\
 		\bottomrule
 	\end{tabular}
-\caption[Σχετικές παράμετροι για την Δέσμη Οδηγό του επιταχυντή \en{CLIC}]{Σχετικές παράμετροι για την Δέσμη Οδηγό του επιταχυντή \en{CLIC} \protect{\cite{Aicheler2012}}}
+\caption[Σχετικές παράμετροι για την Δέσμη Οδηγό του επιταχυντή \en{CLIC}.]
+{Σχετικές παράμετροι για την Δέσμη Οδηγό του επιταχυντή \en{CLIC} \protect{\cite{Aicheler2012}}.}
 \label{tab:parameters}
 \end{table}
 
@@ -226,7 +240,7 @@ To \en{CERN}, διατηρώντας το ακρωνύμιο της αρχική
 \begin{figure}[tph]
 	\includegraphics[width=0.6\linewidth]{figures/Logatchov1999-EBS}
 	\centering
-	\caption{Διαδικασία ανίχνευσης της χαρακτηριστικής έλλειψης της δέσμης}
+	\caption{Διαδικασία ανίχνευσης της χαρακτηριστικής έλλειψης της δέσμης.}
 	\label{fig:ellipse-EBS}
 \end{figure}
 
@@ -239,13 +253,14 @@ To \en{CERN}, διατηρώντας το ακρωνύμιο της αρχική
 \begin{equation} \label{eq:thetayLogatchov1999}
 \theta_y (x) = \frac{2 \rho r_e}{\beta} \int_{-\infty}^{\infty}\frac{n(z) \dd z}{\rho^2 + \left(x+\beta z \right) ^2}
 \end{equation}
+
 όπου:
 \begin{itemize}
-\item $r_e$: η κλασική ακτίνα του ηλεκτρονίου,
-\item $\beta =\frac{v_t}{c}$: η σχετική ταχύτητα της δέσμης ανίχνευσης,
-\item $c$: η ταχύτητα του φωτός,
-\item $x$: η θέση σωματιδίου της δέσμης ανίχνευσης τη χρονική στιμή $t=0$,
-\item $n(z)$: η γραμμική πυκνότητα της κύριας δέσμης κατά τον άξονα $Z$.
+\item $r_e$: η κλασική ακτίνα του ηλεκτρονίου
+\item $\beta =\frac{v_t}{c}$: η σχετική ταχύτητα της δέσμης ανίχνευσης
+\item $c$: η ταχύτητα του φωτός
+\item $x$: η θέση σωματιδίου της δέσμης ανίχνευσης τη χρονική στιγμή $t=0$
+\item $n(z)$: η γραμμική πυκνότητα της κύριας δέσμης κατά τον άξονα $Z$
 \end{itemize} 
 
 Η έκφραση για τη γωνία απόκλισης του σωματιδίου κατά $Z$ μπορεί να γραφεί\cite{Logatchov1999}:

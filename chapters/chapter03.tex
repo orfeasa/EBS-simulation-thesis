@@ -14,12 +14,13 @@
 Τα προγράμματα παρουσιάζονται πιο αναλυτικά παρακάτω.
 
 \subsection{Το \en{CST Particle Studio}}
-\begin{figure}[tph]
-\includegraphics[width=0.25\textwidth]{images/CST-logo}
-\centering
-\caption{Το λογότυπο του \en{CST}}
-\label{img:CSTlogo}
-\end{figure}
+%\begin{figure}[tph]
+%\includegraphics[width=0.25\textwidth]{images/CST-logo}
+%\centering
+%\caption{Το λογότυπο του \en{CST}.}
+%\label{img:CSTlogo}
+%\end{figure}
+
 Το \en{CST PARTICLE STUDIO\textsuperscript{\textregistered} (CST\textsuperscript{\textregistered} PS) } είναι ένα εξειδικευμένο εργαλείο για την γρήγορη και ακριβή ανάλυση δυναμικών για φορτισμένα σωματίδια σε τρισδιάστατα ηλεκτρομαγνητικά πεδία.
 Είναι ένα ισχυρό εργαλείο, κατάλληλο για μεγάλο φάσμα εργασιών, από σχεδιασμό \en{magnetrons} και ρύθμιση σωλήνων ηλεκτρονίων έως μοντελοποίηση πηγών σωματιδίων και εξαρτημάτων για επιταχυντές.
 
@@ -36,19 +37,19 @@
 Ο \en{PIC solver} μπορεί επίσης να εκμεταλλευτεί δυνατότητες \en{GPU computing}, προσφέροντας σημαντικές βελτιώσεις στην απόδοση, σε συμβατό υλικό.
 
 \subsection{Το \en{MATLAB}}
-Το \en{MATLAB (matrix laboratory)} είναι ένα περιβάλλον αριθμητικής υπολογιστικής και μια προγραμματιστική γλώσσα τέταρτης γενιάς. 
+Το \en{MATLAB (MATrix LABoratory)} είναι ένα περιβάλλον αριθμητικής υπολογιστικής και μια προγραμματιστική γλώσσα τέταρτης γενιάς. 
 Το \en{MATLAB} δίνει έχει δυνατότητες όπως αποτελεσματικό πολλαπλασιασμό πινάκων, γραφική παράσταση συναρτήσεων και δεδομένων, υλοποίηση αλγορίθμων, δημιουργία \en{user interfaces} και δυνατότητα διεπαφής με προγράμματα γραμμένα σε άλλες γλώσσες, όπως
 \en{C, C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\tiny\bf +}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\tiny\bf +}, C$\sharp$, Java, Fortran} και \en{Python}.
 
 Αν και το \en{MATLAB} προορίζεται κυρίως για αριθμητικούς υπολογισμούς, έχει προαιρετικό \en{toolbox} που χρησιμοποιεί τη συμβολική μηχανή \en{MuPAD}, επιτρέποντας έτσι την εκτέλεση συμβολικών υπολογισμών.
 Ένα επιπλέον πακέτο, το \en{Simulink}, προσθέτει δυνατότητα προσομοιώσεων σε διάφορους τομείς και δυνατότητες μοντελοποίησης για δυναμικά και ενσωματωμένα συστήματα.
 
-\begin{figure}[tph]
-\includegraphics[width=0.25\textwidth]{images/Matlab-logo}
-\centering
-\caption{Το λογότυπο του \en{MATLAB}}
-\label{img:MATLABlogo}
-\end{figure}
+%\begin{figure}[tph]
+%\includegraphics[width=0.25\textwidth]{images/Matlab-logo}
+%\centering
+%\caption{Το λογότυπο του \en{MATLAB}.}
+%\label{img:MATLABlogo}
+%\end{figure}
 
 \section{Επιρροή μεταβλητών σε έναν \en{Electron Beam Scanner}}
 
@@ -75,7 +76,7 @@
 		Τάση της δέσμης ανίχνευσης	& $V$		& 2e4		& \volt \\
 		\bottomrule
 	\end{tabular}
-\caption{Αρχικές τιμές των παραμέτρων που μελετήθηκαν}
+\caption{Οι αρχικές τιμές των παραμέτρων που μελετήθηκαν.}
 \label{tab:simulation-initial-values}
 \end{table}
 
@@ -93,7 +94,7 @@
 		$V$			& 2e2		& 2e6		& \volt \\
 		\bottomrule
 	\end{tabular}
-\caption{Το εύρος των παραμέτρων που μελετήθηκαν στην μελέτη επιρροής μεταβλητών}
+\caption{Το εύρος των παραμέτρων που μελετήθηκαν στην μελέτη επιρροής μεταβλητών.}
 \label{tab:simulation-ranges}
 \end{table}
 
@@ -107,13 +108,14 @@
 \begin{equation}
 \theta_z(x) = 2 r_e \int_{-\infty}^{\infty}\frac{(x+\beta z)n(z) \dd z}{\rho^2 + \left(x+\beta z \right) ^2}	\tag{\ref{eq:thetazLogatchov1999}} 
 \end{equation}
+
 όπου:
 \begin{itemize}
-\item $r_e$: η κλασική ακτίνα του ηλεκτρονίου,
-\item $\beta =\frac{v_t}{c}$: η σχετική ταχύτητα της δέσμης ανίχνευσης,
-\item $c$: η ταχύτητα του φωτός,
-\item $x$: η θέση σωματιδίου της δέσμης ανίχνευσης τη χρονική στιμή $t=0$,
-\item $n(z)$: η γραμμική πυκνότητα της κύριας δέσμης κατά τον άξονα $Z$.
+\item $r_e$: η κλασική ακτίνα του ηλεκτρονίου
+\item $\beta =\frac{v_t}{c}$: η σχετική ταχύτητα της δέσμης ανίχνευσης
+\item $c$: η ταχύτητα του φωτός
+\item $x$: η θέση σωματιδίου της δέσμης ανίχνευσης τη χρονική στιγμή $t=0$
+\item $n(z)$: η γραμμική πυκνότητα της κύριας δέσμης κατά τον άξονα $Z$
 \end{itemize} 
 
 Για το σκοπό της ανάλυσης δημιουργήθηκε η συνάρτηση \src{staticBeamDeflection.m} στο \en{MATLAB}, η οποία δέχεται ως ορίσματα τη θέση $x$ του σωματιδίου την $t = 0$, την αρχική θέση ρίψης $\rho$, τη σχετική ταχύτητα $\beta$ της δέσμης ανίχνευσης, τη συνάρτηση γραμμικής πυκνότητας $n(z)$ και το μήκος $\sigma$ της δέσμης, και δίνει ως έξοδο τις γωνίες απόκλισης $\theta_y$ και $\theta_z$, σύμφωνα με τις εξισώσεις Εξισώσεις \ref{eq:thetayLogatchov1999} και \ref{eq:thetazLogatchov1999}.
@@ -133,7 +135,7 @@
 	float,
 	language=matlab, 
 	label={lst:staticBeamDeflection}, 
-	caption={\tg{Η συνάρτηση υπολογισμού των γωνιών απόκλισης της δέσμης}}]
+	caption={\tg{Η συνάρτηση υπολογισμού των γωνιών απόκλισης της δέσμης}.}]
 {code/EBS-variable-analysis/staticBeamDeflection.m}
 
 \subsection{Μελέτη επιρροής μεταβλητών με το \en{CST}} \label{sub:variable-analysis-CST}
@@ -167,7 +169,7 @@
 		Τάση της δέσμης ανίχνευσης	& $V$		& \src{scan\_beam\_energy}\\
 		\bottomrule
 	\end{tabular}
-\caption{Αντιστοιχία των μεταβλητών που μελετήθηκαν με το αντίστοιχο μέγεθος στο μοντέλο του \en{CST}}
+\caption{Αντιστοιχία των μεταβλητών που μελετήθηκαν με το αντίστοιχο μέγεθος στο μοντέλο του \en{CST}.}
 \label{tab:CST-variables-corresponding}
 \end{table}
 
@@ -191,7 +193,7 @@
 \begin{figure}[tbh]
 \includegraphics[width=\textwidth]{figures/CST-pic-monitor}
 \centering
-\caption[Η διάταξη προσομοιωμένη στο \en{CST}]
+\caption[Η διάταξη προσομοιωμένη στο \en{CST}.]
 {Η διάταξη προσομοιωμένη στο \en{CST}. 
 Στον σωλήνα της δέσμης ανίχνευσης φαίνεται ανιχνευτής σωματιδίων (\en{PIC 2D monitor}), όπου ανιχνεύονται η απόκλιση της δέσμης ανίχνευσης και με βάση αυτό εκτιμάται το προφίλ της κύριας δέσμης.}
 \label{fig:CST-PICmonitor}
@@ -200,7 +202,7 @@
 \begin{figure}[tbh]
 \includegraphics[width=\textwidth]{figures/CST-main-beam-source}
 \centering
-\caption[Η πηγή της κύριας δέσμης στο \en{CST}]
+\caption[Η πηγή της κύριας δέσμης στο \en{CST}.]
 {Η πηγή της κύριας δέσμης στο \en{CST}. 
 Με μπλε χρώμα φαίνονται τα $``$\en{emission points}$"$, τα σημεία απ' όπου εκπέμπονται ηλεκτρόνια.}
 \label{fig:CST-mainBeamSource}
@@ -214,27 +216,27 @@
 Συγκεκριμένα, υπολογίζονται 26 αποτελέσματα:
 \begin{itemize}
 
-\item Η μέση τιμή των συντεταγμένων $x$, $y$ και $z$ των σωματιδίων που φτάνουν στον \en{PIC 2D Monitor}, δηλαδή στο πέτασμα του \en{Electron Beam Scanner}, την κάθε χρονική στιγμή
+\item Η μέση τιμή των συντεταγμένων $x$, $y$ και $z$ των σωματιδίων που φτάνουν στον \en{PIC 2D Monitor}, δηλαδή στο πέτασμα του \en{Electron Beam Scanner}, την κάθε χρονική στιγμή.
 
 \item Οι γωνίες απόκλισης $\theta_y$ και $\theta_z$, υπολογίζοντας το τόξο της γωνίας με εφαπτομένη το λόγο της διαφοράς της θέσης στον αντίστοιχο άξονα από την ριπή της δέσμης μέχρι την άφιξη στον \en{PIC 2D Monitor} προς την απόσταση του σημείου ριπής και ανίχνευσης. 
 Δηλαδή $\theta_y = \tan^{-1} \left( \frac{\bar{y} - \rho}{\Delta x} \right)$ και αντίστοιχα $\theta_z = \tan^{-1} \left( \frac{\bar{z} - 0}{\Delta x} \right)$, αφού κατά τον άξονα $Z$ η αρχική θέση είναι η $z = 0$. 
-Οι γωνίες υπολογίζονται και προβάλλονται σε κοινή γραφική παράσταση συνολικά και για τις 10 δέσμες, αλλά και για την 1\textsuperscript{η} και 10\textsuperscript{η} δέσμη ξεχωριστά
+Οι γωνίες υπολογίζονται και προβάλλονται σε κοινή γραφική παράσταση συνολικά και για τις 10 δέσμες, αλλά και για την 1\textsuperscript{η} και 10\textsuperscript{η} δέσμη ξεχωριστά.
 
-\item Οι μέγιστες και ελάχιστες τιμές των $\theta_y$ και $\theta_z$ συνολικά για όλες τις δέσμες μιας προσομοίωσης, αλλά και για την 1\textsuperscript{η} και 10\textsuperscript{η} δέσμη της προσομοίωσης ξεχωριστά
+\item Οι μέγιστες και ελάχιστες τιμές των $\theta_y$ και $\theta_z$ συνολικά για όλες τις δέσμες μιας προσομοίωσης, αλλά και για την 1\textsuperscript{η} και 10\textsuperscript{η} δέσμη της προσομοίωσης ξεχωριστά.
 
-\item Το ύψος, το πλάτος και τον λόγο της χαρακτηριστικής έλλειψη της δέσμης. Το ύψος ισούται με τη $\theta_{y, \text{\en{max}}}$, το πλάτος με $\theta_{z, \text{\en{max}}} - \theta_{z, \text{\en{min}}}$ και ο λόγος με το ύψος προς το πλάτος της χαρακτηριστικής έλλειψης
+\item Το ύψος, το πλάτος και τον λόγο της χαρακτηριστικής έλλειψη της δέσμης. Το ύψος ισούται με τη $\theta_{y, \text{\en{max}}}$, το πλάτος με $\theta_{z, \text{\en{max}}} - \theta_{z, \text{\en{min}}}$ και ο λόγος με το ύψος προς το πλάτος της χαρακτηριστικής έλλειψης.
 
 \item Η γραφική παράσταση της χαρακτηριστικής έλλειψης της δέσμης, συνδυάζοντας τις μεταβλητές $\theta_y$ και $\theta_z$ στους άξονες $Y$ και $X$ αντίστοιχα. 
-Απεικονίζονται οι ελλείψεις όλων των δεσμών μαζί, καθώς και η έλλειψη της 1\textsuperscript{ης} δέσμης ξεχωριστά
+Απεικονίζονται οι ελλείψεις όλων των δεσμών μαζί, καθώς και η έλλειψη της 1\textsuperscript{ης} δέσμης ξεχωριστά.
 
-\item Τέλος, υπολογίζεται η παράγωγος των μεγίστων των $\theta_y$, όταν αυτή έχει υπολογιστεί μέσω \en{parameter sweep} για εύρος αρχικών θέσεων ρίψης $\rho$, ως προς το $\rho$, το οποίο μας δίνει την τελική εκτίμηση του προφίλ της δέσμης από την κατασκευή μας, όπως περιγράφεται στην Εξίσωση \ref{eq:transverseProfile}
+\item Τέλος, υπολογίζεται η παράγωγος των μεγίστων των $\theta_y$, όταν αυτή έχει υπολογιστεί μέσω \en{parameter sweep} για εύρος αρχικών θέσεων ρίψης $\rho$, ως προς το $\rho$, το οποίο μας δίνει την τελική εκτίμηση του προφίλ της δέσμης από την κατασκευή μας, όπως περιγράφεται στην Εξίσωση \ref{eq:transverseProfile}.
 
 \end{itemize}
 
 \begin{figure}[tph]
 \includegraphics[width=0.6\textwidth]{figures/EBS-profile-calculation}
 \centering
-\caption{Γραφική παρουσίαση του τρόπου εκτίμησης του προφίλ δέσμης με \en{Electron Beam Scanner} \cite{Blokland2009}}
+\caption{Γραφική παρουσίαση του τρόπου εκτίμησης του προφίλ δέσμης με \en{Electron Beam Scanner} \cite{Blokland2009}.}
 \label{fig:EBS-profile-calculation}
 \end{figure}
 
@@ -244,7 +246,7 @@
 \begin{figure}[tbh]
 \includegraphics[width=\textwidth]{figures/CST-EBS-implementation/CST-multi-bunch-EBS-detection}
 \centering
-\caption[Η διαδικασία ανίχνευσης του προφίλ της δέσμης από τον \en{Electron Beam Scanner} στο \en{CST}]
+\caption[Η διαδικασία ανίχνευσης του προφίλ της δέσμης από τον \en{Electron Beam Scanner} στο \en{CST}.]
 {Η διαδικασία ανίχνευσης του προφίλ της δέσμης από τον \en{Electron Beam Scanner} στο \en{CST}.
 Βλέπουμε την εκτροπή της δέσμης ανίχνευσης (μπλε) από την κύρια δέσμη (κόκκινο) που αλληλεπιδρά με τη δέσμη ανίχνευσης.}
 \label{fig:CST-MultiBunchEBSDetection}
@@ -258,26 +260,26 @@
 	\begin{subfigure}{\textwidth}
 		\includegraphics[width=\textwidth]{figures/CST-profile-steps}
 		\centering
-		\caption{Το αποτέλεσμα του υπολογισμού του προφίλ στο \en{CST} για $c_{\text{\en{off}}} = 2$. Η μορφή του δεν είναι \en{Gaussian}}
+		\caption{Το αποτέλεσμα του υπολογισμού του προφίλ στο \en{CST} για $c_{\text{\en{off}}} = 2$. 
+		Η μορφή του δεν είναι \en{Gaussian}}
 		\label{fig:CST-profile-steps}
 	\end{subfigure}
-	%TODO compute again steps to have same axes
 	\begin{subfigure}{\textwidth}
 		\includegraphics[width=\textwidth]{figures/CST-profile-nosteps}
 		\centering
-		\caption{Το αποτέλεσμα του υπολογισμού του προφίλ στο \en{CST} για $c_{\text{\en{off}}} = 8.0027$ έχει \en{Gaussian} μορφή}
+		\caption{Το αποτέλεσμα του υπολογισμού του προφίλ στο \en{CST} για $c_{\text{\en{off}}} = 8.0027$ έχει \en{Gaussian} μορφή.}
 		\label{fig:CST-profile-nosteps}
 	\end{subfigure}
-\caption{Σύγκριση του αποτελέσματος υπολογισμού του προφίλ της δέσμης για $c_{\text{\en{off}}} = 2$ και $c_{\text{\en{off}}} = 8.0027$}
+\caption{Σύγκριση του αποτελέσματος υπολογισμού του προφίλ της δέσμης για $c_{\text{\en{off}}} = 2$ και $c_{\text{\en{off}}} = 8.0027$.}
 \label{fig:CST-profile-stepcomparison}
 \end{figure}
 
 Για την επίλυση του προβλήματος αυτού, αρχικά ελέγξαμε αν το πρόβλημα βρίσκεται στον τρόπο δημιουργίας της δέσμης ή στον τρόπο ανίχνευσης. 
 Έτσι:
 \begin{enumerate}
-\item Δημιουργήσαμε ένα νέο \en{CST project} και, αφού στήθηκε όλο το μοντέλο εκ νέου, μπήκε ένας \en{particle monitor} που ανιχνεύει τα σωματίδια της κύριας δέσμης
-\item Έγινε εξαγωγή των δεδομένων αυτών της κύριας δέσμης
-\item Τα δεδομένα αυτά εισήχθησαν στο \en{MATLAB} και δημιουργήθηκε το κατάλληλο \en{script} για την ανάλυσή τους
+\item Δημιουργήσαμε ένα νέο \en{CST project} και, αφού στήθηκε όλο το μοντέλο εκ νέου, μπήκε ένας \en{particle monitor} που ανιχνεύει τα σωματίδια της κύριας δέσμης.
+\item Έγινε εξαγωγή των δεδομένων αυτών της κύριας δέσμης.
+\item Τα δεδομένα αυτά εισήχθησαν στο \en{MATLAB} και δημιουργήθηκε το κατάλληλο \en{script} για την ανάλυσή τους.
 \end{enumerate}
 
 Από την παραπάνω διαδικασία έγινε σαφές ότι το πρόβλημα εντοπίζεται στον τρόπο που το \en{CST} δημιουργεί την κατανομή των σωματιδίων.
@@ -316,7 +318,7 @@ f(r) = c_{\text{\en{off}}} + c_{\text{\en{scale}}} \left( \exp \left(-\frac{r^2}
 \begin{figure}[tph]
 \includegraphics[width=0.6\textwidth]{figures/CST-gauss-function-for-coff}
 \centering
-\caption{Παράδειγμα \en{Gaussian} συνάρτησης για διάφορες τιμές του συντελεστή $c_{\text{\en{off}}}$}
+\caption{Παράδειγμα \en{Gaussian} συνάρτησης για διάφορες τιμές του συντελεστή $c_{\text{\en{off}}}$.}
 \label{fig:CST-gauss-coff}
 \end{figure}
 
@@ -358,14 +360,14 @@ c_{\text{\en{off}}} &=&  c_{\text{\en{scale}}}
 	float,
 	language=matlab, 
 	label={lst:calculateCscale}, 
-	caption={\tg{Η συνάρτηση υπολογισμού του $c_{\text{\tl{scale}}}$}}]
+	caption={\tg{Η συνάρτηση υπολογισμού του $c_{\text{\tl{scale}}}$}.}]
 {code/calculating-optimum-coff/calculateCscale.m}
 
 \lstinputlisting[
 	float,
 	language=matlab, 
 	label={lst:findOptimumCoff}, 
-	caption={\tg{Το }\en{script}\tg{ υπολογισμού του κατάλληλου για τα δεδομένα μας $c_{\text{\tl{off}}}$}}]
+	caption={\tg{Το }\en{script}\tg{ υπολογισμού του κατάλληλου για τα δεδομένα μας $c_{\text{\tl{off}}}$}.}]
 {code/calculating-optimum-coff/findOptimumCoff.m}
 
 Εν τέλει, για τις τιμές του δικού μας προβλήματος, δίνουμε ως είσοδο $\left(\sigma, R_{\text{\en{out}}}, R_{\text{\en{in}}} \right) = \left(0.01/4,0.01, 0 \right)$ και προκύπτει η ζητούμενη τιμή του συντελεστή:
@@ -401,7 +403,9 @@ c_{\text{\en{off}}} &=&  c_{\text{\en{scale}}}
 \includegraphics[width=\textwidth]{figures/export-main-beam-project-efield-box}
 %from Project v0.51 reworked with export.cst
 \centering
-\caption[Η διάταξη προσομοίωσης του κύριου σωλήνα στο \en{CST}]{Η διάταξη προσομοίωσης του κύριου σωλήνα στο \en{CST}. Με πράσινο χρώμα φαίνεται ο \en{E-field monitor}}
+\caption[Η διάταξη προσομοίωσης του κύριου σωλήνα στο \en{CST}.]
+{Η διάταξη προσομοίωσης του κύριου σωλήνα στο \en{CST}.
+Με πράσινο χρώμα φαίνεται ο \en{E-field monitor}.}
 \label{fig:CST-export-main-beam-project-efield-box}
 \end{figure}
 
@@ -415,7 +419,7 @@ c_{\text{\en{off}}} &=&  c_{\text{\en{scale}}}
 \lstinputlisting[
 	float,
 	label={lst:CSTasciiOutput}, 
-	caption={\tg{Δείγμα εξόδου ενός }\en{e-field monitor }\tg{του}\en{ CST }\tg{σε μορφή }\en{ASCII}},
+	caption={\tg{Δείγμα εξόδου ενός }\en{e-field monitor }\tg{του}\en{ CST }\tg{σε μορφή }\en{ASCII}.},
 	language={},
 	backgroundcolor=\color{white},
 	basicstyle=\tiny\ttfamily\selectlanguage{english},
@@ -433,7 +437,7 @@ c_{\text{\en{off}}} &=&  c_{\text{\en{scale}}}
 Η μορφή που επιλέχθηκε για τη μετατροπή των δεδομένων είναι η μορφή αρχείου \en{MATLAB formatted data} (\src{.mat}).
 Η επιλογή έγινε με βάση την απόδοση του τύπου αρχείου σε χώρο αποθήκευσης και χρόνο προσπέλασης, καθώς και το γεγονός ότι χρησιμοποιείται το \en{MATLAB} για την χρήση των δεδομένων στα επόμενα στάδια της διαδικασίας.
 
-Για τη μετατροπή αυτή δημιουργήθηκε η συνάρτηση \src{importField.m}, η οποία ουσιαστικά είναι \en{parser} αρχείων της μορφής που παρουσιάστηκε, και τα αποθηκεύει σε έναν πίνακα της μορφής \src{Field} $=$ \en{Samples} $\times$ Μεταβλητές $\times$ Τιμές.
+Για τη μετατροπή αυτή δημιουργήθηκε η συνάρτηση \src{importField.m}, η οποία ουσιαστικά είναι \en{parser} αρχείων της μορφής που παρουσιάστηκε, και τα αποθηκεύει σε έναν πίνακα της μορφής $\text{\en{Field}} = \text{\en{Samples}} \times \text{Μεταβλητές} \times \text{Τιμές}$.
 Η συνάρτηση ανοίγει το αρχείο των αποτελεσμάτων του \en{CST} και το διαβάζει γραμμή-γραμμή αγνοώντας τις πρώτες 2 γραμμές. 
 Αν η γραμμή περιέχει δεδομένα, τα αποθηκεύει στον πίνακα, στο τρέχον \en{Sample}, αλλιώς (αν δηλαδή περιέχει το \en{string } \src{Sample X}) αυξάνει το τρέχον \en{Sample} κατά 1. 
 Κατά τη διαδικασία αυτή αγνοούμε τις 3 τελευταίες στήλες, που περιέχουν τα δεδομένα $\operatorname{Im}(E_x)$, $\operatorname{Im}(E_y)$ και $\operatorname{Im}(E_z)$, καθώς για την περίπτωσή μας δεν έχουμε μιγαδική συνιστώσα στο ηλεκτρικό πεδίο.
@@ -445,7 +449,7 @@ c_{\text{\en{off}}} &=&  c_{\text{\en{scale}}}
 	language=matlab, 
 	label={lst:importField}, 
 	linerange={1-8, 44-62}, 
-	caption={\tg{Τμήμα της συνάρτησης }\src{importField.m}}]
+	caption={\tg{Τμήμα της συνάρτησης }\src{importField.m}.}]
 {code/particle-path-calculation/importField.m}
 
 \subsection{Εισαγωγή και προεπεξεργασία των δεδομένων στο \en{MATLAB}}
@@ -455,8 +459,8 @@ c_{\text{\en{off}}} &=&  c_{\text{\en{scale}}}
 Συγκεκριμένα, για να υπολογιστεί η τροχιά σωματιδίων στο ηλεκτρικό πεδίο που λαμβάνουμε από το \en{CST}, θα χρειαστεί να κάνουμε παρεμβολή για τη θέση του σωματιδίου σε κάθε χρονική στιγμή, για να βρούμε την τιμή του πεδίου στη θέση αυτή και να υπολογίσουμε την επόμενη. 
 Η παρεμβολή αυτή απαιτεί τα δεδομένα να βρίσκονται σε μορφή \en{mesh}.
 
-Έτσι, μετατρέπουμε τον πίνακα που λαμβάνουμε από το προηγούμενο πίνακα σε ένα \en{`cell array'} που περιέχει ως στοιχεία πίνακες σε \en{mesh format}, έναν για κάθε χρονική στιγμή. 
-Αυτή η διαδικασία πραγματοποιείται με τη συνάρτηση \src{convertFieldDataToCell.ms}
+Έτσι, μετατρέπουμε τον πίνακα που λαμβάνουμε από το προηγούμενο πίνακα σε ένα $``$\en{cell array}$"$ που περιέχει ως στοιχεία πίνακες σε \en{mesh format}, έναν για κάθε χρονική στιγμή. 
+Αυτή η διαδικασία πραγματοποιείται με τη συνάρτηση \src{convertFieldDataToCell.m}
 
 Τμήμα του κώδικα της συνάρτησης φαίνεται στον Κώδικα \ref{lst:convertFieldDataToCell}. 
 Δεν παρατίθεται το κομμάτι που κάνει αλλαγές στη σειρά αποθήκευσης των μεταβλητών μέσα στο \en{cell}.
@@ -466,7 +470,7 @@ c_{\text{\en{off}}} &=&  c_{\text{\en{scale}}}
 	language=matlab, 
 	label={lst:convertFieldDataToCell}, 
 	linerange={1-9,16-37, 51-60}, 
-	caption={\tg{Τμήμα της συνάρτησης }\src{convertFieldDataToCell.m}}]
+	caption={\tg{Τμήμα της συνάρτησης }\src{convertFieldDataToCell.m}.}]
 {code/particle-path-calculation/convertFieldDataToCell.m}
 
 \subsection{Υπολογισμός των τροχιών της δέσμης ανίχνευσης}
@@ -479,7 +483,16 @@ c_{\text{\en{off}}} &=&  c_{\text{\en{scale}}}
 Για την υλοποίηση της διαδικασίας αυτής υλοποιήθηκαν 4 συναρτήσεις.
 
 Για τον υπολογισμό του διανύσματος $\left(x, y, z; v_x, v_y, v_z\right)$ στην επόμενη θέση, δημιουργήθηκε η συνάρτηση \src{calcNextPosition.m}.
-Αυτή υπολογίζει τη νέα θέση σύμφωνα με την εξίσωση $\vec{s}_{new} = \vec{s}_{old} + \vec{v}_{old}\, \Delta t$ και στη συνέχεια, αφού υπολογιστεί η τιμή του μαγνητικού πεδίου $\vec{E}_{new}$ στη νέα θέση, υπολογίζεται η νέα ταχύτητα με βάση την εξίσωση $\vec{v}_{new} = \vec{v}_{old} + \vec{E}_{new} \frac{q_e \, \Delta t}{m_e}$.
+Αυτή υπολογίζει τη νέα θέση σύμφωνα με την εξίσωση 
+
+\begin{equation}
+\vec{s}_{\text{\en{new}}} = \vec{s}_{\text{\en{old}}} + \vec{v}_{\text{\en{old}}}\, \Delta t
+\end{equation}
+
+και στη συνέχεια, αφού υπολογιστεί η τιμή του μαγνητικού πεδίου $\vec{E}_{\text{\en{new}}}$ στη νέα θέση, υπολογίζεται η νέα ταχύτητα με βάση την εξίσωση 
+\begin{equation}
+	\vec{v}_{\text{\en{new}}} = \vec{v}_{\text{\en{old}}} + \vec{E}_{\text{\en{new}}} \frac{q_e \, \Delta t}{m_e}
+\end{equation}
 %TODO check if the science is right
 Η συνάρτηση \src{calcNextPosition.m} φαίνεται στον Κώδικα \ref{lst:calcNextPosition}.
 
@@ -488,10 +501,10 @@ c_{\text{\en{off}}} &=&  c_{\text{\en{scale}}}
 	language=matlab, 	
 	label={lst:calcNextPosition}, 
 	linerange={1-13,18-29}, 
-	caption={\tg{Η συνάρτηση }\src{calcNextPosition.m}}]
+	caption={\tg{Η συνάρτηση }\src{calcNextPosition.m}.}]
 {code/particle-path-calculation/calcNextPosition.m}
 
-Για τον υπολογισμό της τιμής του μαγνητικού πεδίου $\vec{E}_{new}$ σε δεδομένη θέση, δημιουργήθηκε η συνάρτηση  \src{calcField.m}, η οποία πραγματοποιεί τη γραμμική παρεμβολή που αναφέρθηκε παραπάνω. 
+Για τον υπολογισμό της τιμής του μαγνητικού πεδίου $\vec{E}_{\text{\en{new}}}$ σε δεδομένη θέση, δημιουργήθηκε η συνάρτηση  \src{calcField.m}, η οποία πραγματοποιεί τη γραμμική παρεμβολή που αναφέρθηκε παραπάνω. 
 Η συνάρτηση \src{calcField.m} φαίνεται στον Κώδικα \ref{lst:calcField}.
 
 \lstinputlisting[
@@ -499,7 +512,7 @@ c_{\text{\en{off}}} &=&  c_{\text{\en{scale}}}
 	language=matlab, 
 	label={lst:calcField},  
 	linerange={1-4,7-27}, 
-	caption={\tg{Η συνάρτηση }\src{calcField.m}}]
+	caption={\tg{Η συνάρτηση }\src{calcField.m}.}]
 {code/particle-path-calculation/calcField.m}
 
 Η υλοποίηση της μεθόδου γίνεται στο σχετικό \src{script}, τμήμα του οποίου παρατίθεται στον Κώδικα \ref{lst:particle-path-calculation-script}.
@@ -510,11 +523,8 @@ c_{\text{\en{off}}} &=&  c_{\text{\en{scale}}}
 	language=matlab, 
 	label={lst:particle-path-calculation-script}, 
 	linerange={54-71,96-116}, 
-	caption={\tg{Τμήμα του }\en{script}\tg{ που εκτελεί τον υπολογισμό της τροχιάς για ένα σωματίδιο}}]
+	caption={\tg{Τμήμα του }\en{script}\tg{ που εκτελεί τον υπολογισμό της τροχιάς για ένα σωματίδιο.}}]
 {code/particle-path-calculation/script.m}
 
 %not worth mentioning
 %\lstinputlisting[language=matlab, float, label={lst:lininterp1}, caption={\tg{Η συνάρτηση }\src{lininterp1.m}}]{code/particle-path-calculation/lininterp1.m}
-
-
-

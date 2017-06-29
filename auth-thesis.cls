@@ -68,10 +68,12 @@
         \new@tpage
         \begin{center}
 
-        \begin{minipage}{2.5cm}
-            \includegraphics[width=2.5cm]{images/auth-logo.png}
+        \begin{minipage}{2cm}
+            \includegraphics[width=2cm]{images/auth-logo}
+%            \hfill
+%            \includegraphics[width=1.9cm]{images/CERN-logo-outline}
+			\vspace{0.4cm}
         \end{minipage}
-
         \begin{minipage}{15cm}
         \begin{center}
             \textsc{
@@ -149,7 +151,7 @@
             \begin{center}
                 %\Large \textsc{{\bfseries \@translator}}\\[12pt]
                 \textsc{\@lab}\\
-                Θεσσαλονίκη, Ιούνιος 2017
+                Θεσσαλονίκη, Ιούλιος 2017
             \end{center}
             %
             \cleardoublepage
@@ -460,9 +462,6 @@
     \finik@bibl{#1}
 }
 % Misc
-
-
-
-
 \AtEndDocument{\subparagraph{}\label{lastback}}
+\AtEndDocument{\thispagestyle{empty}}
 \endinput
