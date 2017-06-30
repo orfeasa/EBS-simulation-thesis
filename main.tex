@@ -15,6 +15,7 @@
 \usepackage{courier}			% courier font for monospace
 \usepackage{caption}			% customize captions
 \usepackage{datetime}			% time in greek
+\usepackage{epigraph}			% for nice quote
 \usepackage{epstopdf}			% convert .eps to .pdf
 \usepackage{graphicx}
 \usepackage{indentfirst}
@@ -149,6 +150,11 @@
     tabsize=4,
     matchrangestart=t,
 }
+
+% format quote
+\epigraphsize{\small\itshape}
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
 
 \selectlanguage{greek}
 \hyphenation{τμή-μα Επο-μέ-νως}
