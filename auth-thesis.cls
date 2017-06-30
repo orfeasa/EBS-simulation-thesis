@@ -366,7 +366,7 @@
 \renewcommand{\mainmatter}{
     \label{lastfront}
     \cleardoublepage
-    \@mainmattertrue\pagenumbering{arabic}
+    \@mainmattertrue \pagenumbering{arabic}
     \addtocontents{toc}{\protect\addvspace{1em}}
 }
 \renewcommand{\backmatter}{
