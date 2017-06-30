@@ -68,10 +68,10 @@
         \new@tpage
         \begin{center}
 
-        \begin{minipage}{2cm}
+        \begin{minipage}{7.5cm}
             \includegraphics[width=2cm]{images/auth-logo}
-%            \hfill
-%            \includegraphics[width=1.9cm]{images/CERN-logo-outline}
+            \hfill
+            \includegraphics[width=1.9cm]{images/CERN-logo-outline}
 			\vspace{0.4cm}
         \end{minipage}
         \begin{minipage}{15cm}
@@ -272,8 +272,8 @@
 \institution{Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης}
 \department{Τμήμα Ηλεκτρολόγων Μηχανικών και Μηχανικών Υπολογιστών}
 \division{Τομέας Τηλεπικοινωνιών}
-\lab{} %was: \lab{Μονάδα Ηλεκτρομαγνητικών Εφαρμογών και Υπολογισμών}
-\other{} %was \other{Ζωγράφου 157 73, Αθήνα}
+\lab{} 
+\other{} % address
 %\supervisor{Νικόλαος Κανταρτζής}
 
 \mysig{
