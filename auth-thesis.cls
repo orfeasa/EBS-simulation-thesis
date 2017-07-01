@@ -27,7 +27,7 @@
 \def\@epitropiF{}               \def\epitropiF#1{\gdef\@epitropiF{#1}}
 \def\@epitropiS{}               \def\epitropiS#1{\gdef\@epitropiS{#1}}
 \def\@subtitle{}                    \def\subtitle#1{\gdef\@subtitle{#1}}
-\def\@translator{}              \def\translator#1{\gdef\@translator{#1}}
+\def\@thesistype{}              \def\thesistype#1{\gdef\@thesistype{#1}}
 \def\@institution{}             \def\institution#1{\gdef\@institution{#1}}
 \def\@department{}              \def\department#1{\gdef\@department{#1}}
 \def\@division{}                    \def\division#1{\gdef\@division{#1}}
@@ -68,11 +68,14 @@
         \new@tpage
         \begin{center}
 
-        \begin{minipage}{7.5cm}
-            \includegraphics[width=2cm]{images/auth-logo}
-            \hfill
-            \includegraphics[width=1.9cm]{images/CERN-logo-outline}
-			\vspace{0.4cm}
+        \begin{minipage}{\linewidth}
+        	\begin{center}
+	            \hspace{3mm}
+	            \includegraphics[width=2cm]{images/auth-logo}
+	            \hspace{8cm}
+	            \includegraphics[width=1.9cm]{images/CERN-logo-outline}
+				\vspace{0.6cm}
+			\end{center}
         \end{minipage}
         \begin{minipage}{15cm}
         \begin{center}
@@ -101,33 +104,27 @@
                 %    \@date
                 %\end{minipage}
                 %
-                %\vspace{5mm}
-                %
+                \vspace{3cm}
                 \begin{center}
-                    \LARGE \bfseries \@title
+                    \huge{\bfseries{\@title}}
                 \end{center}
                 \ifx\@subtitle\@empty\else
                 \begin{center}
                     \LARGE \@subtitle
                 \end{center}
                 \fi
-                %
-                \vspace{5mm}
-                %
+                \vspace{2cm}
                 \begin{center}
-                    \huge{\textsc{\@translator}}\\
-                    %\vspace{3mm}
-                    % \normalsize{του}\\
-                    %\vspace{3mm}
-                    \vspace{8mm}
-                    \large{\textbf{ΟΡΦΕΑ ΑΝΤΩΝΙΟΥ}}
+                    \Large{\MakeUppercase{\@thesistype}}\\
+                    \vspace{2mm}
+                    \huge{\textbf{Ορφέα Αντωνίου}}
                 \end{center}
                 %
                 \vspace{5mm}
                 %
                 \hspace{1mm}
-           \end{center}
-
+			\end{center}
+			\vspace{2.5cm}
            \vfill
 
                 \begin{minipage}{15cm}
@@ -149,7 +146,7 @@
             %\end{figure}
 
             \begin{center}
-                %\Large \textsc{{\bfseries \@translator}}\\[12pt]
+                %\Large \textsc{{\bfseries \@thesistype}}\\[12pt]
                 \textsc{\@lab}\\
                 Θεσσαλονίκη, Ιούλιος 2017
             \end{center}
@@ -176,7 +173,7 @@
 %                \vspace{5mm}
 %                %
 %                \begin{center}
-%                    \huge{\textsc{\@translator}}\\
+%                    \huge{\textsc{\@thesistype}}\\
 %                    \vspace{3mm}
 %                    \normalsize{του}\\
 %                    \vspace{3mm}
@@ -205,7 +202,7 @@
 %
 %            \vfill
 %            \begin{center}
-%                %\Large \textsc{{\bfseries \@translator}}\\[12pt]
+%                %\Large \textsc{{\bfseries \@thesistype}}\\[12pt]
 %                %\textsc{\@lab}\\
 %                Θεσσαλονίκη, Ιούνιος 2017
 %            \end{center}
@@ -248,7 +245,7 @@
     \renewcommand{\thefootnote}{\arabic{footnote}}
     \setcounter{footnote}{0}
     %
-    \gdef\@thanks{}\gdef\@author{}\gdef\@translator{}\gdef\@institution{}
+    \gdef\@thanks{}\gdef\@author{}\gdef\@thesistype{}\gdef\@institution{}
     \gdef\@department{}\gdef\@division{}\gdef\@lab{}\gdef\@other{}
   \gdef\@uppertitleback{}\gdef\@lowertitleback{}\gdef\@dedication{}%
   \gdef\@title{}\gdef\@subtitle{}\let\maketitle\relax%
@@ -268,10 +265,11 @@
 \newcommand{\urlname}{\en{URL}}
 \newcommand{\ftpname}{\en{FTP}}
 % More Names
-\translator{Διπλωματική Εργασία}
+\thesistype{Διπλωματική Εργασία}
 \institution{Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης}
 \department{Τμήμα Ηλεκτρολόγων Μηχανικών και Μηχανικών Υπολογιστών}
 \division{Τομέας Τηλεπικοινωνιών}
+%\subtitle{}
 \lab{} 
 \other{} % address
 %\supervisor{Νικόλαος Κανταρτζής}
@@ -334,7 +332,7 @@
  % \let\cr@old\\%
  % \let\\\cr@comma%
  % \@author,
- % \emph{\@title}, \@translator, \@institution, \@department, \@division,
+ % \emph{\@title}, \@thesistype, \@institution, \@department, \@division,
  % \@lab, \@date.%
   %\let\\\cr@old%
   %\\[6pt]
