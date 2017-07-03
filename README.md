@@ -10,7 +10,7 @@ The thesis is written in LaTeX.
 
 ## Summary of repository structure ##
 
-+ **./** (root folder)
++ **./** (root directory)
 
     * *main.tex*: the "master" document, which includes everything else. It's the file to compile
 
@@ -51,8 +51,14 @@ To compile the whole document follow the steps:
 ## Useful sources ##
 In the process of writing my thesis, I found the following links useful
 
-* [How to Write your thesis (thesis content)](http://www.ldeo.columbia.edu/~martins/sen_sem/thesis_org.html)
-* [PhD Starter kit (general workflow)](https://raoofphysics.github.io/phd-starter-kit/)
-* [Stack overflow (Git+LaTeX workflow)](http://stackoverflow.com/questions/6188780/git-latex-workflow)
-* [DBlab, NTuA (LaTeX thesis template)](http://web.dbnet.ntua.gr/en/diplomas.html)
-* [Library Genesis (papers download)](http://gen.lib.rus.ec/)
+* [How to Write your thesis](http://www.ldeo.columbia.edu/~martins/sen_sem/thesis_org.html): guidelines on writing a thesis from the university of Columbia
+
+* [PhD Starter kit](https://raoofphysics.github.io/phd-starter-kit/): general tips on the workflow and tools that can be used while writing a (PhD) thesis
+
+* [Stack overflow question on Git+LaTeX](http://stackoverflow.com/questions/6188780/git-latex-workflow): explanation and insights for the combination of the git + LaTeX workflow
+
+* [LaTeX - Wikibooks](https://en.wikibooks.org/wiki/LaTeX): wikibook containing A LOT of information about LaTeX in a clear and concise way. I recommend reading or at least skimming the whole book before attempting to write any LaTeX document of considerable length
+
+* [DBlab, NTuA](http://web.dbnet.ntua.gr/en/diplomas.html): The website containing the LaTeX template that on which thesis was based
+
+* [Library Genesis](http://gen.lib.rus.ec/): Rich online site to download papers you otherwise need to pay for
