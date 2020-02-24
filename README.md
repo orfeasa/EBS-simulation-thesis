@@ -21,7 +21,7 @@ The thesis was presented in my university July 5th, 2017, and is uploaded here: 
 
     * *hellas.bst*: greek bibliography style based on "plain"
 
-    * *iso-8859-7.def*: Greek input encoding file. No idea why it's there
+    * *iso-8859-7.def*: Greek input encoding file   
 
     * *landscapefix.tex*: configuration file for proper headers and footers in landscape pages in the document
 
@@ -59,6 +59,14 @@ In the process of writing my thesis, I found the following links useful
 * [LaTeX - Wikibooks](https://en.wikibooks.org/wiki/LaTeX): wikibook containing A LOT of information about LaTeX in a clear and concise way. I recommend reading or at least skimming the whole book before attempting to write any LaTeX document of considerable length
 
 * [DBlab, NTuA](http://web.dbnet.ntua.gr/en/diplomas.html): The website containing the LaTeX template that on which thesis was based
+
+## Thesis abstract
+The Compact LInear Collider (CLIC) will use a novel acceleration scheme in which energy extracted from a very intense beam of relatively low-energy electrons (the Drive Beam) is used to accelerate a lower intensity Main Beam to very high energy. The high intensity of the Drive Beam, with pulses of more than 1015 electrons, poses a challenge for conventional profile measurements such as wire scanners. Thus, new non-invasive profile measurements are being investigated.
+
+One candidate is the Electron Beam Scanner. A probe beam of low-energy electrons crosses the accelerator beam perpendicularly. The probe beam is deflected by the space-charge fields of the accelerator beam. By scanning the probe beam and measuring its deflection with respect to its initial position, the transverse profile of the accelerator beam can be reconstructed.
+
+Analytical expressions for the deflection exist in the case of long bunches, where the charge distribution can be considered constant during the measurement. In this thesis, we consider the performance of an electron beam scanner in an accelerator where the bunch length is much smaller than the probe-beam scanning time. In particular, the case in which the bunch length is shorter than the time taken for a particle of the probe beam to cross the main beam is difficult to model analytically. We have developed a simulation framework allowing this situation to be modelled.
+
 
 ## License
 This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0
