@@ -1,12 +1,11 @@
+[![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 # thmmy-final-thesis #
 
 ## Intro ##
 This repository includes my work for the my final thesis in the Electrical and Computer Engineering department (THMMY) of the Aristotle University of Thessaloniki (AUTh), Greece.
 
 The core of the work was done during my 1-year work at CERN as a Technical Student, years 2014-2015. 
-The thesis was presented in my university July 5th, 2017.
-
-The thesis is written in LaTeX.
+The thesis was presented in my university July 5th, 2017, and is uploaded here: https://ikee.lib.auth.gr/record/292247/.
 
 ## Summary of repository structure ##
 
@@ -61,4 +60,12 @@ In the process of writing my thesis, I found the following links useful
 
 * [DBlab, NTuA](http://web.dbnet.ntua.gr/en/diplomas.html): The website containing the LaTeX template that on which thesis was based
 
-* [Library Genesis](http://gen.lib.rus.ec/): Rich online site to download papers you otherwise need to pay for
+## License
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0
+International License][cc-by-sa].
+
+[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
+
+[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
+[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
+[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
